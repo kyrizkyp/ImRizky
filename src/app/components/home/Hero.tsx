@@ -41,7 +41,7 @@ const Hero = () => {
             </h2>
 
             <h1 className="text-3xl md:text-5xl font-pertama font-bold">
-              I'M{" "}
+              I&apos;M{" "}
               <span className="text-4xl md:text-6xl font-pertama font-bold">
                 RIZKY PUTRA
               </span>
