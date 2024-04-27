@@ -34,7 +34,7 @@ const Hero = () => {
   return (
     <div className="flex items-center justify-center">
       <div className="flex flex-col lg:flex-row items-center justify-center lg:relative">
-        <div className="flex flex-col md:items-center lg:items-start justify-center order-2 lg:order-1 lg:absolute lg:z-10 lg:-left-52 xl:-left-72">
+        <div className="flex flex-col md:items-center lg:items-start justify-center order-2 lg:order-1 lg:absolute lg:z-10 lg:-left-52 xl:-left-80">
           <div className="max-w-xl text-center lg:text-left p-4">
             <h2 className="text-3xl md:text-5xl font-pertama font-bold">
               HEY THERE!
@@ -66,7 +66,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="order-1 lg:order-2 mb-8 lg:mb-0 lg:relative lg:-right-36 xl:-right-72">
+        <div className="order-1 lg:order-2 mb-8 lg:mb-0 lg:relative lg:-right-36 xl:-right-80">
           <Me />
         </div>
       </div>
