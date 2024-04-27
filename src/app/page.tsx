@@ -6,7 +6,7 @@ export default function Home() {
       className="min-h-screen flex flex-col items-center justify-center"
       style={{ backgroundImage: `url('/bg/topography.svg')` }}
     >
-      <section className="pt-14 md:pt-14">
+      <section className="py-6 md:pt-14">
         <Hero />
       </section>
     </main>
