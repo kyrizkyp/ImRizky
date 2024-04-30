@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 const Me = () => {
   const [titikSaatIni, mengaturTitikSaatIni] = useState(0);
   const [geser, mengaturGeser] = useState(false);
+  const [sentuhX, mengaturSentuhX] = useState(0);
+
   const gambar = [
     {
       foto: "https://fastly.picsum.photos/id/741/500/500.jpg?hmac=QxgEVGp1dAJW9qBYyKqxns1xKcymqoc16utopq1Osck",
@@ -38,9 +40,33 @@ const Me = () => {
     }, 500);
   };
 
+  const sentuhanDimulai = (e: React.TouchEvent<HTMLDivElement>) => {
+    mengaturSentuhX(e.touches[0].clientX);
+  };
+
+  const sentuhanBerpindah = (e: React.TouchEvent<HTMLDivElement>) => {
+    const sentuhAkhirX = e.touches[0].clientX;
+    const perbedaanX = sentuhAkhirX - sentuhX;
+
+    if (Math.abs(perbedaanX) > 50) {
+      if (perbedaanX > 0 && titikSaatIni !== 0) {
+        const indexSebelumnya =
+          titikSaatIni === 0 ? gambar.length - 1 : titikSaatIni - 1;
+        gantiGambar(indexSebelumnya);
+      } else if (perbedaanX < 0 && titikSaatIni !== gambar.length - 1) {
+        const indexSelanjutnya = (titikSaatIni + 1) % gambar.length;
+        gantiGambar(indexSelanjutnya);
+      }
+    }
+  };
+
   return (
     <div className="flex items-center justify-center pb-4 md:pb-6 lg:pb-0">
-      <div className="flex items-center justify-center relative">
+      <div
+        className="flex items-center justify-center relative"
+        onTouchStart={sentuhanDimulai}
+        onTouchMove={sentuhanBerpindah}
+      >
         <div
           className={`absolute -left-4 md:-left-14 lg:-left-16 transition-transform duration-500 ${
             geser ? "-translate-x-2 md:-translate-x-4" : "translate-x-0"
