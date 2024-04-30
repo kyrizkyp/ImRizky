@@ -39,7 +39,7 @@ const Navbar = () => {
   }`;
 
   return (
-    <header className="p-4 sticky top-0 left-0 right-0 z-10">
+    <header className="p-4 sticky top-0 left-0 right-0 z-10 bg-white bg-opacity-80">
       <div className="max-w-7xl relative mx-auto flex justify-center items-center">
         <div className="hidden md:block w-full">
           <div className="flex items-center justify-between px-4">
