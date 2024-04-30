@@ -39,7 +39,7 @@ const Me = () => {
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center pb-4 md:pb-6 lg:pb-0">
       <div className="flex items-center justify-center relative">
         <div
           className={`absolute -left-4 md:-left-14 lg:-left-16 transition-transform duration-500 ${
@@ -95,17 +95,19 @@ const Me = () => {
           </div>
         </div>
 
-        <div className="absolute -bottom-8 lg:bottom-4 flex items-center justify-center gap-2">
+        <div className="absolute -bottom-8 xl:-bottom-2 xl:-left-10 flex items-center justify-center gap-2">
           {gambar.map((_, index) => (
             <div
               key={index}
               className={`rounded-full cursor-pointer ${
                 index === titikSaatIni
-                  ? "bg-black p-2 border border-black lg:bg-white lg:border-white"
-                  : "border border-black p-2 lg:border-white"
+                  ? "p-2 lg:p-2.5 border border-black"
+                  : "p-2 lg:p-2.5"
               }`}
               onClick={() => gantiGambar(index)}
-            />
+            >
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+            </div>
           ))}
         </div>
       </div>
