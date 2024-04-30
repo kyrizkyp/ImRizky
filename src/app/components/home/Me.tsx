@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 const Me = () => {
   const [titikSaatIni, mengaturTitikSaatIni] = useState(0);
-  const [geser, mengaturGeser] = useState(false);
+  const [animasiGeser, mengaturAnimasiGeser] = useState(false);
   const [sentuhX, mengaturSentuhX] = useState(0);
 
   const gambar = [
@@ -21,31 +21,50 @@ const Me = () => {
 
   useEffect(() => {
     const waktuPerubahan = setInterval(() => {
-      const nextIndex = (titikSaatIni + 1) % gambar.length;
-      mengaturGeser(true);
+      const perubahanAnimasi = (titikSaatIni + 1) % gambar.length;
+      mengaturAnimasiGeser(true);
       setTimeout(() => {
-        mengaturTitikSaatIni(nextIndex);
-        mengaturGeser(false);
+        mengaturTitikSaatIni(perubahanAnimasi);
+        mengaturAnimasiGeser(false);
       }, 500);
     }, 5000);
 
-    return () => clearInterval(waktuPerubahan);
+    const navigasiKeyboard = (klik: { key: string }) => {
+      if (klik.key === "ArrowLeft" && titikSaatIni !== 0) {
+        const sebelumnya =
+          titikSaatIni === 0 ? gambar.length - 1 : titikSaatIni - 1;
+        gantiGambar(sebelumnya);
+      } else if (
+        klik.key === "ArrowRight" &&
+        titikSaatIni !== gambar.length - 1
+      ) {
+        const selanjutnya = (titikSaatIni + 1) % gambar.length;
+        gantiGambar(selanjutnya);
+      }
+    };
+
+    document.addEventListener("keydown", navigasiKeyboard);
+
+    return () => {
+      clearInterval(waktuPerubahan);
+      document.removeEventListener("keydown", navigasiKeyboard);
+    };
   }, [titikSaatIni, gambar.length]);
 
-  const gantiGambar = (index: React.SetStateAction<number>) => {
-    mengaturGeser(true);
+  const gantiGambar = (konten: React.SetStateAction<number>) => {
+    mengaturAnimasiGeser(true);
     setTimeout(() => {
-      mengaturTitikSaatIni(index);
-      mengaturGeser(false);
+      mengaturTitikSaatIni(konten);
+      mengaturAnimasiGeser(false);
     }, 500);
   };
 
-  const sentuhanDimulai = (e: React.TouchEvent<HTMLDivElement>) => {
-    mengaturSentuhX(e.touches[0].clientX);
+  const sentuhanDimulai = (menggeser: React.TouchEvent<HTMLDivElement>) => {
+    mengaturSentuhX(menggeser.touches[0].clientX);
   };
 
-  const sentuhanBerpindah = (e: React.TouchEvent<HTMLDivElement>) => {
-    const sentuhAkhirX = e.touches[0].clientX;
+  const sentuhanBerpindah = (perubahan: React.TouchEvent<HTMLDivElement>) => {
+    const sentuhAkhirX = perubahan.touches[0].clientX;
     const perbedaanX = sentuhAkhirX - sentuhX;
 
     if (Math.abs(perbedaanX) > 50) {
@@ -69,7 +88,7 @@ const Me = () => {
       >
         <div
           className={`absolute -left-4 md:-left-14 lg:-left-16 transition-transform duration-500 ${
-            geser ? "-translate-x-2 md:-translate-x-4" : "translate-x-0"
+            animasiGeser ? "-translate-x-2 md:-translate-x-4" : "translate-x-0"
           }`}
         >
           <div className="block md:hidden">
@@ -109,7 +128,7 @@ const Me = () => {
 
         <div
           className={`relative -z-10 -right-4 md:-right-14 lg:-right-16 transition-transform duration-500 ${
-            geser ? "translate-x-2 md:translate-x-4" : "-translate-x-0"
+            animasiGeser ? "translate-x-2 md:translate-x-4" : "-translate-x-0"
           }`}
         >
           <div className="w-[300px] h-[380px] md:w-[400px] md:h-[550px]">
@@ -122,15 +141,15 @@ const Me = () => {
         </div>
 
         <div className="absolute -bottom-8 xl:-bottom-2 xl:-left-10 flex items-center justify-center gap-2">
-          {gambar.map((_, index) => (
+          {gambar.map((_, titik) => (
             <div
-              key={index}
+              key={titik}
               className={`rounded-full cursor-pointer ${
-                index === titikSaatIni
+                titik === titikSaatIni
                   ? "p-2 lg:p-2.5 border border-black"
                   : "p-2 lg:p-2.5"
               }`}
-              onClick={() => gantiGambar(index)}
+              onClick={() => gantiGambar(titik)}
             >
               <div className="w-2 h-2 bg-black rounded-full"></div>
             </div>

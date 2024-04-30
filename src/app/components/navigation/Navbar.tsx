@@ -7,23 +7,23 @@ import Menu from "./Menu";
 
 const Navbar = () => {
   const [bukaMenu, mengaturMenuTerbuka] = useState(false);
-  const [putarIcon, mengaturPutarIcon] = useState(false);
+  const [animasiPutar, mengaturAnimasiPutar] = useState(false);
 
   const klikMenuIcon = () => {
     mengaturMenuTerbuka(!bukaMenu);
-    mengaturPutarIcon(!putarIcon);
+    mengaturAnimasiPutar(!animasiPutar);
   };
 
   const pilihMenu = () => {
     mengaturMenuTerbuka(false);
-    mengaturPutarIcon(false);
+    mengaturAnimasiPutar(false);
   };
 
   useEffect(() => {
     const klikEsc = (klik: { keyCode: number }) => {
       if (klik.keyCode === 27 && bukaMenu) {
         mengaturMenuTerbuka(false);
-        mengaturPutarIcon(false);
+        mengaturAnimasiPutar(false);
       }
     };
 
@@ -61,7 +61,7 @@ const Navbar = () => {
               <button
                 onClick={klikMenuIcon}
                 className={`transform ${
-                  putarIcon ? "rotate-180" : ""
+                  animasiPutar ? "rotate-180" : ""
                 } transition duration-300`}
               >
                 {bukaMenu ? <IconX /> : <IconMenu2 />}
