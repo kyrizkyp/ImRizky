@@ -91,7 +91,7 @@ const Me = () => {
             animasiGeser ? "-translate-y-2" : "translate-y-0"
           }`}
         >
-          <div className="p-2 bg-black rounded-lg max-w-[200px]">
+          <div className="p-2 bg-black max-w-[200px]">
             <p className="text-white text-center text-xl font-pertama font-bold">
               {gambar[titikSaatIni].judul}
             </p>
@@ -103,7 +103,7 @@ const Me = () => {
             animasiGeser ? "translate-y-4" : "translate-y-0"
           }`}
         >
-          <div className="p-2 bg-black rounded-lg max-w-[250px]">
+          <div className="p-2 bg-black max-w-[250px]">
             <p className="text-white text-center text-3xl font-pertama font-bold">
               {gambar[titikSaatIni].judul}
             </p>
@@ -154,7 +154,7 @@ const Me = () => {
           <div className="w-60 h-96 border border-black"></div>
         </div>
 
-        <div className="absolute -bottom-12 xl:-bottom-2 xl:-left-10 flex items-center justify-center gap-2">
+        <div className="absolute -bottom-10 xl:-bottom-2 xl:-left-10 flex items-center justify-center gap-2">
           {gambar.map((_, titik) => (
             <div
               key={titik}
