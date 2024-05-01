@@ -30,7 +30,7 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
             key={urutan}
             href={menu.halaman}
             onClick={mengaturMenuKlik}
-            className="mb-4 md:mb-0 text-lg font-pertama"
+            className="mb-4 md:mb-0 text-lg font-kedua"
           >
             {menu.judul}
           </Link>

@@ -44,7 +44,7 @@ const Navbar = () => {
         <div className="hidden md:block w-full">
           <div className="flex items-center justify-between px-4">
             <Link href="/">
-              <p className="text-3xl font-pertama">RIZPUTRA</p>
+              <p className="text-3xl font-ketiga font-extrabold">RIZPUTRA</p>
             </Link>
 
             <Menu pilihMenu={pilihMenu} />
@@ -54,7 +54,7 @@ const Navbar = () => {
         <div className="block md:hidden w-full">
           <div className="flex items-center justify-between px-4">
             <Link href="/">
-              <p className="text-3xl font-pertama">RIZPUTRA</p>
+              <p className="text-3xl font-ketiga font-extrabold">RIZPUTRA</p>
             </Link>
 
             <div>
