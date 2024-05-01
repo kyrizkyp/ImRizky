@@ -99,12 +99,12 @@ const Me = () => {
         </div>
 
         <div
-          className={`absolute hidden md:block -left-32 xl:-left-40 bottom-20 transition-transform duration-500 ${
+          className={`absolute hidden md:block -left-40 xl:-left-44 bottom-20 transition-transform duration-500 ${
             animasiGeser ? "translate-y-4" : "translate-y-0"
           }`}
         >
-          <div className="p-2 bg-black rounded-lg max-w-[200px]">
-            <p className="text-white text-center text-xl font-pertama font-bold">
+          <div className="p-2 bg-black rounded-lg max-w-[250px]">
+            <p className="text-white text-center text-3xl font-pertama font-bold">
               {gambar[titikSaatIni].judul}
             </p>
           </div>
@@ -138,7 +138,23 @@ const Me = () => {
           </div>
         </div>
 
-        <div className="absolute -bottom-8 xl:-bottom-2 xl:-left-10 flex items-center justify-center gap-2">
+        <div
+          className={`absolute hidden md:block -z-30 md:-right-[90px] xl:-right-24 -top-4 transition-transform duration-500 ${
+            animasiGeser ? "-translate-y-4" : "-translate-x-0"
+          }`}
+        >
+          <div className="w-96 h-[484px] border border-black"></div>
+        </div>
+
+        <div
+          className={`absolute block md:hidden -z-30 -bottom-[22px]  -right-[26px] transition-transform duration-500 ${
+            animasiGeser ? "-translate-y-4" : "-translate-x-0"
+          }`}
+        >
+          <div className="w-60 h-96 border border-black"></div>
+        </div>
+
+        <div className="absolute -bottom-12 xl:-bottom-2 xl:-left-10 flex items-center justify-center gap-2">
           {gambar.map((_, titik) => (
             <div
               key={titik}
