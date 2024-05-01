@@ -11,7 +11,13 @@ const Square = () => {
         </div>
       </div>
 
-      <div className="block lg:hidden"></div>
+      <div className="block lg:hidden">
+        <div className="relative flex items-center justify-center">
+          <div className="absolute -left-[180px] h-96 w-12 border-l border-black"></div>
+
+          <div className="absolute -left-[200px] -bottom-[158px] h-12 w-96 border-t border-r border-black"></div>
+        </div>
+      </div>
     </div>
   );
 };

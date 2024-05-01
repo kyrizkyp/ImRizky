@@ -31,7 +31,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center lg:items-start xl:items-center justify-center pt-4 md:pt-6 lg:pt-0">
+    <div className="flex flex-col items-center lg:items-start xl:items-center justify-center pt-6 lg:pt-0">
       <div className="max-w-xl xl:max-w-2xl text-center lg:text-left xl:text-center md:border-l xl:border-r md:border-black p-4">
         <h2 className="text-3xl md:text-5xl xl:text-6xl font-pertama font-bold">
           HEY THERE!
@@ -50,7 +50,7 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="p-2 lg:p-4 border-b border-r border-black">
+      <div className="p-2 lg:p-4 border-b border-l lg:border-l-0 lg:border-r border-black">
         <div className="flex items-center justify-center gap-6 mb-2 lg:mb-0">
           {social.map((media, order) => (
             <a key={order} href={media.link} target="_blank">
