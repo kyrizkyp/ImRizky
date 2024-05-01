@@ -87,47 +87,45 @@ const Me = () => {
         onTouchMove={sentuhanBerpindah}
       >
         <div
-          className={`absolute -left-4 md:-left-14 lg:-left-16 transition-transform duration-500 ${
-            animasiGeser ? "-translate-x-2 md:-translate-x-4" : "translate-x-0"
+          className={`absolute block md:hidden top-2 -left-2 transition-transform duration-500 ${
+            animasiGeser ? "-translate-y-2" : "translate-y-0"
           }`}
         >
-          <div className="block md:hidden">
-            <div className="w-[320px] h-[320px] relative flex items-start">
-              <img
-                src={gambar[titikSaatIni].foto}
-                alt="me"
-                className="object-cover w-[320px] h-[320px]"
-              />
-              <div className="absolute -top-5 left-5">
-                <div className="p-2 bg-black rounded-lg max-w-[200px]">
-                  <p className="text-white text-center text-xl font-pertama font-bold">
-                    {gambar[titikSaatIni].judul}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="hidden md:block">
-            <div className="w-full h-full relative">
-              <img
-                src={gambar[titikSaatIni].foto}
-                alt="me"
-                className="object-cover w-full h-full"
-              />
-              <div className="absolute -left-20 bottom-10">
-                <div className="p-2 bg-black rounded-lg max-w-[260px]">
-                  <p className="text-white text-center text-2xl font-pertama font-bold">
-                    {gambar[titikSaatIni].judul}
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="p-2 bg-black rounded-lg max-w-[200px]">
+            <p className="text-white text-center text-xl font-pertama font-bold">
+              {gambar[titikSaatIni].judul}
+            </p>
           </div>
         </div>
 
         <div
-          className={`relative -z-10 -right-4 md:-right-14 lg:-right-16 transition-transform duration-500 ${
+          className={`absolute hidden md:block -left-32 xl:-left-40 bottom-20 transition-transform duration-500 ${
+            animasiGeser ? "translate-y-4" : "translate-y-0"
+          }`}
+        >
+          <div className="p-2 bg-black rounded-lg max-w-[200px]">
+            <p className="text-white text-center text-xl font-pertama font-bold">
+              {gambar[titikSaatIni].judul}
+            </p>
+          </div>
+        </div>
+
+        <div
+          className={`absolute -z-10 -left-4 md:-left-14 lg:-left-16 transition-transform duration-500 ${
+            animasiGeser ? "-translate-x-2 md:-translate-x-4" : "translate-x-0"
+          }`}
+        >
+          <div className="w-[320px] h-[320px] md:w-full md:h-full">
+            <img
+              src={gambar[titikSaatIni].foto}
+              alt="me"
+              className="object-cover w-full h-full"
+            />
+          </div>
+        </div>
+
+        <div
+          className={`relative -z-20 -right-4 md:-right-14 lg:-right-16 transition-transform duration-500 ${
             animasiGeser ? "translate-x-2 md:translate-x-4" : "-translate-x-0"
           }`}
         >
