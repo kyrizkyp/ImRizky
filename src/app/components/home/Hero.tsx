@@ -33,20 +33,22 @@ const Hero = () => {
   return (
     <div className="flex flex-col items-center lg:items-start xl:items-center justify-center pt-6 lg:pt-0">
       <div className="max-w-xl xl:max-w-2xl text-center lg:text-left xl:text-center md:border-l xl:border-r md:border-black p-4">
-        <h2 className="text-3xl md:text-5xl xl:text-6xl font-pertama font-bold">
-          HEY THERE!
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-ketiga font-extrabold">
+          INTRODUCE
         </h2>
 
-        <h1 className="text-3xl md:text-5xl xl:text-6xl font-pertama font-bold">
-          I&apos;M{" "}
-          <span className="text-4xl md:text-6xl xl:text-7xl font-pertama font-bold">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-ketiga">
+          I AM{" "}
+          <span className="text-4xl md:text-5xl lg:text-6xl font-ketiga font-extrabold">
             RIZKY PUTRA
           </span>
         </h1>
 
-        <p className="text-xl md:text-3xl xl:text-4xl font-pertama font-bold">
+        <p className="text-xl md:text-2xl lg:text-3xl font-ketiga">
           INDEPENDENT{" "}
-          <span className="font-pertama font-bold">FRONT-END DEVELOPER</span>
+          <span className="text-2xl md:text-3xl lg:text-4xl font-extrabold">
+            FRONT-END DEVELOPER
+          </span>
         </p>
       </div>
 

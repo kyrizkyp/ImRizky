@@ -11,9 +11,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'pertama': ["Prompt, sans-serif"],
-        'kedua': ["ABeeZee, sans-serif"],
-        'ketiga': ["Rubik, sans-serif"],
+        'pertama': ["Poppins, sans-serif"],
+        'kedua': ["Oswald, sans-serif"],
+        'ketiga': ["Roboto, sans-serif"],
       }
     },
   },
