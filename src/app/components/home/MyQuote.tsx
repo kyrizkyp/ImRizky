@@ -4,7 +4,7 @@ import React from "react";
 const MyQuote = () => {
   return (
     <div className="flex items-center justify-center">
-      <div className="flex flex-col md:flex-row items-center justify-center space-x-4">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
         <div className="p-4">
           <div>
             <img
@@ -18,11 +18,11 @@ const MyQuote = () => {
           <IconArrowsUpDown />
         </div>
 
-        <div className="max-w-sm md:max-w-md p-4 md:p-6 text-center md:text-left">
+        <div className="max-w-sm md:max-w-md p-4 md:p-6 text-center md:text-left border-l border-b border-black">
           <h1 className="font-kedua text-lg md:text-2xl p-1">RIZPUTRA</h1>
-          <p className="font-pertama text-sm md:text-lg p-1">
-            Every process must have a purpose, Every code has a meaning be it an
-            error or a bug, And every time I love I am self-aware.
+          <p className="font-pertama p-1">
+            Every process must have a purpose, every code has a meaning be it an
+            error or a bug. And every time I love I am self-aware.
           </p>
         </div>
       </div>

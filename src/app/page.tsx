@@ -1,5 +1,7 @@
 import Square from "./components/background/Square";
+import Expression from "./components/home/Expression";
 import Hero from "./components/home/Hero";
+import IPage from "./components/home/IPage";
 import Me from "./components/home/Me";
 import MyQuote from "./components/home/MyQuote";
 
@@ -24,7 +26,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-4 sm:py-6 md:py-12">
+      <section className="max-w-7xl mx-auto py-4 sm:py-6 md:py-12">
+        <div className="flex items-center justify-center">
+          <IPage />
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto py-4 sm:py-6 md:py-12">
+        <div className="flex items-center justify-center">
+          <Expression />
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto py-4 sm:py-6 md:py-12">
         <div className="flex items-center justify-center">
           <MyQuote />
         </div>
