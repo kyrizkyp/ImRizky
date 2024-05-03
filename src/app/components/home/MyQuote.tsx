@@ -4,7 +4,7 @@ import React from "react";
 const MyQuote = () => {
   return (
     <div className="flex items-center justify-center">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-16">
         <div className="p-4">
           <div>
             <img

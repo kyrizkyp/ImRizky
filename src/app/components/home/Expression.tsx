@@ -3,8 +3,8 @@ import React from "react";
 const Expression = () => {
   return (
     <div className="flex items-center justify-center">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20">
-        <div className="order-1 md:order-2">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-20">
+        <div className="order-1 md:order-2 m-4">
           <div className="p-4 border-l border-t border-black">
             <div className="border-r border-b border-black h-28 w-52 flex items-center justify-center">
               <div className="flex items-center text-center p-4">

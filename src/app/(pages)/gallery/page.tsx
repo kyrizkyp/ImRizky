@@ -6,7 +6,7 @@ const page = () => {
     <main className="flex flex-col items-center justify-center px-4">
       <section className="max-w-7xl mx-auto py-4 sm:py-6 md:py-12">
         <div className="flex items-center justify-center">
-          <Gallery batasGambar={null} />
+          <Gallery batasGambar={null} tampilkanSampul={true} />
         </div>
       </section>
     </main>
