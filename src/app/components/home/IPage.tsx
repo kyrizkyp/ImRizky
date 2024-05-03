@@ -14,7 +14,7 @@ const IPage = () => {
       <div className="lg:p-4 flex items-center justify-center gap-2 md:gap-6">
         {kumpulan.map((urutan, konten) => (
           <div
-            className="w-24 h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px] flex items-center justify-center"
+            className="w-[106px] h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px] flex items-center justify-center"
             key={konten}
           >
             <img
