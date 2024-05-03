@@ -9,7 +9,7 @@ import MyQuote from "./components/home/MyQuote";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center px-4">
+    <main>
       <section className="py-4 sm:py-6 md:py-12">
         <div className="relative flex items-center justify-center">
           <div className="flex flex-col lg:flex-row items-center justify-center lg:-space-x-40 xl:space-x-20">
@@ -42,7 +42,7 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto py-4 sm:py-6 md:py-12">
         <div className="flex flex-col items-center justify-center">
-          <Gallery />
+          <Gallery batasGambar={6} />
 
           <Link
             href="/gallery"
