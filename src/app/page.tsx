@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Square from "./components/background/Square";
+import Gallery from "./components/gallery/Gallery";
 import Expression from "./components/home/Expression";
 import Hero from "./components/home/Hero";
 import IPage from "./components/home/IPage";
@@ -35,6 +37,19 @@ export default function Home() {
       <section className="max-w-7xl mx-auto py-4 sm:py-6 md:py-12">
         <div className="flex items-center justify-center">
           <Expression />
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto py-4 sm:py-6 md:py-12">
+        <div className="flex flex-col items-center justify-center">
+          <Gallery />
+
+          <Link
+            href="/gallery"
+            className="px-6 py-2 bg-black text-white font-ketiga font-extrabold my-4"
+          >
+            SHOW ALL
+          </Link>
         </div>
       </section>
 
