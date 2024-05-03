@@ -8,7 +8,7 @@ const Expression = () => {
           <div className="p-4 border-l border-t border-black">
             <div className="border-r border-b border-black h-28 w-52 flex items-center justify-center">
               <div className="flex items-center text-center p-4">
-                <p className="font-pertama p-2"></p>
+                <p className="font-pertama p-2">{"//"}</p>
 
                 <h1 className="text-2xl font-ketiga font-extrabold p-2">
                   RIZPUTRA
