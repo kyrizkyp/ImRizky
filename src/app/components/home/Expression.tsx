@@ -7,8 +7,12 @@ const Expression = () => {
         <div className="order-1 md:order-2">
           <div className="p-4">
             <div className="border-r border-b border-black h-52 w-52 flex items-center justify-center">
-              <div className="text-center text-xl font-ketiga font-extrabold">
-                <h1>RIZPUTRA</h1>
+              <div className="flex items-center text-center p-4">
+                <p className="font-pertama p-2">//</p>
+
+                <h1 className="text-2xl font-ketiga font-extrabold p-2">
+                  RIZPUTRA
+                </h1>
               </div>
             </div>
           </div>
