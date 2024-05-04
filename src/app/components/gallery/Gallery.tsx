@@ -1,5 +1,6 @@
 import React from "react";
 import GaleriData from "@/app/data/GaleriData";
+import Link from "next/link";
 
 interface GalleryProps {
   batasGambar: number | null;
@@ -70,7 +71,9 @@ const Gallery = ({
                   key={urutan}
                   className="w-28 h-28 md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72 p-1"
                 >
-                  <img src={DataFoto.foto} alt="galeri" />
+                  <Link href={`/gallery/${DataFoto.id}`}>
+                    <img src={DataFoto.foto} alt="galeri" />
+                  </Link>
                 </div>
               ))}
             </div>

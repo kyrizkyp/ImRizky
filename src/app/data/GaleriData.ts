@@ -1,6 +1,7 @@
 interface DataFoto {
   foto: string;
   deskripsi: string;
+  id: string;
 }
 
 const GaleriData: DataFoto[] = [
@@ -8,7 +9,8 @@ const GaleriData: DataFoto[] = [
     foto: "https://fastly.picsum.photos/id/880/400/400.jpg?hmac=Eoe6bEjFUkr-C09uoHVdB8m0Ovh5xlx9V2O27ztIQv8",
 
     deskripsi:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quas eaque nobis consequuntur, minima, iusto commodi maxime adipisci expedita, fugit eius quos dolore officia laboriosam?",
+      "hai",
+      id: "qwErtYuiop1",
   },
 
   {
@@ -16,6 +18,7 @@ const GaleriData: DataFoto[] = [
 
     deskripsi:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quas eaque nobis consequuntur, minima, iusto commodi maxime adipisci expedita, fugit eius quos dolore officia laboriosam?",
+      id: "aQweRtyHKf2",
   },
 
   {
@@ -23,6 +26,7 @@ const GaleriData: DataFoto[] = [
 
     deskripsi:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quas eaque nobis consequuntur, minima, iusto commodi maxime adipisci expedita, fugit eius quos dolore officia laboriosam?",
+      id: "lhjKMiYuxz3",
   },
 
   {
@@ -30,6 +34,7 @@ const GaleriData: DataFoto[] = [
 
     deskripsi:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quas eaque nobis consequuntur, minima, iusto commodi maxime adipisci expedita, fugit eius quos dolore officia laboriosam?",
+      id: "sAdfgHvBkl4",
   },
 
   {
@@ -37,6 +42,7 @@ const GaleriData: DataFoto[] = [
 
     deskripsi:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quas eaque nobis consequuntur, minima, iusto commodi maxime adipisci expedita, fugit eius quos dolore officia laboriosam?",
+      id: "wRqbcoxZvc5",
   },
 
   {
@@ -44,6 +50,7 @@ const GaleriData: DataFoto[] = [
 
     deskripsi:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quas eaque nobis consequuntur, minima, iusto commodi maxime adipisci expedita, fugit eius quos dolore officia laboriosam?",
+      id: "tyUwqeRgsD6",
   },
 
   {
@@ -51,6 +58,7 @@ const GaleriData: DataFoto[] = [
 
     deskripsi:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quas eaque nobis consequuntur, minima, iusto commodi maxime adipisci expedita, fugit eius quos dolore officia laboriosam?",
+      id: "ziGyuIOplM7",
   },
 
   {
@@ -58,6 +66,7 @@ const GaleriData: DataFoto[] = [
 
     deskripsi:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quas eaque nobis consequuntur, minima, iusto commodi maxime adipisci expedita, fugit eius quos dolore officia laboriosam?",
+      id: "opYuiTGhxZ8",
   },
 
   {
@@ -65,6 +74,7 @@ const GaleriData: DataFoto[] = [
 
     deskripsi:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quas eaque nobis consequuntur, minima, iusto commodi maxime adipisci expedita, fugit eius quos dolore officia laboriosam?",
+      id: "eRtqWEtjkLM9",
   },
 ];
 
