@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import GaleriData from "@/app/data/GaleriData";
-import Link from "next/link";
+import ModalGaleri from "./ModalGaleri";
 
 interface GalleryProps {
   batasGambar: number | null;
@@ -11,6 +13,20 @@ const Gallery = ({
   batasGambar = null,
   tampilkanSampul = true,
 }: GalleryProps) => {
+  const [bukaModal, mengaturBukaModal] = useState(false);
+  const [tampilkanFoto, mengaturTampilkanFoto] = useState("");
+  const [tampilkanDeskripsi, mengaturTampilkanDeskripsi] = useState("");
+
+  const modalTerbuka = (foto: string, deskripsi: string) => {
+    mengaturTampilkanFoto(foto);
+    mengaturTampilkanDeskripsi(deskripsi);
+    mengaturBukaModal(true);
+  };
+
+  const tutupModal = () => {
+    mengaturBukaModal(false);
+  };
+
   const sampulGaleri = [
     "https://fastly.picsum.photos/id/1031/450/800.jpg?hmac=_kCrMGQbOzYIo6Wa8ldrZpoNJeRKtRwigzN2mhsFoDg",
 
@@ -69,15 +85,23 @@ const Gallery = ({
               ).map((DataFoto, urutan) => (
                 <div
                   key={urutan}
-                  className="w-28 h-28 md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72 p-1"
+                  className="w-28 h-28 md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72 p-1 cursor-pointer"
+                  onClick={() =>
+                    modalTerbuka(DataFoto.foto, DataFoto.deskripsi)
+                  }
                 >
-                  <Link href={`/gallery/${DataFoto.id}`}>
-                    <img src={DataFoto.foto} alt="galeri" />
-                  </Link>
+                  <img src={DataFoto.foto} alt="galeri" />
                 </div>
               ))}
             </div>
           </div>
+
+          <ModalGaleri
+            membuka={bukaModal}
+            menutup={tutupModal}
+            foto={tampilkanFoto}
+            deskripsi={tampilkanDeskripsi}
+          />
         </div>
       </div>
     </div>
