@@ -22,7 +22,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute lg:left-40 lg:top-28 xl:top-24 xl:left-10 -z-40">
+          <div className="absolute lg:left-40 lg:top-28 xl:top-24 xl:left-52 2xl:left-[450px] -z-40">
             <Square />
           </div>
         </div>
