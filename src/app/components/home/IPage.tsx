@@ -25,7 +25,7 @@ const IPage = () => {
         {kumpulan.map((urutan, konten) => (
           <Link
             href={urutan.link}
-            className="w-[106px] h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px] flex items-center justify-center hover:bg-black hover:bg-opacity-50 "
+            className="w-[106px] h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px] flex items-center justify-center hover:bg-black hover:bg-opacity-50"
             key={konten}
           >
             <img

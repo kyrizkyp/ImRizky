@@ -77,20 +77,24 @@ const Gallery = ({
             </p>
           </div>
 
-          <div className="flex items-center justify-center p-2">
-            <div className="grid grid-cols-3">
+          <div className="flex items-center justify-center m-2">
+            <div className="grid grid-cols-3 gap-2">
               {(batasGambar
                 ? GaleriData.slice(0, batasGambar)
                 : GaleriData
               ).map((DataFoto, urutan) => (
                 <div
+                  className="w-[100px] h-[100px] md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72 cursor-pointer hover:bg-black hover:bg-opacity-50 relative"
                   key={urutan}
-                  className="w-28 h-28 md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72 p-1 cursor-pointer"
                   onClick={() =>
                     modalTerbuka(DataFoto.foto, DataFoto.deskripsi)
                   }
                 >
-                  <img src={DataFoto.foto} alt="galeri" />
+                  <img
+                    src={DataFoto.foto}
+                    alt="galeri"
+                    className="object-cover w-full h-full absolute -z-10 inset-0"
+                  />
                 </div>
               ))}
             </div>
