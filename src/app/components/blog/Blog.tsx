@@ -42,14 +42,11 @@ const Blog = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center">
-          <div className="p-4 max-w-2xl text-center">
+          <div className="p-4 max-w-2xl text-center mb-6">
             <h1 className="font-kedua font-extrabold text-3xl">BLOGS</h1>
-            <p className="font-pertama text-lg p-2">
-              Collection of my diaries.
-            </p>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center md:items-start justify-center">
+          <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:px-4">
             {QuoteData.map((quote, urutan) => (
               <div className="p-4" key={urutan}>
                 <div className="p-2">

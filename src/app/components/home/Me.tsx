@@ -27,7 +27,7 @@ const Me = () => {
         mengaturTitikSaatIni(perubahanAnimasi);
         mengaturAnimasiGeser(false);
       }, 500);
-    }, 5000);
+    }, 4000);
 
     const navigasiKeyboard = (klik: { key: string }) => {
       if (klik.key === "ArrowLeft" && titikSaatIni !== 0) {

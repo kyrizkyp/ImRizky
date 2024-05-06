@@ -31,7 +31,7 @@ const MyQuote = () => {
             </div>
           </div>
 
-          <div className="w-8 h-20 border-l border-t border-black absolute left-2 top-8"></div>
+          <div className="w-8 h-20 border-l border-t border-black absolute left-2 md:left-4 top-8 md:top-10"></div>
         </div>
       </div>
     </div>
