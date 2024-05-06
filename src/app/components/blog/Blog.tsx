@@ -1,4 +1,5 @@
 import React from "react";
+import QuoteData from "@/app/data/QuoteData";
 
 const Blog = () => {
   const sampulBlog = [
@@ -12,8 +13,8 @@ const Blog = () => {
   return (
     <div className="flex items-center justify-center">
       <div className="flex flex-col items-center justify-center">
-        <div className="w-full mb-6">
-          <div className="flex items-center justify-between gap-2 md:gap-6 xl:gap-10 mb-6">
+        <div className="flex flex-col items-center justify-center mb-6">
+          <div className="flex items-center justify-between gap-5 md:gap-10 xl:gap-10">
             {sampulBlog.map((sampul, urutan) => (
               <div
                 className="w-[106px] h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px]"
@@ -28,15 +29,15 @@ const Blog = () => {
             ))}
           </div>
 
-          <div className="relative p-4 self-start">
-            <div className="max-w-xs p-4 border-l border-black">
+          <div className="relative px-6 py-4 self-start">
+            <div className="max-w-md p-4 border-l border-black">
               <p className="font-pertama">
                 I recorded all the activities, whether ideas, quotes or about
                 joys or sorrows here.
               </p>
             </div>
 
-            <div className="w-8 h-20 border-l border-t border-black absolute left-2 top-6"></div>
+            <div className="w-6 h-16 border-l border-t border-black absolute left-4 top-6"></div>
           </div>
         </div>
 
@@ -49,37 +50,18 @@ const Blog = () => {
           </div>
 
           <div className="flex flex-col md:flex-row items-center md:items-start justify-center">
-            <div className="p-4">
-              <div className="p-2">
-                <h1 className="font-ketiga font-extrabold text-lg">
-                  BETWEEN LOVE AND CODE
-                </h1>
+            {QuoteData.map((quote, urutan) => (
+              <div className="p-4" key={urutan}>
+                <div className="p-2">
+                  <h1 className="font-ketiga font-extrabold text-lg">
+                    {quote.judul}
+                  </h1>
+                </div>
+                <div className="max-w-md p-2">
+                  <p className="font-pertama">{quote.deskripsi}</p>
+                </div>
               </div>
-
-              <div className="max-w-md p-2">
-                <p className="font-pertama">
-                  Destiny is the structure in the code of life, life is a
-                  dynamic interface, and love is a design element that gives
-                  color to every experience.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-4">
-              <div className="p-2">
-                <h1 className="font-ketiga font-extrabold text-lg">
-                  SHINE YOURSELF
-                </h1>
-              </div>
-
-              <div className="max-w-md p-2">
-                <p className="font-pertama">
-                  Sometimes, we have to be a source of strength for ourselves.
-                  Start today with the belief that you have the power to change
-                  the world around you.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

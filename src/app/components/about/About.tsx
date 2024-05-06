@@ -13,7 +13,7 @@ const About = () => {
     <div className="flex items-center justify-center">
       <div className="flex flex-col items-center justify-center">
         <div className="w-full">
-          <div className="flex items-center justify-between gap-2 md:gap-6 xl:gap-10 mb-6">
+          <div className="flex items-center justify-center gap-2 md:gap-6 xl:gap-10 mb-6">
             {sampulBlog.map((sampul, urutan) => (
               <div
                 className="w-[106px] h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px]"
