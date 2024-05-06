@@ -109,8 +109,8 @@ const About = () => {
                 </div>
                 <p className="font-pertama">
                   The minimalist design creates a focused and immersive
-                  atmosphere. Every time I open Visual Studio Code, it's the
-                  start of an artistic journey where I turn an idea into a
+                  atmosphere. Every time I open Visual Studio Code, it&apos;s
+                  the start of an artistic journey where I turn an idea into a
                   stunning visual masterpiece. With meticulous attention to
                   detail, I laid out every line of code and every pixel with
                   dedication and joy, creating a charming harmony amidst the
