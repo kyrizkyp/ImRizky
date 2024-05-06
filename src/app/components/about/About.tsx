@@ -60,7 +60,7 @@ const About = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center">
-          <div className="p-4 max-w-2xl text-center mb-10">
+          <div className="p-4 max-w-2xl text-center mb-6">
             <h1 className="font-kedua font-extrabold text-3xl">ABOUT ME</h1>
           </div>
 
