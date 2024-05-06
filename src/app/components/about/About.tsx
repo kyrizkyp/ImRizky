@@ -81,7 +81,7 @@ const About = () => {
 
           <div className="w-full md:px-2 lg:px-24 2xl:px-36">
             <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="p-6">
+              <div className="p-6 mb-4 md:mb-0">
                 <div className="p-4 relative">
                   <div className="p-4 flex flex-col items-center justify-center border-l border-t border-black">
                     <div className="p-2">

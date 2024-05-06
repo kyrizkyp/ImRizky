@@ -18,7 +18,7 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
 
     {
       judul: "BLOG",
-      halaman: "/blog-me",
+      halaman: "/blogs",
     },
   ];
 
