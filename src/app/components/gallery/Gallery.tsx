@@ -15,10 +15,12 @@ const Gallery = ({
 }: GalleryProps) => {
   const [bukaModal, mengaturBukaModal] = useState(false);
   const [tampilkanFoto, mengaturTampilkanFoto] = useState("");
+  const [tampilkanFotoKedua, mengaturTampilkanFotoKedua] = useState("");
   const [tampilkanDeskripsi, mengaturTampilkanDeskripsi] = useState("");
 
-  const modalTerbuka = (foto: string, deskripsi: string) => {
+  const modalTerbuka = (foto: string, fotoKedua: string, deskripsi: string) => {
     mengaturTampilkanFoto(foto);
+    mengaturTampilkanFotoKedua(fotoKedua);
     mengaturTampilkanDeskripsi(deskripsi);
     mengaturBukaModal(true);
   };
@@ -84,10 +86,14 @@ const Gallery = ({
                 : GaleriData
               ).map((DataFoto, urutan) => (
                 <div
-                  className="w-[100px] h-[100px] md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72 cursor-pointer hover:bg-black hover:bg-opacity-50 relative"
+                  className="w-[100px] h-[100px] md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72 cursor-pointer bg-black bg-opacity-50 hover:bg-white hover:bg-opacity-10 relative"
                   key={urutan}
                   onClick={() =>
-                    modalTerbuka(DataFoto.foto, DataFoto.deskripsi)
+                    modalTerbuka(
+                      DataFoto.foto,
+                      DataFoto.fotoKedua,
+                      DataFoto.deskripsi
+                    )
                   }
                 >
                   <img
@@ -95,6 +101,16 @@ const Gallery = ({
                     alt="galeri"
                     className="object-cover w-full h-full absolute -z-10 inset-0"
                   />
+
+                  {DataFoto.fotoKedua && (
+                    <div className="absolute right-[2px] md:right-1 lg:right-2 top-[2px] md:top-1 lg:top-2">
+                      <div className="relative flex items-center justify-center">
+                        <div className="absolute right-1 top-1 w-4 md:w-6 h-4 md:h-6 border-2 border-white rounded shadow-xl"></div>
+
+                        <div className="absolute top-2 right-2 w-4 md:w-6 h-4 md:h-6 bg-white rounded"></div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -105,6 +121,7 @@ const Gallery = ({
             menutup={tutupModal}
             foto={tampilkanFoto}
             deskripsi={tampilkanDeskripsi}
+            fotoKedua={tampilkanFotoKedua}
           />
         </div>
       </div>

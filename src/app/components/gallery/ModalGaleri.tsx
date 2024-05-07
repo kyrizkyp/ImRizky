@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface ModalProps {
   membuka: boolean;
   menutup: () => void;
   foto: string;
+  fotoKedua: string;
   deskripsi: string;
 }
 
@@ -11,39 +12,52 @@ const ModalGaleri: React.FC<ModalProps> = ({
   membuka,
   menutup,
   foto,
+  fotoKedua,
   deskripsi,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const [currentImage, setCurrentImage] = useState(foto);
+  const [activeDot, setActiveDot] = useState(1);
 
-  const menutupModal = () => {
+  useEffect(() => {
+    setCurrentImage(foto);
+    setActiveDot(1);
+  }, [foto]);
+
+  const switchImage = (image: string, dotIndex: number) => {
+    setCurrentImage(image);
+    setActiveDot(dotIndex);
+  };
+
+  const closeModal = () => {
+    setCurrentImage(foto);
+    setActiveDot(1);
     menutup();
   };
 
-  const mentutupTekanEsc = (tekanEsc: KeyboardEvent) => {
-    if (tekanEsc.key === "Escape") {
-      menutupModal();
+  const closeOnEscapePress = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  };
+
+  const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (modalRef.current === event.target) {
+      closeModal();
     }
   };
 
   useEffect(() => {
     if (membuka) {
-      document.addEventListener("keyup", mentutupTekanEsc, false);
+      document.addEventListener("keyup", closeOnEscapePress, false);
     } else {
-      document.removeEventListener("keyup", mentutupTekanEsc, false);
+      document.removeEventListener("keyup", closeOnEscapePress, false);
     }
 
     return () => {
-      document.removeEventListener("keyup", mentutupTekanEsc, false);
+      document.removeEventListener("keyup", closeOnEscapePress, false);
     };
   }, [membuka]);
-
-  const menutupKlikLuar = (
-    klikLuar: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    if (modalRef.current === klikLuar.target) {
-      menutupModal();
-    }
-  };
 
   return (
     <div
@@ -53,16 +67,34 @@ const ModalGaleri: React.FC<ModalProps> = ({
           : "opacity-0 duration-500 pointer-events-none"
       }`}
       ref={modalRef}
-      onClick={menutupKlikLuar}
+      onClick={handleClickOutside}
     >
       <div className="p-4">
         <div className="flex flex-col md:flex-row items-center justify-center p-2 bg-white rounded-2xl">
-          <div className="w-56 h-56 md:w-72 md:h-72 xl:w-96 xl:h-96 m-2">
+          <div className="w-56 h-56 md:w-72 md:h-72 xl:w-96 xl:h-96 m-2 relative flex items-center justify-center">
             <img
-              src={foto}
+              src={currentImage}
               alt="Detail"
               className="object-cover w-full h-full md:rounded-l-2xl"
             />
+
+            {fotoKedua && (
+              <div className="absolute bottom-1 flex items-center justify-center gap-2">
+                {[foto, fotoKedua].map((image, index) => (
+                  <button
+                    key={index}
+                    className={`rounded-full ${
+                      activeDot === index + 1
+                        ? "p-2 border border-white"
+                        : "p-2"
+                    }`}
+                    onClick={() => switchImage(image, index + 1)}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-white"></div>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="m-6 relative flex items-center justify-center">
