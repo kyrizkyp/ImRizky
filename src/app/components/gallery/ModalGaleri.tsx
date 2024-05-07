@@ -16,86 +16,80 @@ const ModalGaleri: React.FC<ModalProps> = ({
   deskripsi,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  const [currentImage, setCurrentImage] = useState(foto);
-  const [activeDot, setActiveDot] = useState(1);
-  const [touchStartX, setTouchStartX] = useState(0);
-  const [touchEndX, setTouchEndX] = useState(0);
+  const [gambarSaatIni, mengaturGambarSaatIni] = useState(foto);
+  const [titikAktif, mengaturTitikAktif] = useState(1);
+  const [sentuhanAwalX, mengaturSentuhanAwalX] = useState(0);
+  const [sentuhanAkhirX, mengaturSentuhanAkhirX] = useState(0);
 
   useEffect(() => {
-    setCurrentImage(foto);
-    setActiveDot(1);
+    mengaturGambarSaatIni(foto);
+    mengaturTitikAktif(1);
   }, [foto]);
 
-  const switchImage = (image: string, dotIndex: number) => {
-    setCurrentImage(image);
-    setActiveDot(dotIndex);
+  const beralihGambar = (gamber: string, titik: number) => {
+    mengaturGambarSaatIni(gamber);
+    mengaturTitikAktif(titik);
   };
 
-  const closeModal = () => {
-    setCurrentImage(foto);
-    setActiveDot(1);
+  const menutupModal = () => {
+    mengaturGambarSaatIni(foto);
+    mengaturTitikAktif(1);
     menutup();
   };
 
-  const closeOnEscapePress = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      closeModal();
-    } else if (event.key === "ArrowLeft") {
-      // Previous image on left arrow press
-      switchToPreviousImage();
-    } else if (event.key === "ArrowRight") {
-      // Next image on right arrow press
-      switchToNextImage();
+  const klikKeyboard = (menekan: KeyboardEvent) => {
+    if (menekan.key === "Escape") {
+      menutupModal();
+    } else if (menekan.key === "ArrowLeft") {
+      gambarSebelumnya();
+    } else if (menekan.key === "ArrowRight") {
+      gambarSelanjutnya();
     }
   };
 
-  const switchToNextImage = () => {
+  const gambarSelanjutnya = () => {
     if (fotoKedua) {
-      switchImage(fotoKedua, 2);
+      beralihGambar(fotoKedua, 2);
     }
   };
 
-  const switchToPreviousImage = () => {
-    switchImage(foto, 1);
+  const gambarSebelumnya = () => {
+    beralihGambar(foto, 1);
   };
 
-  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    setTouchStartX(event.touches[0].clientX);
+  const memulaiSentuhan = (geser: React.TouchEvent<HTMLDivElement>) => {
+    mengaturSentuhanAwalX(geser.touches[0].clientX);
   };
 
-  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
-    setTouchEndX(event.touches[0].clientX);
+  const sentuhanBerpindah = (geser: React.TouchEvent<HTMLDivElement>) => {
+    mengaturSentuhanAkhirX(geser.touches[0].clientX);
   };
 
-  const handleTouchEnd = () => {
-    if (touchStartX - touchEndX > 50) {
-      // Swipe to the left
-      // Switch to the next image
-      switchToNextImage();
+  const akhirSentuhan = () => {
+    if (sentuhanAwalX - sentuhanAkhirX > 50) {
+      gambarSelanjutnya();
     }
 
-    if (touchStartX - touchEndX < -50) {
-      // Swipe to the right
-      // Switch to the previous image
-      switchToPreviousImage();
+    if (sentuhanAwalX - sentuhanAkhirX < -50) {
+      gambarSebelumnya();
     }
   };
 
-  const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (modalRef.current === event.target) {
-      closeModal();
+  const klikLuar = (klik: React.MouseEvent<HTMLDivElement>) => {
+    if (modalRef.current === klik.target) {
+      menutupModal();
     }
   };
 
   useEffect(() => {
     if (membuka) {
-      document.addEventListener("keyup", closeOnEscapePress, false);
+      document.addEventListener("keyup", klikKeyboard, false);
     } else {
-      document.removeEventListener("keyup", closeOnEscapePress, false);
+      document.removeEventListener("keyup", klikKeyboard, false);
     }
 
     return () => {
-      document.removeEventListener("keyup", closeOnEscapePress, false);
+      document.removeEventListener("keyup", klikKeyboard, false);
     };
   }, [membuka]);
 
@@ -107,31 +101,31 @@ const ModalGaleri: React.FC<ModalProps> = ({
           : "opacity-0 duration-500 pointer-events-none"
       }`}
       ref={modalRef}
-      onClick={handleClickOutside}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
+      onClick={klikLuar}
+      onTouchStart={memulaiSentuhan}
+      onTouchMove={sentuhanBerpindah}
+      onTouchEnd={akhirSentuhan}
     >
       <div className="p-4">
         <div className="flex flex-col md:flex-row items-center justify-center p-2 bg-white rounded-2xl">
           <div className="w-56 h-56 md:w-72 md:h-72 xl:w-96 xl:h-96 m-2 relative flex items-center justify-center">
             <img
-              src={currentImage}
+              src={gambarSaatIni}
               alt="Detail"
               className="object-cover w-full h-full md:rounded-l-2xl"
             />
 
             {fotoKedua && (
               <div className="absolute -bottom-8 md:bottom-2 flex items-center justify-center gap-1 md:gap-2">
-                {[foto, fotoKedua].map((image, index) => (
+                {[foto, fotoKedua].map((gambar, urutan) => (
                   <button
-                    key={index}
+                    key={urutan}
                     className={`rounded-full ${
-                      activeDot === index + 1
+                      titikAktif === urutan + 1
                         ? "p-1.5 border border-black md:border-white"
                         : "p-1.5"
                     }`}
-                    onClick={() => switchImage(image, index + 1)}
+                    onClick={() => beralihGambar(gambar, urutan + 1)}
                   >
                     <div className="w-2 h-2 rounded-full bg-black md:bg-white"></div>
                   </button>
@@ -142,7 +136,7 @@ const ModalGaleri: React.FC<ModalProps> = ({
 
           <div className="m-6 relative flex items-center justify-center">
             <div className="p-2 border-l border-black max-w-[250px] md:max-w-[300px]">
-              <p className="">{deskripsi}</p>
+              <p className="font-pertama">{deskripsi}</p>
             </div>
 
             <div className="absolute w-4 h-10 border-l border-t border-black -top-2 -left-2"></div>
