@@ -49,7 +49,7 @@ const Dropdown = ({ pilihMenu }: MenuNavProps) => {
       </button>
 
       <div
-        className={`absolute -z-20 right-0 left-0 flex items-center justify-center transform ${
+        className={`absolute -z-20 right-0 left-0 md:-left-10 lg:left-0 flex items-center justify-center transform ${
           tampilkanDropdown
             ? "translate-y-4 transition-transform duration-500"
             : "-translate-y-full duration-500"

@@ -15,17 +15,17 @@ const IPage = () => {
 
     {
       foto: "https://fastly.picsum.photos/id/842/450/800.jpg?hmac=pq7l4koxScV85cmKrFgCIfOyVPqBcZpE01giefemM4Q",
-      link: "/blog-me",
+      link: "/blogs",
     },
   ];
 
   return (
     <div className="flex items-center justify-center">
-      <div className="lg:p-4 flex items-center justify-center gap-2 md:gap-6">
+      <div className="lg:p-4 flex items-center justify-center gap-2 md:gap-10 lg:gap-14">
         {kumpulan.map((urutan, konten) => (
           <Link
             href={urutan.link}
-            className="w-[106px] h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px] flex items-center justify-center hover:bg-black hover:bg-opacity-50"
+            className="w-[106px] h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px] flex items-center justify-center bg-black bg-opacity-50 hover:bg-white hover:bg-opacity-10"
             key={konten}
           >
             <img
