@@ -34,21 +34,15 @@ const Navbar = () => {
     };
   }, [bukaMenu]);
 
-  const bukaSidbar = `fixed flex flex-col top-0 left-0 w-56 h-full bg-gray-200 px-4 transform transition-transform duration-500 ease-in-out z-50${
+  const bukaSidbar = `fixed flex flex-col top-0 left-0 w-56 md:w-full h-full bg-white px-4 transform transition-transform duration-500 ease-in-out z-50${
     bukaMenu ? " translate-x-0" : " -translate-x-full"
   }`;
 
   return (
-    <header className="p-4 sticky top-0 left-0 right-0 z-10 bg-white bg-opacity-80">
-      <div className="max-w-7xl relative mx-auto flex justify-center items-center">
+    <header className="p-4 md:p-0 sticky top-0 left-0 right-0 z-10 bg-white">
+      <div className="">
         <div className="hidden md:block w-full">
-          <div className="flex items-center justify-between px-4">
-            <Link href="/">
-              <p className="text-3xl font-ketiga font-extrabold">RIZPUTRA</p>
-            </Link>
-
-            <Menu pilihMenu={pilihMenu} />
-          </div>
+          <Menu pilihMenu={pilihMenu} />
         </div>
 
         <div className="block md:hidden w-full">
@@ -78,7 +72,7 @@ const Navbar = () => {
         )}
 
         <div className={bukaSidbar}>
-          <div className="min-h-screen flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center">
             <Menu pilihMenu={pilihMenu} />
           </div>
         </div>
