@@ -4,7 +4,7 @@ interface ModalProps {
   membuka: boolean;
   menutup: () => void;
   foto: string;
-  fotoKedua: string;
+  fotoKedua?: string;
   deskripsi: string;
 }
 
@@ -18,6 +18,8 @@ const ModalGaleri: React.FC<ModalProps> = ({
   const modalRef = useRef<HTMLDivElement>(null);
   const [currentImage, setCurrentImage] = useState(foto);
   const [activeDot, setActiveDot] = useState(1);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
 
   useEffect(() => {
     setCurrentImage(foto);
@@ -38,6 +40,44 @@ const ModalGaleri: React.FC<ModalProps> = ({
   const closeOnEscapePress = (event: KeyboardEvent) => {
     if (event.key === "Escape") {
       closeModal();
+    } else if (event.key === "ArrowLeft") {
+      // Previous image on left arrow press
+      switchToPreviousImage();
+    } else if (event.key === "ArrowRight") {
+      // Next image on right arrow press
+      switchToNextImage();
+    }
+  };
+
+  const switchToNextImage = () => {
+    if (fotoKedua) {
+      switchImage(fotoKedua, 2);
+    }
+  };
+
+  const switchToPreviousImage = () => {
+    switchImage(foto, 1);
+  };
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchStartX(event.touches[0].clientX);
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEndX(event.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX - touchEndX > 50) {
+      // Swipe to the left
+      // Switch to the next image
+      switchToNextImage();
+    }
+
+    if (touchStartX - touchEndX < -50) {
+      // Swipe to the right
+      // Switch to the previous image
+      switchToPreviousImage();
     }
   };
 
@@ -68,6 +108,9 @@ const ModalGaleri: React.FC<ModalProps> = ({
       }`}
       ref={modalRef}
       onClick={handleClickOutside}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       <div className="p-4">
         <div className="flex flex-col md:flex-row items-center justify-center p-2 bg-white rounded-2xl">
@@ -79,18 +122,18 @@ const ModalGaleri: React.FC<ModalProps> = ({
             />
 
             {fotoKedua && (
-              <div className="absolute bottom-1 flex items-center justify-center gap-2">
+              <div className="absolute -bottom-8 md:bottom-2 flex items-center justify-center gap-1 md:gap-2">
                 {[foto, fotoKedua].map((image, index) => (
                   <button
                     key={index}
                     className={`rounded-full ${
                       activeDot === index + 1
-                        ? "p-2 border border-white"
-                        : "p-2"
+                        ? "p-1.5 border border-black md:border-white"
+                        : "p-1.5"
                     }`}
                     onClick={() => switchImage(image, index + 1)}
                   >
-                    <div className="w-2 h-2 rounded-full bg-white"></div>
+                    <div className="w-2 h-2 rounded-full bg-black md:bg-white"></div>
                   </button>
                 ))}
               </div>
