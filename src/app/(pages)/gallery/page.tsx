@@ -3,8 +3,8 @@ import React from "react";
 
 const page = () => {
   return (
-    <main className="flex flex-col items-center justify-center px-4">
-      <section className="max-w-7xl mx-auto py-4 md:py-12">
+    <main>
+      <section className="my-10 md:my-12 lg:my-16 xl:my-20">
         <div className="flex items-center justify-center">
           <Gallery batasGambar={null} tampilkanSampul={true} />
         </div>
