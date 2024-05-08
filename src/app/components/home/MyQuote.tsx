@@ -5,22 +5,9 @@ const MyQuote = () => {
   return (
     <div className="flex items-center justify-center">
       <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-16">
-        <div className="p-4">
-          <div>
-            <img
-              src="https://fastly.picsum.photos/id/155/200/200.jpg?hmac=D_Tf9XAIteS9U6InmFX2j3DXYkvhlEOOkGGiWuMwU9Q"
-              alt="Me"
-            />
-          </div>
-        </div>
-
-        <div className="block md:hidden p-4">
-          <IconArrowsUpDown />
-        </div>
-
         <div className="flex items-center justify-center relative">
           <div className="max-w-sm md:max-w-md p-4 md:p-6 ">
-            <div className="p-4 text-center md:text-left border-l border-black">
+            <div className="p-4 text-left border-l border-black">
               <h1 className="font-ketiga font-extrabold text-xl p-1">
                 RIZPUTRA
               </h1>
@@ -32,6 +19,19 @@ const MyQuote = () => {
           </div>
 
           <div className="w-8 h-20 border-l border-t border-black absolute left-2 md:left-4 top-8 md:top-10"></div>
+        </div>
+
+        <div className="block md:hidden p-4">
+          <IconArrowsUpDown />
+        </div>
+
+        <div className="p-4">
+          <div>
+            <img
+              src="https://fastly.picsum.photos/id/155/200/200.jpg?hmac=D_Tf9XAIteS9U6InmFX2j3DXYkvhlEOOkGGiWuMwU9Q"
+              alt="Me"
+            />
+          </div>
         </div>
       </div>
     </div>
