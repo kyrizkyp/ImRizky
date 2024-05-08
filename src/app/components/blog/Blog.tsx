@@ -1,5 +1,7 @@
 import React from "react";
 import QuoteData from "@/app/data/QuoteData";
+import DiaryData from "@/app/data/DiaryData";
+import Link from "next/link";
 
 const Blog = () => {
   const sampulBlog = [
@@ -58,6 +60,22 @@ const Blog = () => {
                   <p className="font-pertama">{quote.deskripsi}</p>
                 </div>
               </div>
+            ))}
+          </div>
+
+          <div className="p-4">
+            {DiaryData.map((blog, urutan) => (
+              <Link href={`/blogs/${blog.id}`} key={urutan}>
+                <div className="p-4 border border-black">
+                  <div className="p-2">
+                    <h2>{blog.judul}</h2>
+                  </div>
+
+                  <div className="max-w-xs p-2">
+                    <p>{blog.subJudul}</p>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
