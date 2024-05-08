@@ -2,7 +2,8 @@ import React from "react";
 import QuoteData from "@/app/data/QuoteData";
 import DiaryData from "@/app/data/DiaryData";
 import Link from "next/link";
-import { IconPlus } from "@tabler/icons-react";
+import Plus from "../background/Plus";
+import Wave from "../background/Wave";
 
 const Blog = () => {
   const sampulBlog = [
@@ -14,48 +15,50 @@ const Blog = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center justify-center">
-          <div className="flex items-center justify-between gap-5 md:gap-10 xl:gap-10">
-            {sampulBlog.map((sampul, urutan) => (
-              <div
-                className="w-[106px] h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px]"
-                key={urutan}
-              >
-                <img
-                  src={sampul}
-                  alt="Me"
-                  className="object-cover w-full h-full -z-10"
-                />
-              </div>
-            ))}
+    <div className="w-full flex flex-col items-center justify-center">
+      <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-72">
+        <div className="flex items-center justify-between">
+          {sampulBlog.map((sampul, urutan) => (
+            <div
+              className="w-[106px] h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px]"
+              key={urutan}
+            >
+              <img
+                src={sampul}
+                alt="Me"
+                className="object-cover w-full h-full -z-10"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-80 mb-4">
+        <div className="self-start flex items-center">
+          <div className="p-2 text-center">
+            <h1 className="font-kedua font-extrabold text-3xl">BLOGS</h1>
           </div>
 
-          <div className="self-start flex items-center">
-            <div className="p-4 text-center">
-              <h1 className="font-kedua font-extrabold text-3xl">BLOGS</h1>
+          <div className="relative p-4">
+            <div className="max-w-md p-4 border-l border-black">
+              <p className="font-pertama">
+                I recorded all the activities, whether ideas, quotes or about
+                joys or sorrows here.
+              </p>
             </div>
 
-            <div className="relative p-4">
-              <div className="max-w-md p-4 border-l border-black">
-                <p className="font-pertama">
-                  I recorded all the activities, whether ideas, quotes or about
-                  joys or sorrows here.
-                </p>
-              </div>
-
-              <div className="w-6 h-16 border-l border-t border-black absolute left-2 top-6"></div>
-            </div>
+            <div className="w-6 h-16 border-l border-t border-black absolute left-2 top-6"></div>
           </div>
         </div>
+      </div>
 
-        <div className="my-8 xl:my-16">
-          <IconPlus className="w-10 h-10 stroke-1 text-gray-400" />
-        </div>
+      <div>
+        <Plus />
+      </div>
 
+      <div className="flex flex-col items-center justify-center mt-4">
         <div className="flex flex-col items-center justify-center">
-          <div className="p-4 my-4 text-center">
+          <div className="p-4 my-2 text-center">
             <h2 className="font-kedua font-extrabold text-3xl">QUOTES</h2>
           </div>
 
@@ -74,10 +77,7 @@ const Blog = () => {
           </div>
         </div>
 
-        <div
-          className="h-24 w-full flex items-center justify-center my-8 xl:my-16"
-          style={{ backgroundImage: `url('/bg/topography.svg')` }}
-        ></div>
+        <Wave />
 
         <div className="flex flex-col items-center justify-center">
           <div className="p-4 my-4 text-center">

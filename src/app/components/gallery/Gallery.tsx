@@ -59,19 +59,21 @@ const Gallery = ({
         </div>
       )}
 
-      <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-80 mb-4">
-        <div className="relative p-4 self-start">
-          <div className="max-w-md p-4 border-l border-black">
-            <p className="font-pertama">
-              Photo galleries are like love revealing beauty in the details.
-              Each image is a memory, recording a precious moment. Like
-              relationships, composition and lighting build a story.
-            </p>
-          </div>
+      {tampilkanSampul && (
+        <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-80 mb-4">
+          <div className="relative p-4 self-start">
+            <div className="max-w-md p-4 border-l border-black">
+              <p className="font-pertama">
+                Photo galleries are like love revealing beauty in the details.
+                Each image is a memory, recording a precious moment. Like
+                relationships, composition and lighting build a story.
+              </p>
+            </div>
 
-          <div className="w-8 h-24 border-l border-t border-black absolute left-2 top-6"></div>
+            <div className="w-8 h-24 border-l border-t border-black absolute left-2 top-6"></div>
+          </div>
         </div>
-      </div>
+      )}
 
       <div>
         <Plus />
