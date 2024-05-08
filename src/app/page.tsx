@@ -6,11 +6,13 @@ import Hero from "./components/home/Hero";
 import IPage from "./components/home/IPage";
 import Me from "./components/home/Me";
 import MyQuote from "./components/home/MyQuote";
+import Plus from "./components/background/Plus";
+import Wave from "./components/background/Wave";
 
 export default function Home() {
   return (
     <main>
-      <section className="py-6 md:py-16">
+      <section className="mt-6 mb-10 md:my-12 lg:my-16 xl:my-20">
         <div className="relative flex items-center justify-center">
           <div className="flex flex-col lg:flex-row items-center justify-center lg:-space-x-40 xl:space-x-20">
             <div className="order-2 lg:order-1">
@@ -28,21 +30,35 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto py-6 md:py-12">
+      <section>
+        <Plus />
+      </section>
+
+      <section className="my-10 md:my-12 lg:my-16 xl:my-20">
         <div className="flex items-center justify-center">
           <IPage />
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto py-6 md:py-12">
+      <section className="my-10 md:my-12 lg:my-16 xl:my-20">
         <div className="flex items-center justify-center">
           <Expression />
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto py-6 md:py-12">
+      <section>
+        <Wave />
+      </section>
+
+      <section className="my-10 md:my-12 lg:my-16 xl:my-20">
         <div className="flex flex-col items-center justify-center">
-          <Gallery batasGambar={6} tampilkanSampul={false} />
+          <div className="hidden xl:block">
+            <Gallery batasGambar={8} tampilkanSampul={false} />
+          </div>
+
+          <div className="block xl:hidden">
+            <Gallery batasGambar={6} tampilkanSampul={false} />
+          </div>
 
           <Link
             href="/gallery"
@@ -53,7 +69,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto py-6 md:py-12">
+      <section className="my-10 md:my-12 lg:my-16 xl:my-20">
         <div className="flex items-center justify-center">
           <MyQuote />
         </div>

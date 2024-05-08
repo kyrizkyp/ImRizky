@@ -80,7 +80,7 @@ const Gallery = ({
           </div>
 
           <div className="flex items-center justify-center m-2">
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 xl:grid-cols-4 gap-2">
               {(batasGambar
                 ? GaleriData.slice(0, batasGambar)
                 : GaleriData

@@ -20,8 +20,8 @@ const IPage = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="lg:p-4 flex items-center justify-center gap-2 md:gap-10 lg:gap-14">
+    <div className="w-full mx-4 md:mx-10 lg:mx-16 xl:mx-24 2xl:mx-80">
+      <div className="flex items-center justify-between">
         {kumpulan.map((urutan, konten) => (
           <Link
             href={urutan.link}

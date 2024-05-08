@@ -76,15 +76,6 @@ const GaleriData: DataFoto[] = [
     deskripsi:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor beatae ad eius amet?",
   },
-
-  {
-    foto: "https://fastly.picsum.photos/id/573/400/400.jpg?hmac=UJuahx_SMzEr-lOyuAi7l9K2APmQrMT7EHhiyNT7Q8M",
-
-    fotoKedua: "",
-
-    deskripsi:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, labore corporis! Maxime, unde eveniet?",
-  },
 ];
 
 export default GaleriData;

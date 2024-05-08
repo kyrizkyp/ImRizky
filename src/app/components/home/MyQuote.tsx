@@ -1,12 +1,13 @@
 import { IconArrowsUpDown } from "@tabler/icons-react";
 import React from "react";
+import Plus from "../background/Plus";
 
 const MyQuote = () => {
   return (
-    <div className="flex items-center justify-center">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-16">
+    <div className="w-full mx-4 lg:mx-24 xl:mx-56 2xl:mx-80">
+      <div className="flex flex-col md:flex-row items-center  justify-center md:justify-between">
         <div className="flex items-center justify-center relative">
-          <div className="max-w-sm md:max-w-md p-4 md:p-6 ">
+          <div className="max-w-sm md:max-w-md 2xl:max-w-2xl p-4">
             <div className="p-4 text-left border-l border-black">
               <h1 className="font-ketiga font-extrabold text-xl p-1">
                 RIZPUTRA
@@ -18,18 +19,19 @@ const MyQuote = () => {
             </div>
           </div>
 
-          <div className="w-8 h-20 border-l border-t border-black absolute left-2 md:left-4 top-8 md:top-10"></div>
+          <div className="w-8 h-20 border-l border-t border-black absolute left-2 top-8 md:top-8"></div>
         </div>
 
-        <div className="block md:hidden p-4">
-          <IconArrowsUpDown />
+        <div className="block md:hidden">
+          <Plus />
         </div>
 
         <div className="p-4">
-          <div>
+          <div className="w-64 h-64 xl:w-80 xl:h-80">
             <img
               src="https://fastly.picsum.photos/id/155/200/200.jpg?hmac=D_Tf9XAIteS9U6InmFX2j3DXYkvhlEOOkGGiWuMwU9Q"
               alt="Me"
+              className="object-cover w-full h-full"
             />
           </div>
         </div>
