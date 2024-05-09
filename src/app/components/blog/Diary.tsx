@@ -9,7 +9,7 @@ const Diary = () => {
         <h2 className="font-kedua font-extrabold text-3xl">DAILY STORY</h2>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 xl:gap-16 px-2 my-2">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 xl:gap-16 px-4 my-2">
         {DiaryData.map((blog, urutan) => (
           <Link href={`/blogs/${blog.id}`} key={urutan}>
             <div className="p-2 border border-black">
