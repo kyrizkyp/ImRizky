@@ -1,9 +1,6 @@
 import React from "react";
 import QuoteData from "@/app/data/QuoteData";
-import DiaryData from "@/app/data/DiaryData";
-import Link from "next/link";
 import Plus from "../background/Plus";
-import Wave from "../background/Wave";
 
 const Blog = () => {
   const sampulBlog = [
@@ -33,7 +30,7 @@ const Blog = () => {
         </div>
       </div>
 
-      <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-80 mb-4">
+      <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-80">
         <div className="self-start flex items-center">
           <div className="p-2 text-center">
             <h1 className="font-kedua font-extrabold text-3xl">BLOGS</h1>
@@ -52,53 +49,27 @@ const Blog = () => {
         </div>
       </div>
 
-      <div>
+      <div className="my-4">
         <Plus />
       </div>
 
-      <div className="flex flex-col items-center justify-center mt-4">
-        <div className="flex flex-col items-center justify-center">
-          <div className="p-4 my-2 text-center">
-            <h2 className="font-kedua font-extrabold text-3xl">QUOTES</h2>
-          </div>
+      <div className="p-4 my-2 text-center">
+        <h2 className="font-kedua font-extrabold text-3xl">QUOTES</h2>
+      </div>
 
-          <div className="flex flex-col md:flex-row items-center md:items-start justify-center">
-            {QuoteData.map((quote, urutan) => (
-              <div className="p-4" key={urutan}>
-                <h1 className="font-ketiga font-extrabold text-lg">
-                  {quote.judul}
-                </h1>
+      <div className="w-full px-4 xl:px-12 2xl:px-32 my-2">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between">
+          {QuoteData.map((quote, urutan) => (
+            <div className="p-4" key={urutan}>
+              <h1 className="font-ketiga font-extrabold text-lg">
+                {quote.judul}
+              </h1>
 
-                <div className="max-w-md">
-                  <p className="font-pertama">{quote.deskripsi}</p>
-                </div>
+              <div className="max-w-md">
+                <p className="font-pertama">{quote.deskripsi}</p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <Wave />
-
-        <div className="flex flex-col items-center justify-center">
-          <div className="p-4 my-4 text-center">
-            <h2 className="font-kedua font-extrabold text-3xl">DAILY STORY</h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4">
-            {DiaryData.map((blog, urutan) => (
-              <Link href={`/blogs/${blog.id}`} key={urutan} className="p-2">
-                <div className="p-2 border border-black">
-                  <div className="p-2">
-                    <h2>{blog.judul}</h2>
-                  </div>
-
-                  <div className="max-w-xs p-2">
-                    <p>{blog.subJudul}</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
