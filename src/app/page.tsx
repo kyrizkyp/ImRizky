@@ -12,7 +12,7 @@ import MyQuote from "./components/home/MyQuote";
 export default function Home() {
   return (
     <main>
-      <section className="mt-0 mb-10 md:my-12 lg:my-16 xl:my-20">
+      <section className="mt-0 mb-36 md:mt-12 md:mb-40 lg:mt-16 lg:mb-36 xl:my-20">
         <div className="flex items-center justify-center relative">
           <div className="absolute lg:left-14 lg:top-20 xl:top-12 xl:left-20 2xl:top-10 2xl:left-80">
             <TopLeft />
