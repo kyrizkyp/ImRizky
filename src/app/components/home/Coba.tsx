@@ -111,7 +111,7 @@ const Coba = () => {
           </div>
 
           <div
-            className={`absolute md:relative top-[2px] -z-10 right-0 md:-right-32 md:top-0 lg:-right-72 xl:-right-[440px] transition-transform duration-500 ${
+            className={`hidden md:block absolute md:relative top-[2px] -z-10 right-0 md:-right-32 md:top-0 lg:-right-72 xl:-right-[440px] transition-transform duration-500 ${
               animasiGeser ? "translate-x-2 md:translate-x-4" : "translate-x-0"
             }`}
           >
@@ -129,7 +129,7 @@ const Coba = () => {
               animasiGeser ? "opacity-0" : " opacity-100"
             }`}
           >
-            <div className="p-2">
+            <div className="p-2 xl:p-2">
               <h1 className="text-4xl md:text-6xl lg:text-8xl font-kedua font-extrabold">
                 {gambar[titikSaatIni].judul}
               </h1>
@@ -149,28 +149,36 @@ const Coba = () => {
             </div>
           </div>
 
-          <div className="absolute -bottom-10 right-10 md:-bottom-20 md:-right-10 lg:bottom-0 lg:right-[420px] xl:bottom-28 xl:right-[500px] flex items-center justify-center gap-2">
+          <div className="absolute -bottom-14 right-10 md:-bottom-24 md:-right-10 lg:bottom-0 lg:right-[420px] xl:bottom-28 xl:right-[500px] flex items-center justify-center gap-2">
             {gambar.map((_, titik) => (
               <div
                 key={titik}
-                className={`rounded-full cursor-pointer ${
+                className={`rounded-full cursor-pointer transition-transform duration-500 ${
                   titik === titikSaatIni
-                    ? "p-2 md:p-4 border border-white md:border-black"
-                    : "p-2 md:p-4"
+                    ? "p-4 md:p-6 border border-black scale-100"
+                    : "p-4 md:p-6 scale-75"
                 }`}
                 onClick={() => gantiGambar(titik)}
               >
-                <div className="w-2 h-2 bg-white md:bg-black rounded-full"></div>
+                <div className="w-2 h-2 bg-black rounded-full"></div>
               </div>
             ))}
           </div>
 
           <div
-            className={`absolute -z-20 -bottom-24 -left-2 md:-bottom-16 md:-left-28 lg:-bottom-24 lg:left-8 xl:-top-10 xl:left-28 ease-in-out duration-1000 ${
-              animasiGeser ? "opacity-0" : " opacity-100"
+            className={`absolute -z-20 -bottom-24 -left-2 md:-bottom-16 md:-left-28 lg:-bottom-24 lg:left-8 xl:-top-10 xl:left-28 transition-transform duration-1000 ${
+              animasiGeser ? "scale-50" : "scale-100"
             }`}
           >
             <div className="w-[300px] h-[300px] md:w-[420px] md:h-[420px] lg:w-[560px] lg:h-[560px] xl:w-[680px] xl:h-[680px] border border-black rounded-full"></div>
+          </div>
+
+          <div
+            className={`hidden md:block absolute top-0 md:-left-20 lg:top-5 lg:left-20 xl:top-2 xl:-left-10 ease-in-out duration-700 ${
+              animasiGeser ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            <div className="md:w-20 md:h-60 lg:w-24 lg:h-24 border-l border-t border-black"></div>
           </div>
 
           <div className="absolute -bottom-20 right-12 md:-bottom-6 md:right-4 lg:-bottom-10 lg:right-40 xl:bottom-0 xl:right-60">
