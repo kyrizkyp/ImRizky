@@ -97,7 +97,7 @@ const Hero = () => {
           <div
             className={`relative md:absolute md:top-10 md:-right-14 lg:top-12 lg:-right-52 xl:-right-80 transition-transform duration-500 ${
               animasiGeser
-                ? "-translate-x-2 md:-translate-x-4"
+                ? "-translate-x-20 md:-translate-x-6"
                 : "translate-x-0"
             }`}
           >
@@ -111,11 +111,11 @@ const Hero = () => {
           </div>
 
           <div
-            className={`hidden md:block absolute md:relative top-[2px] -z-10 right-0 md:-right-32 md:top-0 lg:-right-72 xl:-right-[440px] transition-transform duration-500 ${
-              animasiGeser ? "translate-x-2 md:translate-x-4" : "translate-x-0"
+            className={`absolute md:relative top-[2px] -z-10 right-0 md:-right-32 md:top-0 lg:-right-72 xl:-right-[440px] transition-transform duration-500 ${
+              animasiGeser ? "translate-x-2 md:translate-x-6" : "translate-x-0"
             }`}
           >
-            <div className="w-64 h-[300px] md:w-[350px] md:h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[420px] xl:h-[600px]">
+            <div className="w-64 h-[238px] md:w-[350px] md:h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[420px] xl:h-[600px]">
               <img
                 src={latarBelakang[titikSaatIni]}
                 alt="Background"
