@@ -3,11 +3,12 @@ import Plus from "./components/background/Plus";
 import TopLeft from "./components/background/TopLeft";
 import Wave from "./components/background/Wave";
 import Gallery from "./components/gallery/Gallery";
-import Coba from "./components/home/Coba";
+
 import Expression from "./components/home/Expression";
 import IPage from "./components/home/IPage";
 import IconLink from "./components/home/IconLink";
 import MyQuote from "./components/home/MyQuote";
+import Hero from "./components/home/Hero";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <Coba />
+            <Hero />
           </div>
 
           <div className="absolute -bottom-[118px] left-12 md:bottom-24 md:left-12 lg:-bottom-24 lg:left-16 xl:bottom-10 xl:left-12 2xl:bottom-28 2xl:left-52">

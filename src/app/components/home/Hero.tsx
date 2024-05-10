@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-const Coba = () => {
+const Hero = () => {
   const [titikSaatIni, mengaturTitikSaatIni] = useState(0);
   const [animasiGeser, mengaturAnimasiGeser] = useState(false);
   const [sentuhX, mengaturSentuhX] = useState(0);
@@ -190,4 +190,4 @@ const Coba = () => {
   );
 };
 
-export default Coba;
+export default Hero;
