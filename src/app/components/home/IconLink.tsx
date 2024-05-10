@@ -11,14 +11,22 @@ const IconLink = () => {
     {
       Icon: IconBrandInstagram,
       key: "instagram",
-      link: "https://www.instagram.com/",
+      link: "https://www.instagram.com/rizkyevers/",
     },
-    { Icon: IconBrandGithub, key: "github", link: "https://github.com/" },
-    { Icon: IconBrandTiktok, key: "tiktok", link: "https://www.tiktok.com/" },
+    {
+      Icon: IconBrandGithub,
+      key: "github",
+      link: "https://github.com/rochmadrizky",
+    },
+    {
+      Icon: IconBrandTiktok,
+      key: "tiktok",
+      link: "https://www.tiktok.com/@rizkysemar",
+    },
     {
       Icon: IconBrandGmail,
       key: "gmail",
-      link: "mailto:your.email@example.com",
+      link: "mailto:rochmadrizkyputra@gmail.com",
     },
   ];
 
