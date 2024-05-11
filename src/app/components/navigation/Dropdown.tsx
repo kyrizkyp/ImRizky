@@ -65,11 +65,11 @@ const Dropdown = ({ pilihMenu }: MenuNavProps) => {
           </Link>
 
           <Link
-            href=""
+            href="/artwork"
             className="text-lg font-kedua"
             onClick={mengaturMenuKlik}
           >
-            PORTOFOLIO
+            ARTWORK
           </Link>
         </div>
       </div>
