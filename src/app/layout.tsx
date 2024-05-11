@@ -4,7 +4,8 @@ import Navbar from "./components/navigation/Navbar";
 
 export const metadata: Metadata = {
   title: "KYRIZKYP",
-  description: "Specialist in web front-end, or landing pages.",
+  description:
+    "Introducing me Rizky Putra, a Front-End Web Developer, specialist and precision in creating websites or what is usually called landing pages.",
 };
 
 export default function RootLayout({
