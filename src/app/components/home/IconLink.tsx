@@ -36,7 +36,7 @@ const IconLink = () => {
         {icons.map(({ Icon, key, link }) => (
           <div key={key} className="p-2">
             <a href={link} target="_blank" rel="noopener noreferrer">
-              <Icon />
+              <Icon className="stroke-1" />
             </a>
           </div>
         ))}

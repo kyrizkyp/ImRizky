@@ -21,11 +21,11 @@ const IPage = () => {
 
   return (
     <div className="w-full mx-4 md:mx-10 lg:mx-16 xl:mx-24 2xl:mx-80">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-4 xl:gap-0">
         {kumpulan.map((urutan, konten) => (
           <Link
             href={urutan.link}
-            className="w-[106px] h-52 md:w-48 md:h-72 lg:w-64 lg:h-[450px] xl:w-[350px] xl:h-[750px] flex items-center justify-center bg-black bg-opacity-50 hover:bg-white hover:bg-opacity-10"
+            className="w-full h-full xl:w-[350px] xl:h-[750px] flex items-center justify-center bg-black bg-opacity-50 hover:bg-white hover:bg-opacity-10"
             key={konten}
           >
             <img

@@ -23,7 +23,7 @@ export default function Home() {
             <Hero />
           </div>
 
-          <div className="absolute -bottom-[118px] left-12 md:bottom-24 md:left-12 lg:-bottom-24 lg:left-16 xl:bottom-10 xl:left-12 2xl:bottom-28 2xl:left-52">
+          <div className="absolute -bottom-[118px] left-12 md:bottom-24 md:left-12 lg:-bottom-24 lg:left-8 xl:bottom-10 xl:left-12 2xl:bottom-28 2xl:left-52">
             <IconLink />
           </div>
         </div>

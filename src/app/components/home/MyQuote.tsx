@@ -16,10 +16,15 @@ const MyQuote = () => {
                 Every process must have a purpose, every code has a meaning be
                 it an error or a bug. And every time I love I am self-aware.
               </p>
+
+              <p className="font-pertama p-1">
+                Stay focused on the main goal, other things will follow by
+                themselves.
+              </p>
             </div>
           </div>
 
-          <div className="w-8 h-20 border-l border-t border-black absolute left-2 top-8 md:top-8"></div>
+          <div className="w-8 h-36 md:h-28 border-l border-t border-black absolute left-2 top-[28px]"></div>
         </div>
 
         <div className="block md:hidden">

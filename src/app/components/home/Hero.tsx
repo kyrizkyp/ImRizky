@@ -20,7 +20,7 @@ const Hero = () => {
       foto: "https://fastly.picsum.photos/id/281/900/500.jpg?hmac=kgHy9BI0bU8yCwI-T_otZvnibeVWjQbigaH2VwvqPD4",
       judul: "ARTS WEB",
       subJudul: "FRONT-END",
-      btnJudul: "ARTWORK",
+      btnJudul: "THAT I USE",
       link: "/artwork",
     },
 
