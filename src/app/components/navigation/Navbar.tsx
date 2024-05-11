@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="block md:hidden w-full">
           <div className="flex items-center justify-between px-4">
             <Link href="/">
-              <p className="text-3xl font-ketiga font-extrabold">RIZPUTRA</p>
+              <p className="text-3xl font-ketiga font-extrabold">KYRIZKYP</p>
             </Link>
 
             <div>

@@ -11,7 +11,7 @@ const IconLink = () => {
     {
       Icon: IconBrandInstagram,
       key: "instagram",
-      link: "https://www.instagram.com/rizkyevers/",
+      link: "https://www.instagram.com/kyrzkyp/",
     },
     {
       Icon: IconBrandGithub,

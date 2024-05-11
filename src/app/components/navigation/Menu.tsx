@@ -28,7 +28,7 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
       <div className="px-4 max-w-7xl mx-auto flex items-center flex-col md:flex-row justify-between w-full">
         <Link href="/" onClick={pilihMenu}>
           <p className="text-3xl font-ketiga font-extrabold mb-12 md:mb-0">
-            RIZPUTRA
+            KYRIZKYP
           </p>
         </Link>
 
