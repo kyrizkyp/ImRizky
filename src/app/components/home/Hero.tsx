@@ -157,22 +157,6 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="absolute -bottom-14 right-2 md:-bottom-24 md:-right-10 lg:bottom-0 lg:right-[420px] xl:bottom-28 xl:right-[500px] flex items-center justify-center gap-2">
-            {gambar.map((_, titik) => (
-              <div
-                key={titik}
-                className={`rounded-full cursor-pointer transition-transform duration-500 ${
-                  titik === titikSaatIni
-                    ? "p-4 md:p-6 border border-black scale-100"
-                    : "p-4 md:p-6 scale-75"
-                }`}
-                onClick={() => gantiGambar(titik)}
-              >
-                <div className="w-2 h-2 bg-black rounded-full"></div>
-              </div>
-            ))}
-          </div>
-
           <div
             className={`absolute -z-20 -bottom-24 -left-2 md:-bottom-16 md:-left-28 lg:-bottom-24 lg:left-8 xl:-top-10 xl:left-28 transition-transform duration-1000 ${
               animasiGeser ? "scale-50" : "scale-100"
@@ -189,8 +173,32 @@ const Hero = () => {
             <div className="md:w-20 md:h-60 lg:w-24 lg:h-24 border-l border-t border-black"></div>
           </div>
 
+          <div
+            className={`hidden md:block lg:hidden xl:block absolute md:-right-40 lg:-right-[300px] xl:-right-[460px] 2xl:-right-[480px] transition-transform duration-500 ${
+              animasiGeser ? "translate-x-2 md:translate-x-6" : "translate-x-0"
+            }`}
+          >
+            <div className="w-2 h-56 xl:h-80 2xl:h-96 border-r border-black"></div>
+          </div>
+
           <div className="absolute -bottom-20 right-12 md:-bottom-6 md:right-4 lg:-bottom-10 lg:right-40 xl:bottom-0 xl:right-60">
             <div className="w-48 h-4 lg:w-72 xl:w-[400px] border-b border-black"></div>
+          </div>
+
+          <div className="absolute -bottom-14 right-2 md:-bottom-24 md:-right-10 lg:bottom-0 lg:right-[420px] xl:bottom-28 xl:right-[500px] flex items-center justify-center gap-2">
+            {gambar.map((_, titik) => (
+              <div
+                key={titik}
+                className={`rounded-full cursor-pointer transition-transform duration-500 ${
+                  titik === titikSaatIni
+                    ? "p-4 md:p-6 border border-black scale-100"
+                    : "p-4 md:p-6 scale-75"
+                }`}
+                onClick={() => gantiGambar(titik)}
+              >
+                <div className="w-2 h-2 bg-black rounded-full"></div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
