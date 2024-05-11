@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./components/navigation/Navbar";
 
 export const metadata: Metadata = {
-  title: "KYRIZKYP",
+  title: "KYRIZKYP - Front-End Web Developer",
   description:
     "Introducing me Rizky Putra, a Front-End Web Developer, specialist and precision in creating websites or what is usually called landing pages.",
 };
