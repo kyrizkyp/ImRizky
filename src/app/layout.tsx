@@ -1,6 +1,12 @@
-import Head from "next/head";
+import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/navigation/Navbar";
+
+export const metadata: Metadata = {
+  title: "KYRIZKYP - Front-End Web Developer",
+  description:
+    "Introducing me Rizky Putra, a Front-End Web Developer, specialist and precision in creating websites or what is usually called landing pages.",
+};
 
 export default function RootLayout({
   children,
@@ -9,14 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <title>KYRIZKYP - Front-End Web Developer</title>
-        <meta
-          name="description"
-          content="Introducing me Rizky Putra, a Front-End Web Developer, specialist and precision in creating websites or what is usually called landing pages."
-        />
+      <head>
         <link rel="icon" href="/logo/iam.png" sizes="any" />
-      </Head>
+      </head>
       <body>
         <Navbar />
         <div>{children}</div>
