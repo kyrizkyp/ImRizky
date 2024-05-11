@@ -157,7 +157,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="absolute -bottom-14 right-10 md:-bottom-24 md:-right-10 lg:bottom-0 lg:right-[420px] xl:bottom-28 xl:right-[500px] flex items-center justify-center gap-2">
+          <div className="absolute -bottom-14 right-2 md:-bottom-24 md:-right-10 lg:bottom-0 lg:right-[420px] xl:bottom-28 xl:right-[500px] flex items-center justify-center gap-2">
             {gambar.map((_, titik) => (
               <div
                 key={titik}
