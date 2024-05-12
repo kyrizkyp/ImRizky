@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import Dropdown from "./Dropdown";
+import Plus from "../background/Plus";
 
 interface MenuNavProps {
   pilihMenu: () => void;
@@ -18,34 +18,46 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
     },
 
     {
-      judul: "BLOG",
+      judul: "BLOGS",
       halaman: "/blogs",
+    },
+
+    {
+      judul: "ARTWORK",
+      halaman: "/artwork",
+    },
+
+    {
+      judul: "GALLERY",
+      halaman: "/gallery",
     },
   ];
 
   return (
-    <div className=" p-4 flex items-center flex-col md:flex-row justify-between w-full bg-white">
-      <div className="px-4 max-w-7xl mx-auto flex items-center flex-col md:flex-row justify-between w-full">
-        <Link href="/" onClick={pilihMenu}>
-          <p className="text-3xl font-ketiga font-extrabold mb-12 md:mb-0">
-            KYRIZKYP
-          </p>
+    <div className="flex items-center flex-col md:flex-row justify-center w-full md:w-auto">
+      <div className="flex items-center flex-col md:flex-row md:space-x-10 w-full md:w-auto">
+        <Link
+          href="/"
+          onClick={mengaturMenuKlik}
+          className="block md:hidden text-center py-2 text-4xl md:text-xl font-kedua w-full md:w-auto"
+        >
+          KYRIZKYP
         </Link>
 
-        <div className="flex items-center flex-col md:flex-row md:space-x-4">
-          {urutanMenu.map((menu, urutan) => (
-            <Link
-              key={urutan}
-              href={menu.halaman}
-              onClick={mengaturMenuKlik}
-              className="mb-4 md:mb-0 text-lg font-kedua"
-            >
-              {menu.judul}
-            </Link>
-          ))}
-
-          <Dropdown pilihMenu={pilihMenu} />
+        <div className="block md:hidden">
+          <Plus />
         </div>
+
+        {urutanMenu.map((menu, urutan) => (
+          <Link
+            key={urutan}
+            href={menu.halaman}
+            onClick={mengaturMenuKlik}
+            className="py-2 mb-8 md:py-0 md:mb-0 text-4xl md:text-xl font-kedua w-full md:w-auto"
+          >
+            {menu.judul}
+          </Link>
+        ))}
       </div>
     </div>
   );
