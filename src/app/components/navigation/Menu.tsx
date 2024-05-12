@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import Plus from "../background/Plus";
 import { IconPlus } from "@tabler/icons-react";
 
 interface MenuNavProps {
