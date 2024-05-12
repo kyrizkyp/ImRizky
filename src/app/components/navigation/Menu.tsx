@@ -56,7 +56,7 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
             key={urutan}
             href={menu.halaman}
             onClick={mengaturMenuKlik}
-            className="p-2 mb-8 md:py-0 md:mb-0 text-2xl md:text-xl font-kedua w-full md:w-auto"
+            className="px-2 my-4 md:px-0 md:my-0 text-2xl md:text-xl font-kedua w-full md:w-auto"
           >
             {menu.judul}
           </Link>
