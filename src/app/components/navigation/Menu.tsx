@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Plus from "../background/Plus";
+import { IconPlus } from "@tabler/icons-react";
 
 interface MenuNavProps {
   pilihMenu: () => void;
@@ -23,13 +24,13 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
     },
 
     {
-      judul: "ARTWORK",
-      halaman: "/artwork",
+      judul: "GALLERY",
+      halaman: "/gallery",
     },
 
     {
-      judul: "GALLERY",
-      halaman: "/gallery",
+      judul: "ARTWORK",
+      halaman: "/artwork",
     },
   ];
 
@@ -39,13 +40,15 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
         <Link
           href="/"
           onClick={mengaturMenuKlik}
-          className="block md:hidden text-center py-2 text-4xl md:text-xl font-kedua w-full md:w-auto"
+          className="block md:hidden text-center p-2 text-4xl md:text-xl font-ketiga font-extrabold w-full md:w-auto"
         >
           KYRIZKYP
         </Link>
 
         <div className="block md:hidden">
-          <Plus />
+          <div className="my-6">
+            <IconPlus className="stroke-1 text-gray-400" />
+          </div>
         </div>
 
         {urutanMenu.map((menu, urutan) => (
@@ -53,7 +56,7 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
             key={urutan}
             href={menu.halaman}
             onClick={mengaturMenuKlik}
-            className="py-2 mb-8 md:py-0 md:mb-0 text-4xl md:text-xl font-kedua w-full md:w-auto"
+            className="p-2 mb-8 md:py-0 md:mb-0 text-2xl md:text-xl font-kedua w-full md:w-auto"
           >
             {menu.judul}
           </Link>
