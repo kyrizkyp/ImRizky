@@ -16,7 +16,7 @@ const Page: React.FC<{ params: DetailBlog }> = ({ params }) => {
               href="/blogs"
               className="px-6 py-2 bg-black text-white font-ketiga font-extrabold"
             >
-              GO BACK
+              BACK
             </Link>
           </div>
 

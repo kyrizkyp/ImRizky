@@ -45,7 +45,7 @@ const Dropdown = ({ pilihMenu }: MenuNavProps) => {
   return (
     <div className="relative" ref={dropdownRef}>
       <button onClick={tombolDropdown} className="text-lg font-kedua">
-        ALL
+        EVERYTHING
       </button>
 
       <div

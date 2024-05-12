@@ -21,7 +21,7 @@ const IconLink = () => {
     {
       Icon: IconBrandTiktok,
       key: "tiktok",
-      link: "https://www.tiktok.com/@rizkysemar",
+      link: "https://www.tiktok.com/@kyrizkyp",
     },
     {
       Icon: IconBrandGmail,

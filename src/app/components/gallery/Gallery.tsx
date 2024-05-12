@@ -31,11 +31,11 @@ const Gallery = ({
   };
 
   const sampulGaleri = [
-    "https://fastly.picsum.photos/id/1031/450/800.jpg?hmac=_kCrMGQbOzYIo6Wa8ldrZpoNJeRKtRwigzN2mhsFoDg",
+    "/bg/kiri.jpg",
 
     "https://fastly.picsum.photos/id/907/450/800.jpg?hmac=gvL8sb4Dlt2h1pgn59onT0pf-_KUQ_FAluzrA_oYWf0",
 
-    "https://fastly.picsum.photos/id/842/450/800.jpg?hmac=pq7l4koxScV85cmKrFgCIfOyVPqBcZpE01giefemM4Q",
+    "/bg/kanan.jpg",
   ];
 
   return (
