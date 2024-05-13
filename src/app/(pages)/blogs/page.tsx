@@ -25,7 +25,7 @@ const page = () => {
         </div>
       </section>
 
-      <section className="my-10">
+      <section className="mt-10 mb-8">
         <div className="flex flex-col items-center justify-center">
           <div className="hidden xl:block">
             <Gallery batasGambar={8} tampilkanSampul={false} />

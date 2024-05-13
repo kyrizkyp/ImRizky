@@ -4,7 +4,7 @@ import React from "react";
 const page = () => {
   return (
     <main>
-      <section className="my-4">
+      <section className="mt-4 mb-8">
         <div className="flex items-center justify-center">
           <Artwork />
         </div>

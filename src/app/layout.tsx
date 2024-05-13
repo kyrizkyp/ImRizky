@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/navigation/Navbar";
+import Footer from "./components/footer/Footer";
 
 interface CustomMetadata extends Metadata {
   image?: string;
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         <div>{children}</div>
+        <Footer />
       </body>
     </html>
   );
