@@ -1,6 +1,8 @@
 import React from "react";
 import DiaryData from "@/app/data/DiaryData";
 import Plus from "../background/Plus";
+import BlogNotFound from "./BlogNotFound";
+import Link from "next/link";
 
 interface DiaryDetailProps {
   detailId: string;
@@ -11,10 +13,10 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
 
   if (!detailBlog) {
     return (
-      <main className="flex items-center justify-center">
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4">
-            <h1>test</h1>
+      <main>
+        <section className="my-10">
+          <div className="flex items-center justify-center">
+            <BlogNotFound />
           </div>
         </section>
       </main>
@@ -23,6 +25,15 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center my-4">
+      <div className="my-6 self-start mx-4 xl:mx-6 2xl:mx-60">
+        <Link
+          href="/blogs"
+          className="px-6 py-2 bg-black text-white font-ketiga font-extrabold"
+        >
+          BACK
+        </Link>
+      </div>
+
       <div className="w-full md:px-14 lg:px-24 xl:px-36 2xl:px-80">
         <div className="flex flex-col md:flex-row items-center  justify-center md:justify-between">
           <div className="relative">
