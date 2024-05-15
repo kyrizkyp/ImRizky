@@ -83,14 +83,14 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
         <Plus />
       </div>
 
-      <div className="p-2">
-        <div className="flex flex-col md:flex-row">
-          <div className="max-w-2xl p-2 mb-2">
+      <div className="w-full px-8 md:px-14 lg:px-28">
+        <div className="flex flex-col md:flex-row justify-between items-start">
+          <div className="max-w-xs md:max-w-md p-2 mb-2 md:mb-0">
             <h3 className="text-2xl font-ketiga font-extrabold p-1">01</h3>
             <p className="font-pertama p-1">{detailBlog.desk1}</p>
           </div>
 
-          <div className="max-w-2xl p-2 mt-2">
+          <div className="max-w-xs md:max-w-md p-2 mt-2 md:mt-0">
             <h4 className="text-2xl font-ketiga font-extrabold p-1">02</h4>
             <p className="font-pertama p-1">{detailBlog.desk2}</p>
           </div>

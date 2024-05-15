@@ -25,10 +25,12 @@ export default function RootLayout({
         <link rel="icon" href="/logo/iam.png" sizes="any" />
         <meta property="og:image" content={metadata.image} />
       </head>
-      <body>
+      <body className="relative">
         <Navbar />
-        <div className="min-h-screen">{children}</div>
-        <Footer />
+        <div>{children}</div>
+        <div className="absolute -rotate-90 bottom-10 lg:bottom-5 -right-16 md:-right-20 xl:-right-24 2xl:-right-0">
+          <Footer />
+        </div>
       </body>
     </html>
   );

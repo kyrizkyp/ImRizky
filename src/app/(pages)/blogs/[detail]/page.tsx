@@ -9,7 +9,7 @@ interface DetailBlog {
 const Page: React.FC<{ params: DetailBlog }> = ({ params }) => {
   return (
     <main>
-      <section className="mt-4 mb-8">
+      <section className="my-4">
         <div className="flex items-center justify-center">
           <DetailDiary detailId={params.detail} />
         </div>

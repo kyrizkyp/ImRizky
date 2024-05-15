@@ -3,9 +3,9 @@ import React from "react";
 
 const BlogNotFound = () => {
   return (
-    <div className="flex items-center justify-center my-52">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-20">
-        <div className="w-60 h-60 md:w-96 md:h-96 border border-black rounded-full flex items-center justify-center">
+    <div className="w-full mb-20">
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
+        <div className="w-60 h-60 xl:w-96 xl:h-96 border border-black rounded-full flex items-center justify-center">
           <div className="text-center font-kedua font-extrabold">
             <h1 className="text-6xl">404</h1>
           </div>

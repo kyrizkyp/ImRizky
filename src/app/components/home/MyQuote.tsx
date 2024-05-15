@@ -4,7 +4,7 @@ import Plus from "../background/Plus";
 
 const MyQuote = () => {
   return (
-    <div className="w-full mx-4 lg:mx-24 xl:mx-56 2xl:mx-80">
+    <div className="w-full px-4 md:px-10 lg:px-24 xl:px-56 2xl:px-80">
       <div className="flex flex-col md:flex-row items-center  justify-center md:justify-between">
         <div className="flex items-center justify-center relative">
           <div className="max-w-sm md:max-w-md 2xl:max-w-2xl p-4">
