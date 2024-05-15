@@ -41,8 +41,8 @@ const Gallery = ({
   return (
     <div className="w-full flex flex-col items-center justify-center">
       {tampilkanSampul && (
-        <div className="w-full px-4 md:px-10 xl:px-24 2xl:px-72">
-          <div className="flex items-center justify-between gap-4 md::gap-0">
+        <div className="w-full px-4 xl:px-24 2xl:px-72">
+          <div className="flex items-center justify-between gap-2 md:gap-4 xl:gap-0">
             {sampulGaleri.map((sampul, urutan) => (
               <div
                 className="w-full h-full xl:w-[350px] xl:h-[750px]"

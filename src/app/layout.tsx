@@ -25,12 +25,10 @@ export default function RootLayout({
         <link rel="icon" href="/logo/iam.png" sizes="any" />
         <meta property="og:image" content={metadata.image} />
       </head>
-      <body className="relative">
+      <body className="flex flex-col min-h-screen">
         <Navbar />
-        <div>{children}</div>
-        <div className="absolute -rotate-90 bottom-10 lg:bottom-5 -right-[70px] md:-right-[64px] xl:-right-24 2xl:-right-0">
-          <Footer />
-        </div>
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
