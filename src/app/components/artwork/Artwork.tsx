@@ -41,40 +41,40 @@ const Artwork = () => {
     {
       link: "https://nextjs.org/",
       icon: (
-        <IconBrandNextjs className="w-14 h-14 md:w-20 md:h-20 stroke-[0.6]" />
+        <IconBrandNextjs className="w-12 h-12 md:w-20 md:h-20 stroke-[0.6]" />
       ),
     },
 
     {
       link: "https://react.dev/",
       icon: (
-        <IconBrandReact className="w-14 h-14 md:w-20 md:h-20 stroke-[0.6]" />
+        <IconBrandReact className="w-12 h-12 md:w-20 md:h-20 stroke-[0.6]" />
       ),
     },
 
     {
       link: "https://nuxt.com/",
       icon: (
-        <IconBrandNuxt className="w-14 h-14 md:w-20 md:h-20 stroke-[0.6]" />
+        <IconBrandNuxt className="w-12 h-12 md:w-20 md:h-20 stroke-[0.6]" />
       ),
     },
 
     {
       link: "https://vuejs.org/",
-      icon: <IconBrandVue className="w-14 h-14 md:w-20 md:h-20 stroke-[0.6]" />,
+      icon: <IconBrandVue className="w-12 h-12 md:w-20 md:h-20 stroke-[0.6]" />,
     },
 
     {
       link: "https://tailwindcss.com/",
       icon: (
-        <IconBrandTailwind className="w-14 h-14 md:w-20 md:h-20 stroke-[0.6]" />
+        <IconBrandTailwind className="w-12 h-12 md:w-20 md:h-20 stroke-[0.6]" />
       ),
     },
   ];
   return (
     <div className="w-full flex flex-col items-center justify-center">
       <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-72">
-        <div className="flex items-center justify-between gap-4 xl:gap-0">
+        <div className="flex items-center justify-between gap-4 md:gap-0">
           {sampulArtwork.map((sampul, urutan) => (
             <div
               className="w-full h-full xl:w-[350px] xl:h-[750px]"
@@ -129,7 +129,7 @@ const Artwork = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap- items-center justify-center mb-8">
+      <div className="grid grid-cols-5 self-start md:self-center justify-center mb-8">
         {iconsData.map((data, urutan) => (
           <div className="px-2 md:px-4 xl:px-6" key={urutan}>
             <a href={data.link} target="_blank" rel="noopener noreferrer">

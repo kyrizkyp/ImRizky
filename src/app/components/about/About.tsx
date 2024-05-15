@@ -33,7 +33,7 @@ const About = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center">
       <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-72">
-        <div className="flex items-center justify-between gap-4 xl:gap-0">
+        <div className="flex items-center justify-between gap-4 md:gap-0">
           {sampulAbout.map((sampul, urutan) => (
             <div
               className="w-full h-full xl:w-[350px] xl:h-[750px]"

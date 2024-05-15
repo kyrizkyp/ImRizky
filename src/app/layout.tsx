@@ -28,7 +28,7 @@ export default function RootLayout({
       <body className="relative">
         <Navbar />
         <div>{children}</div>
-        <div className="absolute -rotate-90 bottom-10 lg:bottom-5 -right-16 md:-right-20 xl:-right-24 2xl:-right-0">
+        <div className="absolute -rotate-90 bottom-10 lg:bottom-5 -right-[70px] md:-right-[64px] xl:-right-24 2xl:-right-0">
           <Footer />
         </div>
       </body>
