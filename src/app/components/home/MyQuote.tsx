@@ -10,7 +10,7 @@ const MyQuote = () => {
           <div className="max-w-sm md:max-w-md 2xl:max-w-2xl p-4">
             <div className="p-4 text-left border-l border-black">
               <h1 className="font-ketiga font-extrabold text-xl p-1">
-                RIZPUTRA
+                KYRIZKYP
               </h1>
               <p className="font-pertama p-1">
                 Every process must have a purpose, every code has a meaning be

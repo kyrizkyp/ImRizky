@@ -11,7 +11,7 @@ const Expression = () => {
                 <p className="font-pertama p-2">{"//"}</p>
 
                 <h1 className="text-4xl font-ketiga font-extrabold p-2">
-                  RIZPUTRA
+                  KYRIZKYP
                 </h1>
               </div>
             </div>

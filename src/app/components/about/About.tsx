@@ -97,7 +97,7 @@ const About = () => {
 
                 <div className="p-2">
                   <h3 className="font-ketiga font-extrabold text-4xl">
-                    RIZPUTRA
+                    KYRIZKYP
                   </h3>
                 </div>
               </div>
