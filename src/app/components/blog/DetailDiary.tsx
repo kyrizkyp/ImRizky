@@ -1,7 +1,6 @@
 import React from "react";
 import DiaryData from "@/app/data/DiaryData";
 import Plus from "../background/Plus";
-import BlogNotFound from "./BlogNotFound";
 import Link from "next/link";
 import NotFound from "@/app/not-found";
 
