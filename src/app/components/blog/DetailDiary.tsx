@@ -3,6 +3,7 @@ import DiaryData from "@/app/data/DiaryData";
 import Plus from "../background/Plus";
 import BlogNotFound from "./BlogNotFound";
 import Link from "next/link";
+import NotFound from "@/app/not-found";
 
 interface DiaryDetailProps {
   detailId: string;
@@ -14,10 +15,8 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
   if (!detailBlog) {
     return (
       <main>
-        <section className="my-10">
-          <div className="flex items-center justify-center">
-            <BlogNotFound />
-          </div>
+        <section>
+          <NotFound />
         </section>
       </main>
     );
