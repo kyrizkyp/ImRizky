@@ -4,7 +4,7 @@ interface ModalProps {
   membuka: boolean;
   menutup: () => void;
   foto: string;
-  fotoKedua?: string;
+  fotoKedua: string | null;
   deskripsi: string;
 }
 
@@ -15,83 +15,77 @@ const ModalGaleri: React.FC<ModalProps> = ({
   fotoKedua,
   deskripsi,
 }) => {
-  const modalRef = useRef<HTMLDivElement>(null);
-  const [gambarSaatIni, mengaturGambarSaatIni] = useState(foto);
+  const [gambarSekarang, mengaturGambarSekarang] = useState<string>(foto);
   const [titikAktif, mengaturTitikAktif] = useState(1);
-  const [sentuhanAwalX, mengaturSentuhanAwalX] = useState(0);
-  const [sentuhanAkhirX, mengaturSentuhanAkhirX] = useState(0);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const sentuhanLayar = useRef<number | null>(null);
 
   useEffect(() => {
-    mengaturGambarSaatIni(foto);
-    mengaturTitikAktif(1);
-  }, [foto]);
-
-  const beralihGambar = (gamber: string, titik: number) => {
-    mengaturGambarSaatIni(gamber);
-    mengaturTitikAktif(titik);
-  };
-
-  const menutupModal = () => {
-    mengaturGambarSaatIni(foto);
-    mengaturTitikAktif(1);
-    menutup();
-  };
-
-  const klikKeyboard = (menekan: KeyboardEvent) => {
-    if (menekan.key === "Escape") {
-      menutupModal();
-    } else if (menekan.key === "ArrowLeft") {
-      gambarSebelumnya();
-    } else if (menekan.key === "ArrowRight") {
-      gambarSelanjutnya();
+    if (membuka) {
+      mengaturGambarSekarang(foto);
+      mengaturTitikAktif(1);
     }
-  };
 
-  const gambarSelanjutnya = () => {
-    if (fotoKedua) {
+    if (membuka) {
+      document.addEventListener("keydown", handleKeyPress);
+      modalRef.current?.addEventListener("touchstart", handleTouchStart);
+      modalRef.current?.addEventListener("touchmove", handleTouchMove);
+      modalRef.current?.addEventListener("touchend", handleTouchEnd);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+      modalRef.current?.removeEventListener("touchstart", handleTouchStart);
+      modalRef.current?.removeEventListener("touchmove", handleTouchMove);
+      modalRef.current?.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [membuka, foto, deskripsi, menutup]);
+
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      menutup();
+    } else if (event.key === "ArrowRight" && fotoKedua) {
       beralihGambar(fotoKedua, 2);
+    } else if (event.key === "ArrowLeft") {
+      beralihGambar(foto, 1);
     }
   };
 
-  const gambarSebelumnya = () => {
-    beralihGambar(foto, 1);
+  const handleTouchStart = (event: TouchEvent) => {
+    sentuhanLayar.current = event.touches[0].clientX;
   };
 
-  const memulaiSentuhan = (geser: React.TouchEvent<HTMLDivElement>) => {
-    mengaturSentuhanAwalX(geser.touches[0].clientX);
-  };
-
-  const sentuhanBerpindah = (geser: React.TouchEvent<HTMLDivElement>) => {
-    mengaturSentuhanAkhirX(geser.touches[0].clientX);
-  };
-
-  const akhirSentuhan = () => {
-    if (sentuhanAwalX - sentuhanAkhirX > 50) {
-      gambarSelanjutnya();
+  const handleTouchMove = (event: TouchEvent) => {
+    if (sentuhanLayar.current !== null) {
+      event.preventDefault();
     }
+  };
 
-    if (sentuhanAwalX - sentuhanAkhirX < -50) {
-      gambarSebelumnya();
+  const handleTouchEnd = (event: TouchEvent) => {
+    if (sentuhanLayar.current !== null) {
+      const touchEndX = event.changedTouches[0].clientX;
+      const deltaX = sentuhanLayar.current - touchEndX;
+
+      if (deltaX > 50 && fotoKedua) {
+        beralihGambar(fotoKedua, 2);
+      } else if (deltaX < -50) {
+        beralihGambar(foto, 1);
+      }
+
+      sentuhanLayar.current = null;
     }
+  };
+
+  const beralihGambar = (gambar: string, titik: number) => {
+    mengaturGambarSekarang(gambar);
+    mengaturTitikAktif(titik);
   };
 
   const klikLuar = (klik: React.MouseEvent<HTMLDivElement>) => {
     if (modalRef.current === klik.target) {
-      menutupModal();
+      menutup();
     }
   };
-
-  useEffect(() => {
-    if (membuka) {
-      document.addEventListener("keyup", klikKeyboard, false);
-    } else {
-      document.removeEventListener("keyup", klikKeyboard, false);
-    }
-
-    return () => {
-      document.removeEventListener("keyup", klikKeyboard, false);
-    };
-  }, [membuka]);
 
   return (
     <div
@@ -102,15 +96,12 @@ const ModalGaleri: React.FC<ModalProps> = ({
       }`}
       ref={modalRef}
       onClick={klikLuar}
-      onTouchStart={memulaiSentuhan}
-      onTouchMove={sentuhanBerpindah}
-      onTouchEnd={akhirSentuhan}
     >
       <div className="p-4">
         <div className="flex flex-col md:flex-row items-center justify-center p-2 bg-white rounded-2xl">
           <div className="w-56 h-56 md:w-72 md:h-72 xl:w-96 xl:h-96 m-2 relative flex items-center justify-center">
             <img
-              src={gambarSaatIni}
+              src={gambarSekarang}
               alt="Detail"
               className="object-cover w-full h-full md:rounded-l-2xl"
             />
