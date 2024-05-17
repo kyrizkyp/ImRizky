@@ -28,11 +28,12 @@ const Expression = () => {
             </p>
 
             <p className="font-pertama p-2">
-              Front end developers are like keepers of the flame of digital
-              love. Like a lover who cultivates a relationship with great care,
-              he arranges every pixel with affection and delicacy. Every line of
-              code is an expression of love for beauty, and every click is a
-              promise to continue nurturing and perfecting this relationship.
+              Front end developers are like keepers of the digital fire Love.
+              Like a pair of lovers who cultivate a relationship with full
+              attention, he arranges each pixel with affection and delicacy.
+              Every line of code is an expression of love for beauty, and every
+              click is a promise to continue nurturing and perfecting this
+              relationship.
             </p>
           </div>
         </div>

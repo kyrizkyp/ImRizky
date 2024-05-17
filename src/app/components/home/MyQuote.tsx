@@ -13,8 +13,8 @@ const MyQuote = () => {
                 KYRIZKYP
               </h1>
               <p className="font-pertama p-1">
-                Every process must have a purpose, every code has a meaning be
-                it an error or a bug. And every time I love I am self-aware.
+                Every process must have a purpose, every red code means an
+                error. And every time I love, I am self-aware.
               </p>
 
               <p className="font-pertama p-1">
