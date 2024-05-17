@@ -26,7 +26,7 @@ const IconLink = () => {
     {
       Icon: IconBrandGmail,
       key: "gmail",
-      link: "mailto:kyrizkyp@gmail.com",
+      link: "mailto:kyrzkyp@gmail.com",
     },
   ];
 

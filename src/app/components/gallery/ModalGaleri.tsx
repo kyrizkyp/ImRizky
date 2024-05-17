@@ -27,43 +27,43 @@ const ModalGaleri: React.FC<ModalProps> = ({
     }
 
     if (membuka) {
-      document.addEventListener("keydown", handleKeyPress);
-      modalRef.current?.addEventListener("touchstart", handleTouchStart);
-      modalRef.current?.addEventListener("touchmove", handleTouchMove);
-      modalRef.current?.addEventListener("touchend", handleTouchEnd);
+      document.addEventListener("keydown", menekanKeyboard);
+      modalRef.current?.addEventListener("touchstart", awalSentuhan);
+      modalRef.current?.addEventListener("touchmove", gerakanSetuhan);
+      modalRef.current?.addEventListener("touchend", akhirSentuhan);
     }
 
     return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-      modalRef.current?.removeEventListener("touchstart", handleTouchStart);
-      modalRef.current?.removeEventListener("touchmove", handleTouchMove);
-      modalRef.current?.removeEventListener("touchend", handleTouchEnd);
+      document.removeEventListener("keydown", menekanKeyboard);
+      modalRef.current?.removeEventListener("touchstart", awalSentuhan);
+      modalRef.current?.removeEventListener("touchmove", gerakanSetuhan);
+      modalRef.current?.removeEventListener("touchend", akhirSentuhan);
     };
   }, [membuka, foto, deskripsi, menutup]);
 
-  const handleKeyPress = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
+  const menekanKeyboard = (tekan: KeyboardEvent) => {
+    if (tekan.key === "Escape") {
       menutup();
-    } else if (event.key === "ArrowRight" && fotoKedua) {
+    } else if (tekan.key === "ArrowRight" && fotoKedua) {
       beralihGambar(fotoKedua, 2);
-    } else if (event.key === "ArrowLeft") {
+    } else if (tekan.key === "ArrowLeft") {
       beralihGambar(foto, 1);
     }
   };
 
-  const handleTouchStart = (event: TouchEvent) => {
-    sentuhanLayar.current = event.touches[0].clientX;
+  const awalSentuhan = (geser: TouchEvent) => {
+    sentuhanLayar.current = geser.touches[0].clientX;
   };
 
-  const handleTouchMove = (event: TouchEvent) => {
+  const gerakanSetuhan = (geser: TouchEvent) => {
     if (sentuhanLayar.current !== null) {
-      event.preventDefault();
+      geser.preventDefault();
     }
   };
 
-  const handleTouchEnd = (event: TouchEvent) => {
+  const akhirSentuhan = (geser: TouchEvent) => {
     if (sentuhanLayar.current !== null) {
-      const touchEndX = event.changedTouches[0].clientX;
+      const touchEndX = geser.changedTouches[0].clientX;
       const deltaX = sentuhanLayar.current - touchEndX;
 
       if (deltaX > 50 && fotoKedua) {
