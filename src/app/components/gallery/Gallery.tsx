@@ -56,31 +56,31 @@ const Gallery = ({
               </div>
             ))}
           </div>
-        </div>
-      )}
 
-      {tampilkanSampul && (
-        <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-80 mb-4">
-          <div className="relative p-4 self-start">
-            <div className="max-w-md p-4 border-l border-black">
-              <p className="font-pertama">
-                Photo galleries are like love revealing beauty in the details.
-                Each image is a memory, recording a precious moment. Like
-                relationships, composition and lighting build a story.
-              </p>
+          <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-80">
+            <div className="relative p-4 self-start">
+              <div className="max-w-md p-4 border-l border-black">
+                <p className="font-pertama">
+                  Photo galleries are like love revealing beauty in the details.
+                  Each image is a memory, recording a precious moment. Like
+                  relationships, composition and lighting build a story.
+                </p>
+              </div>
+
+              <div className="w-8 h-24 border-l border-t border-black absolute left-2 top-6"></div>
             </div>
-
-            <div className="w-8 h-24 border-l border-t border-black absolute left-2 top-6"></div>
           </div>
         </div>
       )}
 
-      <div>
-        <Plus />
-      </div>
+      {tampilkanSampul && (
+        <div className="my-4">
+          <Plus />
+        </div>
+      )}
 
-      <div className="flex flex-col items-center justify-center mt-4">
-        <div className="p-4 max-w-2xl text-center">
+      <div className="flex flex-col items-center justify-center">
+        <div className="max-w-2xl text-center mb-4">
           <h1 className="font-kedua font-extrabold text-3xl">MY GALLERY</h1>
           <p className="font-pertama text-lg p-2">A collection of my photos.</p>
         </div>

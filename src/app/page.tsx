@@ -49,6 +49,10 @@ export default function Home() {
         <Wave />
       </section>
 
+      <section>
+        <Plus />
+      </section>
+
       <section className="my-10 md:my-12 lg:my-16 xl:my-20">
         <div className="flex flex-col items-center justify-center">
           <div className="hidden xl:block">
