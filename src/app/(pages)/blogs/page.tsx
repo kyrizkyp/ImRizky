@@ -25,6 +25,10 @@ const page = () => {
         </div>
       </section>
 
+      <section>
+        <Plus />
+      </section>
+
       <section className="mt-10 mb-8">
         <div className="flex flex-col items-center justify-center">
           <div className="hidden xl:block">

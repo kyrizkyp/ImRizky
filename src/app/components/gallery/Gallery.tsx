@@ -57,7 +57,7 @@ const Gallery = ({
             ))}
           </div>
 
-          <div className="w-full px-4 md:px-10 lg:px-16 xl:px-24 2xl:px-80">
+          <div className="w-full px-4 md:px-10">
             <div className="relative p-4 self-start">
               <div className="max-w-md p-4 border-l border-black">
                 <p className="font-pertama">

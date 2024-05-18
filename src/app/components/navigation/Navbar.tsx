@@ -41,9 +41,9 @@ const Navbar = () => {
   return (
     <header className="p-4 sticky top-0 left-0 right-0 z-10 bg-white">
       <div className="hidden md:block">
-        <div className="flex items-center justify-between px-4 xl:px-12 2xl:px-24">
+        <div className="flex items-center justify-between px-4 xl:px-12 2xl:px-28">
           <Link href="/" onClick={pilihMenu}>
-            <p className="text-3xl font-ketiga font-extrabold mb-12 md:mb-0">
+            <p className="text-2xl font-ketiga font-extrabold mb-12 md:mb-0">
               KYRIZKYP
             </p>
           </Link>
@@ -57,7 +57,7 @@ const Navbar = () => {
       <div className="block md:hidden">
         <div className="flex items-center justify-between px-4">
           <Link href="/">
-            <p className="text-3xl font-ketiga font-extrabold">KYRIZKYP</p>
+            <p className="text-2xl font-ketiga font-extrabold">KYRIZKYP</p>
           </Link>
 
           <div>
