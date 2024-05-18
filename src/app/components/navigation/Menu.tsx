@@ -13,21 +13,25 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
 
   const urutanMenu = [
     {
+      tag: "/ Introduction",
       judul: "ABOUT ME",
       halaman: "/about-me",
     },
 
     {
+      tag: "/ Notes",
       judul: "BLOGS",
       halaman: "/blogs",
     },
 
     {
+      tag: "/ Snapshot",
       judul: "GALLERY",
       halaman: "/gallery",
     },
 
     {
+      tag: "/ Code art",
       judul: "ARTWORK",
       halaman: "/artwork",
     },
@@ -55,9 +59,19 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
             key={urutan}
             href={menu.halaman}
             onClick={mengaturMenuKlik}
-            className="px-2 my-4 md:px-0 md:my-0 text-2xl md:text-lg font-kedua w-full md:w-auto"
+            className="w-full md:w-auto mb-4 md:mb-0"
           >
-            {menu.judul}
+            <div className="block md:hidden">
+              <div>
+                <p className="font-pertama text-sm text-gray-400g">
+                  {menu.tag}
+                </p>
+              </div>
+            </div>
+
+            <h1 className="text-2xl md:text-lg font-kedua px-2 md:px-0">
+              {menu.judul}
+            </h1>
           </Link>
         ))}
       </div>
