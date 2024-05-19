@@ -12,11 +12,11 @@ const NotFound = () => {
             </div>
           </div>
 
-          <div className="absolute top-10 left-4">
+          <div className="absolute top-10 left-0 xl:left-4">
             <div className="w-40 h-10 border-t border-black"></div>
           </div>
 
-          <div className="absolute bottom-10 right-4">
+          <div className="absolute bottom-10 right-0 xl:right-4">
             <div className="w-40 h-10 border-b border-black"></div>
           </div>
         </div>
