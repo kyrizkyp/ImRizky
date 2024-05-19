@@ -1,6 +1,10 @@
 import About from "@/app/components/about/About";
 import React from "react";
 
+export const metadata = {
+  title: "KYRIZKYP - About me",
+};
+
 const page = () => {
   return (
     <main>

@@ -6,6 +6,10 @@ import Gallery from "@/app/components/gallery/Gallery";
 import Link from "next/link";
 import React from "react";
 
+export const metadata = {
+  title: "KYRIZKYP - Blogs",
+};
+
 const page = () => {
   return (
     <main>

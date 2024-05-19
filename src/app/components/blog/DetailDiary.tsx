@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import DiaryData from "@/app/data/DiaryData";
 import Plus from "../background/Plus";
 import Link from "next/link";
@@ -10,6 +12,12 @@ interface DiaryDetailProps {
 
 const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
   const detailBlog = DiaryData.find((detail) => detail.id === detailId);
+
+  useEffect(() => {
+    if (detailBlog) {
+      document.title = `KYRIZKYP - ${detailBlog.judul}`;
+    }
+  }, [detailBlog]);
 
   if (!detailBlog) {
     return (

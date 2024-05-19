@@ -1,6 +1,10 @@
 import Gallery from "@/app/components/gallery/Gallery";
 import React from "react";
 
+export const metadata = {
+  title: "KYRIZKYP - Gallery",
+};
+
 const page = () => {
   return (
     <main>

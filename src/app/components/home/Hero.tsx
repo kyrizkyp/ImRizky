@@ -27,7 +27,7 @@ const Hero = () => {
     {
       foto: "https://fastly.picsum.photos/id/1064/900/500.jpg?hmac=ilOQsllcQK35qGpAnicBwYWuuO-zou9eVwDCUF2OeGk",
       judul: "CREAVITY",
-      subJudul: "ABOVE ALL",
+      subJudul: "EVERYTHING",
       btnJudul: "NOTE IT DOWN",
       link: "/blogs",
     },
@@ -133,7 +133,7 @@ const Hero = () => {
           </div>
 
           <div
-            className={`absolute left-0 -bottom-11 md:-bottom-32 md:-left-44 lg:top-32 lg:-left-72 xl:-left-[380px] ease-in-out duration-1000 ${
+            className={`absolute left-0 -bottom-11 md:-bottom-32 md:-left-44 lg:top-32 lg:-left-72 xl:-left-[380px] 2xl:-left-[420px] ease-in-out duration-1000 ${
               animasiGeser ? "opacity-0" : " opacity-100"
             }`}
           >
@@ -147,7 +147,7 @@ const Hero = () => {
               </h2>
             </div>
 
-            <div className="mx-10 my-2 md:my-4">
+            <div className="mx-10 md:mx-2 my-2 md:my-4">
               <Link
                 href={gambar[titikSaatIni].link}
                 className="py-2 px-6 bg-black text-white font-kedua text-2xl"

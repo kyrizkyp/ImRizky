@@ -1,6 +1,5 @@
 import React from "react";
 import DetailDiary from "@/app/components/blog/DetailDiary";
-import Link from "next/link";
 
 interface DetailBlog {
   detail: string;

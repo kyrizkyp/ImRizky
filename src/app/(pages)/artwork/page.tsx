@@ -1,6 +1,10 @@
 import Artwork from "@/app/components/artwork/Artwork";
 import React from "react";
 
+export const metadata = {
+  title: "KYRIZKYP - Artwork",
+};
+
 const page = () => {
   return (
     <main>

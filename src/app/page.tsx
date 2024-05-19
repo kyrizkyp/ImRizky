@@ -15,7 +15,7 @@ export default function Home() {
     <main>
       <section className="mt-0 mb-36 md:mt-12 md:mb-40 lg:mt-16 lg:mb-36 xl:my-20">
         <div className="flex items-center justify-center relative">
-          <div className="absolute lg:left-14 lg:top-20 xl:top-12 xl:left-20 2xl:top-10 2xl:left-80">
+          <div className="absolute lg:left-14 lg:top-20 xl:top-12 xl:left-20 2xl:top-10 2xl:left-[310px]">
             <TopLeft />
           </div>
 
@@ -23,7 +23,7 @@ export default function Home() {
             <Hero />
           </div>
 
-          <div className="absolute -bottom-[118px] left-12 md:bottom-24 md:left-12 lg:-bottom-24 lg:left-8 xl:bottom-10 xl:left-12 2xl:bottom-28 2xl:left-52">
+          <div className="absolute -bottom-[118px] left-12 md:bottom-24 md:left-12 lg:-bottom-24 lg:left-8 xl:bottom-10 xl:left-12 2xl:bottom-28 2xl:left-56">
             <IconLink />
           </div>
         </div>
