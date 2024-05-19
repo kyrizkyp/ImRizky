@@ -24,16 +24,20 @@ const NotFound = () => {
         <div className="flex flex-col items-center justify-center p-4">
           <div className="max-w-md text-center xl:text-left">
             <h2 className="font-kedua text-4xl p-2">PAGE NOT FOUND</h2>
-            <div className="p-2 relative flex items-center justify-center">
-              <div className="p-2 border-l border-black">
+            <div className="p-4 relative flex items-center justify-center">
+              <div className="p-2 border-l border-r xl:border-r-0 border-black">
                 <p className="font-pertama">
                   Oops! The page you are looking for does not exist. It might
                   have been moved or deleted.
                 </p>
               </div>
 
-              <div className="absolute top-0 left-0">
+              <div className="absolute top-2 left-2">
                 <div className="w-6 h-10 border-l border-t border-black"></div>
+              </div>
+
+              <div className="block xl:hidden absolute bottom-2 right-2">
+                <div className="w-6 h-10 border-r border-b border-black"></div>
               </div>
             </div>
           </div>
