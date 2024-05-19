@@ -63,9 +63,7 @@ const Menu = ({ pilihMenu }: MenuNavProps) => {
           >
             <div className="block md:hidden">
               <div>
-                <p className="font-pertama text-sm text-gray-400g">
-                  {menu.tag}
-                </p>
+                <p className="font-pertama text-sm text-gray-400">{menu.tag}</p>
               </div>
             </div>
 
