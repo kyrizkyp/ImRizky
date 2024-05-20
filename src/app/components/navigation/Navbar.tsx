@@ -27,10 +27,19 @@ const Navbar = () => {
       }
     };
 
+    const periksaInspeksi = () => {
+      if (!document.hidden && bukaMenu) {
+        mengaturMenuTerbuka(false);
+        mengaturAnimasiPutar(false);
+      }
+    };
+
     document.addEventListener("keydown", klikEsc);
+    document.addEventListener("visibilitychange", periksaInspeksi);
 
     return () => {
       document.removeEventListener("keydown", klikEsc);
+      document.removeEventListener("visibilitychange", periksaInspeksi);
     };
   }, [bukaMenu]);
 
