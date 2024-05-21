@@ -33,7 +33,7 @@ const GaleriData: DataFoto[] = [
   },
 
   {
-    foto: "https://fastly.picsum.photos/id/872/400/400.jpg?hmac=wM1qrHayxf8WMj6Tmpz_GcNb8n7n9-XQdETTN3BaDz0",
+    foto: "https://fastly.picsum.photos/id/335/400/400.jpg?hmac=W_J8fdPeeKNO-LkQGSRFsAzZmJa2MdoyIM9PRT9560A",
 
     fotoKedua: "",
 
