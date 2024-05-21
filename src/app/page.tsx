@@ -55,13 +55,7 @@ export default function Home() {
 
       <section className="my-10 md:my-12 lg:my-16 xl:my-20">
         <div className="flex flex-col items-center justify-center">
-          <div className="hidden xl:block">
-            <Gallery batasGambar={8} tampilkanSampul={false} />
-          </div>
-
-          <div className="block xl:hidden">
-            <Gallery batasGambar={6} tampilkanSampul={false} />
-          </div>
+          <Gallery batasGambar={null} tampilkanSampul={false} />
 
           <Link
             href="/gallery"
