@@ -8,7 +8,7 @@ interface ModalProps {
   deskripsi: string;
 }
 
-const ModalGaleri: React.FC<ModalProps> = ({
+const ModalGallery: React.FC<ModalProps> = ({
   membuka,
   menutup,
   foto,
@@ -138,4 +138,4 @@ const ModalGaleri: React.FC<ModalProps> = ({
   );
 };
 
-export default ModalGaleri;
+export default ModalGallery;

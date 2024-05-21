@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import GaleriData from "@/app/data/GaleriData";
-import ModalGaleri from "./ModalGaleri";
+import ModalGallery from "./ModalGallery";
 import Plus from "../background/Plus";
 
 interface GalleryProps {
@@ -121,7 +121,7 @@ const Gallery = ({
           </div>
         </div>
 
-        <ModalGaleri
+        <ModalGallery
           membuka={bukaModal}
           menutup={tutupModal}
           foto={tampilkanFoto}
