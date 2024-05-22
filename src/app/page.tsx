@@ -1,9 +1,7 @@
 import Link from "next/link";
 import Plus from "./components/background/Plus";
 import TopLeft from "./components/background/TopLeft";
-import Wave from "./components/background/Wave";
 import Gallery from "./components/gallery/Gallery";
-
 import Expression from "./components/home/Expression";
 import IPage from "./components/home/IPage";
 import IconLink from "./components/home/IconLink";
@@ -43,10 +41,6 @@ export default function Home() {
         <div className="flex items-center justify-center">
           <Expression />
         </div>
-      </section>
-
-      <section>
-        <Wave />
       </section>
 
       <section>

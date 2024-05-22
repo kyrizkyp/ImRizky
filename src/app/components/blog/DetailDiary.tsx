@@ -60,11 +60,6 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
             <div className="absolute top-2 left-2 lg:-left-2">
               <p className="text-4xl font-ketiga">{"/"}</p>
             </div>
-
-            <div
-              className="h-10 md:h-14 flex items-center justify-center"
-              style={{ backgroundImage: `url('/bg/topography.svg')` }}
-            ></div>
           </div>
 
           <div className="relative">
