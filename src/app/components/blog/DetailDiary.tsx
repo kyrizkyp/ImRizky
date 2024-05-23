@@ -55,6 +55,12 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
                   {detailBlog.subJudul}
                 </h2>
               </div>
+
+              <div className="p-6 border-black">
+                <h2 className="text-lg font-ketiga font-extrabold">
+                  {detailBlog.status}
+                </h2>
+              </div>
             </div>
 
             <div className="absolute top-2 left-2 lg:-left-2">

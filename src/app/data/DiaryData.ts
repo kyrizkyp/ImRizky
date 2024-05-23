@@ -1,6 +1,7 @@
 interface DataBlog {
   judul: string;
   subJudul: string;
+  status: string;
   desk1: string;
   desk2: string;
   date: string;
@@ -9,9 +10,11 @@ interface DataBlog {
 
 const DiaryData: DataBlog[] = [
   {
-    judul: "COBA DIARY BLOGS DETAIL PAGE",
+    judul: "LIST PLAN IN ARTWORK",
 
-    subJudul: "ini deskripsi singkat",
+    subJudul: "ini subjudul atau deskripsi singkat",
+
+    status: "COMING SOON",
 
     desk1: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae totam quos odio ex autem suscipit, nam dolorem reprehenderit ipsum itaque doloribus, alias, saepe unde?",
 
