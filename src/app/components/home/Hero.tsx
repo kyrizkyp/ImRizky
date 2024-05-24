@@ -1,42 +1,19 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import HeroData from "@/app/data/HeroData";
 
 const Hero = () => {
   const [titikSaatIni, mengaturTitikSaatIni] = useState(0);
   const [animasiGeser, mengaturAnimasiGeser] = useState(false);
   const [sentuhX, mengaturSentuhX] = useState(0);
 
-  const gambar = [
-    {
-      foto: "https://fastly.picsum.photos/id/501/900/500.jpg?hmac=C86Xc0e9WvJ3ZqwwE-7nHdH7_knINAIw-1IULXSusN4",
-      judul: "I AM",
-      subJudul: "KYRIZKYP",
-      btnJudul: "INTRODUCE",
-      link: "/about-me",
-    },
-
-    {
-      foto: "https://fastly.picsum.photos/id/281/900/500.jpg?hmac=kgHy9BI0bU8yCwI-T_otZvnibeVWjQbigaH2VwvqPD4",
-      judul: "ARTS WEB",
-      subJudul: "FRONT-END",
-      btnJudul: "THAT I USE",
-      link: "/artwork",
-    },
-
-    {
-      foto: "https://fastly.picsum.photos/id/1064/900/500.jpg?hmac=ilOQsllcQK35qGpAnicBwYWuuO-zou9eVwDCUF2OeGk",
-      judul: "CREAVITY",
-      subJudul: "EVERYTHING",
-      btnJudul: "NOTE IT DOWN",
-      link: "/blogs",
-    },
-  ];
   const latarBelakang = ["/bg/bg1.jpg", "/bg/bg2.jpg", "/bg/bg3.jpg"];
 
   useEffect(() => {
     const waktuPerubahan = setInterval(() => {
-      const perubahanAnimasi = (titikSaatIni + 1) % gambar.length;
+      const perubahanAnimasi = (titikSaatIni + 1) % HeroData.length;
       mengaturAnimasiGeser(true);
       setTimeout(() => {
         mengaturTitikSaatIni(perubahanAnimasi);
@@ -47,13 +24,13 @@ const Hero = () => {
     const navigasiKeyboard = (klik: { key: string }) => {
       if (klik.key === "ArrowLeft" && titikSaatIni !== 0) {
         const sebelumnya =
-          titikSaatIni === 0 ? gambar.length - 1 : titikSaatIni - 1;
+          titikSaatIni === 0 ? HeroData.length - 1 : titikSaatIni - 1;
         gantiGambar(sebelumnya);
       } else if (
         klik.key === "ArrowRight" &&
-        titikSaatIni !== gambar.length - 1
+        titikSaatIni !== HeroData.length - 1
       ) {
-        const selanjutnya = (titikSaatIni + 1) % gambar.length;
+        const selanjutnya = (titikSaatIni + 1) % HeroData.length;
         gantiGambar(selanjutnya);
       }
     };
@@ -64,7 +41,7 @@ const Hero = () => {
       clearInterval(waktuPerubahan);
       document.removeEventListener("keydown", navigasiKeyboard);
     };
-  }, [titikSaatIni, gambar.length]);
+  }, [titikSaatIni, HeroData.length]);
 
   const gantiGambar = (konten: React.SetStateAction<number>) => {
     mengaturAnimasiGeser(true);
@@ -85,10 +62,10 @@ const Hero = () => {
     if (Math.abs(perbedaanX) > 50) {
       if (perbedaanX > 0 && titikSaatIni !== 0) {
         const indexSebelumnya =
-          titikSaatIni === 0 ? gambar.length - 1 : titikSaatIni - 1;
+          titikSaatIni === 0 ? HeroData.length - 1 : titikSaatIni - 1;
         gantiGambar(indexSebelumnya);
-      } else if (perbedaanX < 0 && titikSaatIni !== gambar.length - 1) {
-        const indexSelanjutnya = (titikSaatIni + 1) % gambar.length;
+      } else if (perbedaanX < 0 && titikSaatIni !== HeroData.length - 1) {
+        const indexSelanjutnya = (titikSaatIni + 1) % HeroData.length;
         gantiGambar(indexSelanjutnya);
       }
     }
@@ -111,7 +88,7 @@ const Hero = () => {
           >
             <div className="w-full h-60 md:w-[450px] md:h-80 lg:w-[500px] lg:h-[400px] xl:w-[740px] xl:h-[500px]">
               <img
-                src={gambar[titikSaatIni].foto}
+                src={HeroData[titikSaatIni].foto}
                 alt="me"
                 className="object-cover w-full h-full"
               />
@@ -124,8 +101,10 @@ const Hero = () => {
             }`}
           >
             <div className="w-64 h-[238px] md:w-[350px] md:h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[420px] xl:h-[600px]">
-              <img
+              <Image
                 src={latarBelakang[titikSaatIni]}
+                width={420}
+                height={600}
                 alt="Background"
                 className="object-cover w-full h-full"
               />
@@ -139,20 +118,20 @@ const Hero = () => {
           >
             <div className="p-2 xl:p-2">
               <h1 className="text-4xl md:text-6xl lg:text-8xl font-kedua font-extrabold">
-                {gambar[titikSaatIni].judul}
+                {HeroData[titikSaatIni].judul}
               </h1>
 
               <h2 className="text-4xl md:text-6xl lg:text-8xl font-kedua font-extrabold">
-                {gambar[titikSaatIni].subJudul}
+                {HeroData[titikSaatIni].subJudul}
               </h2>
             </div>
 
             <div className="mx-10 md:mx-2 my-2 md:my-4">
               <Link
-                href={gambar[titikSaatIni].link}
+                href={HeroData[titikSaatIni].link}
                 className="py-2 px-6 bg-black text-white font-kedua text-2xl"
               >
-                {gambar[titikSaatIni].btnJudul}
+                {HeroData[titikSaatIni].btnJudul}
               </Link>
             </div>
           </div>
@@ -186,7 +165,7 @@ const Hero = () => {
           </div>
 
           <div className="absolute -bottom-14 right-2 md:-bottom-24 md:-right-10 lg:bottom-0 lg:right-[420px] xl:bottom-28 xl:right-[500px] flex items-center justify-center gap-2">
-            {gambar.map((_, titik) => (
+            {HeroData.map((_, titik) => (
               <div
                 key={titik}
                 className={`rounded-full cursor-pointer transition-transform duration-500 ${
