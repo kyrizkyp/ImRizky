@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import GaleriData from "@/app/data/GaleriData";
 import HalamanData from "@/app/data/HalamanData";
+import SampulData from "@/app/data/SampulData";
 import ModalGallery from "./ModalGallery";
 import Plus from "../background/Plus";
 
@@ -33,7 +34,11 @@ const Gallery = ({
 
   const fotoGaleri = HalamanData.find((data) => data.link === "/gallery")?.foto;
 
-  const sampulGaleri = ["/bg/kiri.jpg", fotoGaleri, "/bg/kanan.jpg"];
+  const sampulKiri = SampulData.find((data) => data.judul === "kiri")?.foto;
+
+  const sampulKanan = SampulData.find((data) => data.judul === "kanan")?.foto;
+
+  const sampulGaleri = [sampulKiri, fotoGaleri, sampulKanan];
 
   return (
     <div className="w-full flex flex-col items-center justify-center">

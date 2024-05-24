@@ -1,9 +1,9 @@
-interface DataSampul {
+interface DataFotoHalaman {
   foto: string;
   link: string;
 }
 
-const HalamanData: DataSampul[] = [
+const HalamanData: DataFotoHalaman[] = [
   {
     foto: "https://fastly.picsum.photos/id/109/450/800.jpg?hmac=XgHIVw4aeD3fxzEoB52pqdb_CCai36KWJztWokVJYAs",
     link: "/about-me",

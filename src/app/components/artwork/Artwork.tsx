@@ -1,6 +1,7 @@
 import React from "react";
 import Plus from "../background/Plus";
 import HalamanData from "@/app/data/HalamanData";
+import SampulData from "@/app/data/SampulData";
 import {
   IconBrandNextjs,
   IconBrandNuxt,
@@ -14,7 +15,11 @@ const Artwork = () => {
     (data) => data.link === "/artwork"
   )?.foto;
 
-  const sampulArtwork = ["/bg/kiri.jpg", fotoArtwork, "/bg/kanan.jpg"];
+  const sampulKiri = SampulData.find((data) => data.judul === "kiri")?.foto;
+
+  const sampulKanan = SampulData.find((data) => data.judul === "kanan")?.foto;
+
+  const sampulArtwork = [sampulKiri, fotoArtwork, sampulKanan];
 
   const penjelasan = [
     {

@@ -1,12 +1,17 @@
 import React from "react";
 import QuoteData from "@/app/data/QuoteData";
 import HalamanData from "@/app/data/HalamanData";
+import SampulData from "@/app/data/SampulData";
 import Plus from "../background/Plus";
 
 const Blog = () => {
   const fotoBlog = HalamanData.find((data) => data.link === "/blogs")?.foto;
 
-  const sampulBlog = ["/bg/kiri.jpg", fotoBlog, "/bg/kanan.jpg"];
+  const sampulKiri = SampulData.find((data) => data.judul === "kiri")?.foto;
+
+  const sampulKanan = SampulData.find((data) => data.judul === "kanan")?.foto;
+
+  const sampulBlog = [sampulKiri, fotoBlog, sampulKanan];
 
   return (
     <div className="w-full flex flex-col items-center justify-center">

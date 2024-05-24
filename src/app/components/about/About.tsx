@@ -1,13 +1,18 @@
 import React from "react";
 import Plus from "../background/Plus";
 import HalamanData from "@/app/data/HalamanData";
+import SampulData from "@/app/data/SampulData";
 
 const About = () => {
   const fotoAboutMe = HalamanData.find(
     (data) => data.link === "/about-me"
   )?.foto;
 
-  const sampulAbout = ["bg/kiri.jpg", fotoAboutMe, "bg/kanan.jpg"];
+  const sampulKiri = SampulData.find((data) => data.judul === "kiri")?.foto;
+
+  const sampulKanan = SampulData.find((data) => data.judul === "kanan")?.foto;
+
+  const sampulAbout = [sampulKiri, fotoAboutMe, sampulKanan];
 
   const aboutMe = [
     {
