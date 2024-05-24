@@ -1,15 +1,12 @@
 import React from "react";
 import QuoteData from "@/app/data/QuoteData";
+import HalamanData from "@/app/data/HalamanData";
 import Plus from "../background/Plus";
 
 const Blog = () => {
-  const sampulBlog = [
-    "/bg/kiri.jpg",
+  const fotoBlog = HalamanData.find((data) => data.link === "/blogs")?.foto;
 
-    "https://fastly.picsum.photos/id/907/450/800.jpg?hmac=gvL8sb4Dlt2h1pgn59onT0pf-_KUQ_FAluzrA_oYWf0",
-
-    "/bg/kanan.jpg",
-  ];
+  const sampulBlog = ["/bg/kiri.jpg", fotoBlog, "/bg/kanan.jpg"];
 
   return (
     <div className="w-full flex flex-col items-center justify-center">

@@ -1,5 +1,6 @@
 import React from "react";
 import Plus from "../background/Plus";
+import HalamanData from "@/app/data/HalamanData";
 import {
   IconBrandNextjs,
   IconBrandNuxt,
@@ -9,13 +10,11 @@ import {
 } from "@tabler/icons-react";
 
 const Artwork = () => {
-  const sampulArtwork = [
-    "/bg/kiri.jpg",
+  const fotoArtwork = HalamanData.find(
+    (data) => data.link === "/artwork"
+  )?.foto;
 
-    "https://fastly.picsum.photos/id/907/450/800.jpg?hmac=gvL8sb4Dlt2h1pgn59onT0pf-_KUQ_FAluzrA_oYWf0",
-
-    "/bg/kanan.jpg",
-  ];
+  const sampulArtwork = ["/bg/kiri.jpg", fotoArtwork, "/bg/kanan.jpg"];
 
   const penjelasan = [
     {

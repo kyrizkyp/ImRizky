@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import GaleriData from "@/app/data/GaleriData";
+import HalamanData from "@/app/data/HalamanData";
 import ModalGallery from "./ModalGallery";
 import Plus from "../background/Plus";
 
@@ -30,13 +31,9 @@ const Gallery = ({
     mengaturBukaModal(false);
   };
 
-  const sampulGaleri = [
-    "/bg/kiri.jpg",
+  const fotoGaleri = HalamanData.find((data) => data.link === "/gallery")?.foto;
 
-    "https://fastly.picsum.photos/id/907/450/800.jpg?hmac=gvL8sb4Dlt2h1pgn59onT0pf-_KUQ_FAluzrA_oYWf0",
-
-    "/bg/kanan.jpg",
-  ];
+  const sampulGaleri = ["/bg/kiri.jpg", fotoGaleri, "/bg/kanan.jpg"];
 
   return (
     <div className="w-full flex flex-col items-center justify-center">

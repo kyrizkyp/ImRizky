@@ -1,14 +1,13 @@
 import React from "react";
 import Plus from "../background/Plus";
+import HalamanData from "@/app/data/HalamanData";
 
 const About = () => {
-  const sampulAbout = [
-    "bg/kiri.jpg",
+  const fotoAboutMe = HalamanData.find(
+    (data) => data.link === "/about-me"
+  )?.foto;
 
-    "https://fastly.picsum.photos/id/907/450/800.jpg?hmac=gvL8sb4Dlt2h1pgn59onT0pf-_KUQ_FAluzrA_oYWf0",
-
-    "bg/kanan.jpg",
-  ];
+  const sampulAbout = ["bg/kiri.jpg", fotoAboutMe, "bg/kanan.jpg"];
 
   const aboutMe = [
     {
