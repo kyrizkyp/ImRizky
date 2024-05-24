@@ -105,6 +105,9 @@ const Hero = () => {
                 src={latarBelakang[titikSaatIni]}
                 width={420}
                 height={600}
+                loading="eager"
+                quality={100}
+                priority
                 alt="Background"
                 className="object-cover w-full h-full"
               />
