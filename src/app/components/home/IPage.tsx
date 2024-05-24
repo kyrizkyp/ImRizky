@@ -17,11 +17,16 @@ const IPage = () => {
       foto: "https://fastly.picsum.photos/id/842/450/800.jpg?hmac=pq7l4koxScV85cmKrFgCIfOyVPqBcZpE01giefemM4Q",
       link: "/blogs",
     },
+
+    {
+      foto: "https://fastly.picsum.photos/id/48/450/800.jpg?hmac=OrpZw1p4paF-PAeSxwRqAnO2dcavc5Pct2JoeFMm7WI",
+      link: "/artwork",
+    },
   ];
 
   return (
-    <div className="w-full mx-4 md:mx-10 lg:mx-16 xl:mx-24 2xl:mx-80">
-      <div className="flex items-center justify-between gap-4 xl:gap-0">
+    <div className="w-full px-2 md:px-8 lg:px-12 xl:px-14 2xl:px-32">
+      <div className="flex items-center justify-between gap-2 md:gap-6">
         {kumpulan.map((urutan, konten) => (
           <Link
             href={urutan.link}
