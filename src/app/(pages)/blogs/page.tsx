@@ -1,6 +1,7 @@
 import Plus from "@/app/components/background/Plus";
 import Blog from "@/app/components/blog/Blog";
 import Diary from "@/app/components/blog/Diary";
+import Quote from "@/app/components/blog/Quote";
 import React from "react";
 
 export const metadata = {
@@ -13,6 +14,16 @@ const page = () => {
       <section className="mt-4 mb-10">
         <div className="flex items-center justify-center">
           <Blog />
+        </div>
+      </section>
+
+      <section>
+        <Plus />
+      </section>
+
+      <section className="my-10">
+        <div className="flex items-center justify-center">
+          <Quote />
         </div>
       </section>
 
