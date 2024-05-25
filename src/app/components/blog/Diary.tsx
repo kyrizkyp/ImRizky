@@ -39,16 +39,14 @@ const Diary = () => {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="p-4 my-2 text-center">
-        <h1 className="font-kedua font-extrabold text-3xl">CATATAN SAYA</h1>
-        <p className="font-pertama p-2">
-          Saya mencatat rencana atau inspirasi di sini.
-        </p>
+        <h1 className="font-kedua font-extrabold text-3xl">MY NOTES</h1>
+        <p className="font-pertama p-2">I note plans or inspiration here.</p>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 xl:gap-16 px-4 my-2">
         {dataSaatIni.map((blog, urutan) => (
           <Link href={`/blogs/${blog.id}`} key={urutan}>
-            <div className="p-2 border border-black">
+            <div className="p-2 border border-black hover:opacity-50">
               <div className="p-1">
                 <h2 className="font-ketiga font-extrabold text-lg">
                   {blog.judul}
