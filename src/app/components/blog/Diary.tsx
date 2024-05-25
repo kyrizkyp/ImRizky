@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DiaryData from "@/app/data/DiaryData";
 import Link from "next/link";
 
@@ -8,9 +8,26 @@ const itemPerHalaman = 4;
 const Diary = () => {
   const [halamanSekarang, mengaturHalamanSekarang] = useState(1);
 
+  useEffect(() => {
+    const urlHalaman = new URLSearchParams(window.location.search).get("page");
+    if (urlHalaman) {
+      mengaturHalamanSekarang(parseInt(urlHalaman));
+    }
+  }, []);
+
+  useEffect(() => {
+    const urlBaru = new URL(window.location.href);
+    if (halamanSekarang === 1) {
+      urlBaru.searchParams.delete("page");
+    } else {
+      urlBaru.searchParams.set("page", halamanSekarang.toString());
+    }
+    window.history.pushState({}, "", urlBaru);
+  }, [halamanSekarang]);
+
   const totalHalaman = Math.ceil(DiaryData.length / itemPerHalaman);
 
-  const handlePageChange = (halaman: React.SetStateAction<number>) => {
+  const handlePageChange = (halaman: number) => {
     mengaturHalamanSekarang(halaman);
   };
 
