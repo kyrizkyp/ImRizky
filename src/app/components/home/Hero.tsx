@@ -106,8 +106,8 @@ const Hero = () => {
                 width={420}
                 height={600}
                 loading="eager"
-                quality={100}
-                priority={true}
+                quality={75}
+                priority
                 alt="Background"
                 className="object-cover w-full h-full"
               />
