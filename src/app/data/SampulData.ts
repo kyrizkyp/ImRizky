@@ -5,12 +5,12 @@ interface DataSampulHalaman {
 
 const SampulData: DataSampulHalaman[] = [
   {
-    foto: "bg/skiri.jpg",
+    foto: "bg/kiri.jpg",
     judul: "kiri",
   },
 
   {
-    foto: "bg/skanan.jpg",
+    foto: "bg/kanan.jpg",
     judul: "kanan",
   },
 ]
