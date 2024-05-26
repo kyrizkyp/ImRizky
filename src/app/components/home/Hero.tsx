@@ -9,7 +9,7 @@ const Hero = () => {
   const [animasiGeser, mengaturAnimasiGeser] = useState(false);
   const [sentuhX, mengaturSentuhX] = useState(0);
 
-  const latarBelakang = ["/bg/bg1.jpg", "/bg/bg2.jpg", "/bg/bg3.jpg"];
+  const latarBelakang = ["/bg/lt1.jpg", "/bg/lt2.jpg", "/bg/lt3.jpg"];
 
   useEffect(() => {
     const waktuPerubahan = setInterval(() => {
@@ -106,8 +106,8 @@ const Hero = () => {
                 width={420}
                 height={600}
                 loading="eager"
-                quality={75}
-                priority
+                quality={100}
+                priority={true}
                 alt="Background"
                 className="object-cover w-full h-full"
               />
