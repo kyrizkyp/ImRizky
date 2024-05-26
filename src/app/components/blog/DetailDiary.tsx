@@ -6,6 +6,7 @@ import Plus from "../background/Plus";
 import Link from "next/link";
 import NotFound from "@/app/not-found";
 import { IconTimeline } from "@tabler/icons-react";
+import Image from "next/image";
 
 interface DiaryDetailProps {
   detailId: string;
@@ -71,7 +72,7 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
 
           <div className="relative">
             <div className="p-4">
-              <div className="xl:w-56 xl:h-56 flex items-center justify-center border-l border-b border-black">
+              <div className="w-52 h-24 xl:w-56 xl:h-56 flex items-center justify-center border-l border-b border-black">
                 <div className="p-6 text-center">
                   <p className="font-ketiga font-extrabold text-2xl">
                     {detailBlog.date}
@@ -81,7 +82,7 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
             </div>
 
             <div className="absolute top-6 -left-2">
-              <div className="w-60 h-24 xl:w-60 xl:h-60 border-t border-r border-black"></div>
+              <div className="w-56 h-28 xl:w-60 xl:h-60 border-t border-r border-black"></div>
             </div>
           </div>
         </div>
@@ -108,9 +109,14 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
       <div className="flex flex-col lg:flex-row items-center justify-center my-10 px-2 md:px-10 lg:px-0 xl:gap-20">
         <div className="p-4">
           {detailBlog.gambar ? (
-            <div className="w-[320px] h-52 md:w-full md:h-full">
-              <img
+            <div className="w-[340px] h-52 md:w-full md:h-full">
+              <Image
                 src={detailBlog.gambar}
+                width={500}
+                height={300}
+                loading="eager"
+                quality={100}
+                priority={true}
                 alt="artwork"
                 className="object-cover w-full h-full"
               />
@@ -145,13 +151,19 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
           </div>
 
           <div className="p-2 self-center lg:self-start">
-            <a
-              href={detailBlog.link}
-              target="_blank"
-              className="py-2 px-4 bg-black text-white font-ketiga font-extrabold"
-            >
-              {detailBlog.btnJudul}
-            </a>
+            {detailBlog.link ? (
+              <Link
+                href={detailBlog.link}
+                target="_blank"
+                className="py-2 px-4 bg-black text-white font-ketiga font-extrabold"
+              >
+                {detailBlog.btnJudul}
+              </Link>
+            ) : (
+              <span className="py-2 px-4 bg-gray-400 text-white font-ketiga font-extrabold">
+                {detailBlog.btnJudul}
+              </span>
+            )}
           </div>
         </div>
       </div>

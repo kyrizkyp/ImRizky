@@ -30,7 +30,7 @@ const DiaryData: DataBlog[] = [
 
     desk3: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, labore sunt enim excepturi temporibus odio.",
 
-    link: "#",
+    link: "",
 
     btnJudul: "ON PROCESS",
 
@@ -58,7 +58,7 @@ const DiaryData: DataBlog[] = [
     
     btnJudul: "LOOK NOW",
 
-    gambar: "https://fastly.picsum.photos/id/136/500/300.jpg?hmac=7BxqtU37ZIWKLfVa2G9lFrrOnva9x-D1Dp4Zi1uxpl4",
+    gambar: "/note/dev.jpg",
   },
 ];
 export default DiaryData;
