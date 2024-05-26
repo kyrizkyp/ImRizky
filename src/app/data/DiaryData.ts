@@ -58,7 +58,7 @@ const DiaryData: DataBlog[] = [
     
     btnJudul: "LOOK NOW",
 
-    gambar: "/note/dev.jpg",
+    gambar: "/note/sbydev.jpg",
   },
 ];
 export default DiaryData;

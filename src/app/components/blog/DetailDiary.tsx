@@ -116,7 +116,7 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
                 height={300}
                 loading="eager"
                 quality={100}
-                priority={true}
+                priority
                 alt="artwork"
                 className="object-cover w-full h-full"
               />
