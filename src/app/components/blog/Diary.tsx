@@ -48,12 +48,12 @@ const Diary = () => {
           <Link href={`/blogs/${blog.id}`} key={urutan}>
             <div className="p-2 border border-black hover:opacity-50">
               <div className="p-1">
-                <h2 className="font-ketiga font-extrabold text-lg">
+                <h2 className="font-ketiga font-extrabold text-md">
                   {blog.judul}
                 </h2>
               </div>
               <div className="max-w-xs p-1">
-                <p className="font-pertama">{blog.subJudul}</p>
+                <p className="font-pertama text-sm">{blog.subJudul}</p>
               </div>
               <div className="p-2">
                 <p className="font-ketiga text-sm">{blog.status}</p>

@@ -14,9 +14,9 @@ interface DataBlog {
 
 const DiaryData: DataBlog[] = [
   {
-    judul: "MAKE A PRODUCT WEBSITE",
+    judul: "TODO SAVINGS",
 
-    subJudul: "Plan to create a website for a product.",
+    subJudul: "Calculate monthly expenses.",
 
     status: "PROCESS",
 
@@ -24,11 +24,11 @@ const DiaryData: DataBlog[] = [
 
     id: "bLgSOnE",
 
-    desk1: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae totam quos odio ex autem suscipit, nam dolorem reprehenderit ipsum itaque doloribus, alias, saepe unde?",
+    desk1: "To make it easier to calculate monthly expenses in more detail and specifically. To be wiser in managing finances.",
 
-    desk2: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, enim quaerat! Porro minus obcaecati doloremque eum rem, libero aperiam consectetur exercitationem unde, nisi deleniti, totam pariatur delectus reiciendis consequatur quas soluta ipsa deserunt sint!",
+    desk2: "I created Todo Savings which aims to manage personal finances. To help me calculate monthly expenses and income.",
 
-    desk3: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, labore sunt enim excepturi temporibus odio.",
+    desk3: "In my opinion, having todo savings will make it easier to calculate monthly efficiently and make wiser in managing your income.",
 
     link: "",
 
@@ -48,11 +48,11 @@ const DiaryData: DataBlog[] = [
 
     id: "bLgSTwO",
 
-    desk1: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae totam quos odio ex autem suscipit, nam dolorem reprehenderit ipsum itaque doloribus, alias, saepe unde?",
+    desk1: "SurabayaDev is an IT community domiciled in the city of Surabaya which has an activity agenda with the theme of technology education in synergy and collaboration.",
 
-    desk2: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, enim quaerat! Porro minus obcaecati doloremque eum rem, libero aperiam consectetur exercitationem unde, nisi deleniti, totam pariatur delectus reiciendis consequatur quas soluta ipsa deserunt sint!",
+    desk2: "Expanding relationships through the community to create benefits. Become a learning forum for IT activists to be able to continue to update about the current tech industry.",
 
-    desk3: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, labore sunt enim excepturi temporibus odio.",
+    desk3: "Becomes the right forum to share knowledge, experience and insight regarding technology updates.",
 
     link: "https://surabaya-dev.vercel.app/",
     
