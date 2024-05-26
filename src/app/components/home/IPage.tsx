@@ -9,7 +9,7 @@ const IPage = () => {
         {HalamanData.map((urutan, konten) => (
           <Link
             href={urutan.link}
-            className="w-full h-full xl:w-[350px] xl:h-[750px] flex items-center justify-center bg-black bg-opacity-50 hover:bg-white hover:bg-opacity-10"
+            className="w-full h-44 md:h-full flex items-center justify-center bg-black bg-opacity-50 hover:bg-white hover:bg-opacity-10"
             key={konten}
           >
             <img
