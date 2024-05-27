@@ -1,23 +1,63 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 interface ModalDeleteProps {
   membuka: boolean;
-
   menutup: () => void;
   mengonfirmasi: () => void;
 }
 
 const ModalDelete: React.FC<ModalDeleteProps> = ({
   membuka,
-
   menutup,
   mengonfirmasi,
 }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        menutup();
+      }
+    };
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && membuka) {
+        menutup();
+      }
+    };
+
+    if (membuka) {
+      document.addEventListener("mousedown", handleOutsideClick);
+      document.addEventListener("keydown", handleEscapeKey);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscapeKey);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [membuka, menutup]);
+
+  const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (modalRef.current === event.target) {
+      menutup();
+    }
+  };
+
   return (
     <div
-      className={`fixed z-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center ${
-        membuka ? "block" : "hidden"
+      ref={modalRef}
+      className={`fixed z-10 inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity ${
+        membuka
+          ? "opacity-100 duration-500"
+          : "opacity-0 duration-500 pointer-events-none"
       }`}
+      onClick={handleClickOutside}
     >
       <div className="bg-white p-6 rounded-lg">
         <p className="mb-4">Hapus list ini?</p>
