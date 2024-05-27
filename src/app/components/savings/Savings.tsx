@@ -1,9 +1,11 @@
 "use client";
 
 import {
+  IconPencil,
   IconPlus,
   IconStairsDown,
   IconStairsUp,
+  IconTrash,
   IconWallet,
 } from "@tabler/icons-react";
 import React, { useState } from "react";
@@ -44,8 +46,8 @@ const Savings = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex items-center justify-center gap-20">
+    <div className="flex flex-col items-center justify-center">
+      <div className="flex items-center justify-center gap-20 mb-10">
         <div className="flex items-center justify-center p-2 border border-black relative group">
           <div className="p-2">
             <IconWallet className="w-14 h-14 stroke-[0.5]" />
@@ -90,6 +92,34 @@ const Savings = () => {
           <div className="p-2 text-center">
             <h1>Total pengeluaran</h1>
             <p>{totalPengeluaran}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-sm w-full flex flex-col items-center justify-center mt-10">
+        <div className="self-start mb-2">
+          <p className="py-2">Daftar pengeluaran</p>
+
+          <button className="py-2 px-4 bg-black">
+            <IconPlus className="w-4 h-4 text-white" />
+          </button>
+        </div>
+
+        <div className="w-full flex items-center justify-between mt-2 p-2 border border-black rounded-2xl">
+          <div className="p-1">
+            <p>asaf</p>
+
+            <p>10.000</p>
+          </div>
+
+          <div className="flex items-center justify-center gap-4 p-1">
+            <button>
+              <IconPencil className="stroke-[0.5]" />
+            </button>
+
+            <button>
+              <IconTrash className="stroke-[0.5]" />
+            </button>
           </div>
         </div>
       </div>
