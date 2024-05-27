@@ -11,6 +11,7 @@ import {
 import React, { useState } from "react";
 import ModalSavings from "./ModalSavings";
 import ModalList from "./ModalList";
+import ModalDelete from "./ModalDelete";
 
 const Savings = () => {
   const [membukaModal, mengaturMembukaModal] = useState(false);
@@ -24,6 +25,9 @@ const Savings = () => {
   const [nilaiNominal, mengaturNilaiNominal] = useState("");
   const [isEditing, mengaturIsEditing] = useState(false);
   const [editIndex, mengaturEditIndex] = useState<number | null>(null);
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
 
   const [daftarPengeluaran, mengaturDaftarPengeluaran] = useState<
     { nama: string; nominal: string }[]
@@ -69,7 +73,7 @@ const Savings = () => {
     mengaturMembukaListModal(true);
   };
 
-  const btnEditList = (index: number) => {
+  const btnModalList = (index: number) => {
     mengaturNamaList(daftarPengeluaran[index].nama);
     mengaturNilaiNominal(daftarPengeluaran[index].nominal);
     mengaturIsEditing(true);
@@ -78,10 +82,19 @@ const Savings = () => {
     mengaturMembukaListModal(true);
   };
 
-  const btnHapusList = (index: number) => {
-    const newDaftar = [...daftarPengeluaran];
-    newDaftar.splice(index, 1);
-    mengaturDaftarPengeluaran(newDaftar);
+  const btnModalDelete = (index: number) => {
+    setDeleteIndex(index);
+    setShowDeleteModal(true);
+  };
+
+  const hapusListItem = () => {
+    if (deleteIndex !== null) {
+      const newDaftar = [...daftarPengeluaran];
+      newDaftar.splice(deleteIndex, 1);
+      mengaturDaftarPengeluaran(newDaftar);
+      setShowDeleteModal(false);
+      setDeleteIndex(null);
+    }
   };
 
   const btnSimpanList = () => {
@@ -175,13 +188,13 @@ const Savings = () => {
 
             <div className="flex items-center justify-center gap-1">
               <button
-                onClick={() => btnEditList(index)}
+                onClick={() => btnModalList(index)}
                 className="flex items-center justify-center p-2"
               >
                 <IconPencil className="w-6 h-6" />
               </button>
               <button
-                onClick={() => btnHapusList(index)}
+                onClick={() => btnModalDelete(index)}
                 className="flex items-center justify-center p-2"
               >
                 <IconTrash className="w-6 h-6" />
@@ -213,6 +226,12 @@ const Savings = () => {
         menyimpan={btnSimpanList}
         errorMessage={errorMessage}
         isEditing={isEditing}
+      />
+
+      <ModalDelete
+        membuka={showDeleteModal}
+        menutup={() => setShowDeleteModal(false)}
+        mengonfirmasi={hapusListItem}
       />
     </div>
   );
