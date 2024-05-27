@@ -16,8 +16,8 @@ const Savings = () => {
   const [membukaModal, mengaturMembukaModal] = useState(false);
   const [modalKonten, mengaturModalKonten] = useState("");
   const [nilaiInput, mengaturNilaiInput] = useState("");
-  const [penghasilan, mengaturPenghasilan] = useState("1.000.000");
-  const [targetPengeluaran, mengaturTargetPengeluaran] = useState("1.000.000");
+  const [penghasilan, mengaturPenghasilan] = useState("0");
+  const [targetPengeluaran, mengaturTargetPengeluaran] = useState("0");
   const [totalPengeluaran, mengaturTotalPengeluaran] = useState("0");
 
   const [membukaListModal, mengaturMembukaListModal] = useState(false);

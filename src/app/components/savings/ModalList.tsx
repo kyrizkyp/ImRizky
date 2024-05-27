@@ -22,24 +22,29 @@ const ModalList: React.FC<ModalListProps> = ({
   if (!membuka) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-4 rounded-md">
-        <h2 className="text-xl mb-4">Tambah/Edit List Pembelian</h2>
-        <input
-          type="text"
-          value={namaList}
-          onChange={perubahanNamaList}
-          placeholder="Nama List Pembelian"
-          className="mb-2 p-2 border border-gray-400 rounded"
-        />
-        <input
-          type="text"
-          value={nilaiNominal}
-          onChange={perubahanNilaiNominal}
-          placeholder="Nominal Pembelian"
-          className="mb-4 p-2 border border-gray-400 rounded"
-        />
-        <div className="flex justify-end gap-2">
+    <div className="fixed z-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+      <div className="max-w-xs w-full flex flex-col items-center justify-center bg-white">
+        <h2 className="text-xl p-4">p</h2>
+
+        <div className="flex flex-col items-start justify-center">
+          <input
+            type="text"
+            value={namaList}
+            onChange={perubahanNamaList}
+            placeholder="Nama List Pembelian"
+            className="mb-2 p-2 border border-gray-400 rounded"
+          />
+
+          <input
+            type="number"
+            value={nilaiNominal}
+            onChange={perubahanNilaiNominal}
+            placeholder="Nominal Pembelian"
+            className="mb-4 p-2 border border-gray-400 rounded"
+          />
+        </div>
+
+        <div className="flex justify-end gap-2 p-4">
           <button
             onClick={menutup}
             className="py-2 px-4 bg-gray-400 text-white rounded"

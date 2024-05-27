@@ -20,7 +20,7 @@ const ModalSavings: React.FC<ModalSavingsProps> = ({
   if (!membuka) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed z-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
       <div className="bg-white p-6 rounded-lg">
         <h2 className="text-2xl mb-4">{konten}</h2>
         <input
