@@ -10,6 +10,7 @@ import {
 } from "@tabler/icons-react";
 import React, { useState } from "react";
 import ModalSavings from "./ModalSavings";
+import ModalList from "./ModalList";
 
 const Savings = () => {
   const [membukaModal, mengaturMembukaModal] = useState(false);
@@ -18,6 +19,15 @@ const Savings = () => {
   const [penghasilan, mengaturPenghasilan] = useState("1.000.000");
   const [targetPengeluaran, mengaturTargetPengeluaran] = useState("1.000.000");
   const [totalPengeluaran, mengaturTotalPengeluaran] = useState("0");
+
+  const [membukaListModal, mengaturMembukaListModal] = useState(false);
+  const [namaList, mengaturNamaList] = useState("");
+  const [nilaiNominal, mengaturNilaiNominal] = useState("");
+  const [isEditing, mengaturIsEditing] = useState(false);
+  const [editIndex, mengaturEditIndex] = useState<number | null>(null);
+  const [daftarPengeluaran, mengaturDaftarPengeluaran] = useState<
+    { nama: string; nominal: string }[]
+  >([]);
 
   const modalTerbuka = (konten: React.SetStateAction<string>) => {
     mengaturModalKonten(konten);
@@ -43,6 +53,41 @@ const Savings = () => {
       mengaturTotalPengeluaran(nilaiInput);
     }
     btnTutupModal();
+  };
+
+  const btnBukaListModal = () => {
+    mengaturNamaList("");
+    mengaturNilaiNominal("");
+    mengaturIsEditing(false);
+    mengaturMembukaListModal(true);
+  };
+
+  const btnEditList = (index: number) => {
+    mengaturNamaList(daftarPengeluaran[index].nama);
+    mengaturNilaiNominal(daftarPengeluaran[index].nominal);
+    mengaturIsEditing(true);
+    mengaturEditIndex(index);
+    mengaturMembukaListModal(true);
+  };
+
+  const btnHapusList = (index: number) => {
+    const newDaftar = [...daftarPengeluaran];
+    newDaftar.splice(index, 1);
+    mengaturDaftarPengeluaran(newDaftar);
+  };
+
+  const btnSimpanList = () => {
+    if (isEditing && editIndex !== null) {
+      const newDaftar = [...daftarPengeluaran];
+      newDaftar[editIndex] = { nama: namaList, nominal: nilaiNominal };
+      mengaturDaftarPengeluaran(newDaftar);
+    } else {
+      mengaturDaftarPengeluaran([
+        ...daftarPengeluaran,
+        { nama: namaList, nominal: nilaiNominal },
+      ]);
+    }
+    mengaturMembukaListModal(false);
   };
 
   return (
@@ -100,28 +145,32 @@ const Savings = () => {
         <div className="self-start mb-2">
           <p className="py-2">Daftar pengeluaran</p>
 
-          <button className="py-2 px-4 bg-black">
-            <IconPlus className="w-4 h-4 text-white" />
+          <button onClick={btnBukaListModal} className="py-2 px-4 bg-black">
+            <p className="text-white">tambahkan list pembelian</p>
           </button>
         </div>
 
-        <div className="w-full flex items-center justify-between mt-2 p-2 border border-black rounded-2xl">
-          <div className="p-1">
-            <p>asaf</p>
+        {daftarPengeluaran.map((item, index) => (
+          <div
+            key={index}
+            className="w-full flex items-center justify-between mt-2 p-2 border border-black rounded-2xl"
+          >
+            <div className="p-1">
+              <p>{item.nama}</p>
+              <p>{item.nominal}</p>
+            </div>
 
-            <p>10.000</p>
+            <div className="flex items-center justify-center gap-4 p-1">
+              <button onClick={() => btnEditList(index)}>
+                <IconPencil className="stroke-[0.5]" />
+              </button>
+
+              <button onClick={() => btnHapusList(index)}>
+                <IconTrash className="stroke-[0.5]" />
+              </button>
+            </div>
           </div>
-
-          <div className="flex items-center justify-center gap-4 p-1">
-            <button>
-              <IconPencil className="stroke-[0.5]" />
-            </button>
-
-            <button>
-              <IconTrash className="stroke-[0.5]" />
-            </button>
-          </div>
-        </div>
+        ))}
       </div>
 
       <ModalSavings
@@ -131,6 +180,16 @@ const Savings = () => {
         menutup={btnTutupModal}
         perubahan={mengubahNilaiInput}
         menyimpan={btnSave}
+      />
+
+      <ModalList
+        membuka={membukaListModal}
+        menutup={() => mengaturMembukaListModal(false)}
+        namaList={namaList}
+        nilaiNominal={nilaiNominal}
+        perubahanNamaList={(e) => mengaturNamaList(e.target.value)}
+        perubahanNilaiNominal={(e) => mengaturNilaiNominal(e.target.value)}
+        menyimpan={btnSimpanList}
       />
     </div>
   );
