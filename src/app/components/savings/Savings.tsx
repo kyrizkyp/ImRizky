@@ -29,9 +29,13 @@ const Savings = () => {
     { nama: string; nominal: string }[]
   >([]);
 
+  const [errorMessage, mengaturErrorMessage] = useState("");
+  const [listErrorMessage, mengaturListErrorMessage] = useState("");
+
   const modalTerbuka = (konten: React.SetStateAction<string>) => {
     mengaturModalKonten(konten);
     mengaturNilaiInput("");
+    mengaturErrorMessage("");
     mengaturMembukaModal(true);
   };
 
@@ -45,6 +49,11 @@ const Savings = () => {
   };
 
   const btnSave = () => {
+    if (nilaiInput.trim() === "") {
+      mengaturErrorMessage("Input tidak boleh kosong");
+      return;
+    }
+
     if (modalKonten === "Penghasilan") {
       mengaturPenghasilan(nilaiInput);
     } else if (modalKonten === "Target pengeluaran") {
@@ -59,6 +68,7 @@ const Savings = () => {
     mengaturNamaList("");
     mengaturNilaiNominal("");
     mengaturIsEditing(false);
+    mengaturListErrorMessage("");
     mengaturMembukaListModal(true);
   };
 
@@ -67,6 +77,7 @@ const Savings = () => {
     mengaturNilaiNominal(daftarPengeluaran[index].nominal);
     mengaturIsEditing(true);
     mengaturEditIndex(index);
+    mengaturListErrorMessage("");
     mengaturMembukaListModal(true);
   };
 
@@ -77,6 +88,13 @@ const Savings = () => {
   };
 
   const btnSimpanList = () => {
+    if (namaList.trim() === "" || nilaiNominal.trim() === "") {
+      mengaturListErrorMessage(
+        "Nama list dan nilai nominal tidak boleh kosong"
+      );
+      return;
+    }
+
     if (isEditing && editIndex !== null) {
       const newDaftar = [...daftarPengeluaran];
       newDaftar[editIndex] = { nama: namaList, nominal: nilaiNominal };
@@ -180,6 +198,7 @@ const Savings = () => {
         menutup={btnTutupModal}
         perubahan={mengubahNilaiInput}
         menyimpan={btnSave}
+        errorMessage={errorMessage}
       />
 
       <ModalList
@@ -190,6 +209,7 @@ const Savings = () => {
         perubahanNamaList={(e) => mengaturNamaList(e.target.value)}
         perubahanNilaiNominal={(e) => mengaturNilaiNominal(e.target.value)}
         menyimpan={btnSimpanList}
+        errorMessage={listErrorMessage}
       />
     </div>
   );
