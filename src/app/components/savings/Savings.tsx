@@ -14,34 +14,33 @@ import ModalList from "./ModalList";
 
 const Savings = () => {
   const [membukaModal, mengaturMembukaModal] = useState(false);
-  const [modalKonten, mengaturModalKonten] = useState("");
+  const [modalKonten, mengaturModalKonten] = useState<boolean>(true);
   const [nilaiInput, mengaturNilaiInput] = useState("");
   const [penghasilan, mengaturPenghasilan] = useState("0");
   const [targetPengeluaran, mengaturTargetPengeluaran] = useState("0");
-  const [totalPengeluaran, mengaturTotalPengeluaran] = useState("0");
 
   const [membukaListModal, mengaturMembukaListModal] = useState(false);
   const [namaList, mengaturNamaList] = useState("");
   const [nilaiNominal, mengaturNilaiNominal] = useState("");
   const [isEditing, mengaturIsEditing] = useState(false);
   const [editIndex, mengaturEditIndex] = useState<number | null>(null);
+
   const [daftarPengeluaran, mengaturDaftarPengeluaran] = useState<
     { nama: string; nominal: string }[]
   >([]);
 
-  const [errorMessage, mengaturErrorMessage] = useState("");
-  const [listErrorMessage, mengaturListErrorMessage] = useState("");
+  const [errorMessage, mengaturErrorMessage] = useState(false);
 
-  const modalTerbuka = (konten: React.SetStateAction<string>) => {
-    mengaturModalKonten(konten);
+  const modalTerbuka = (isPenghasilan: boolean) => {
+    mengaturModalKonten(isPenghasilan);
     mengaturNilaiInput("");
-    mengaturErrorMessage("");
+    mengaturErrorMessage(false);
     mengaturMembukaModal(true);
   };
 
   const btnTutupModal = () => {
     mengaturMembukaModal(false);
-    mengaturModalKonten("");
+    mengaturModalKonten(true);
   };
 
   const mengubahNilaiInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,16 +49,14 @@ const Savings = () => {
 
   const btnSave = () => {
     if (nilaiInput.trim() === "") {
-      mengaturErrorMessage("Input tidak boleh kosong");
+      mengaturErrorMessage(true);
       return;
     }
 
-    if (modalKonten === "Penghasilan") {
+    if (modalKonten) {
       mengaturPenghasilan(nilaiInput);
-    } else if (modalKonten === "Target pengeluaran") {
+    } else {
       mengaturTargetPengeluaran(nilaiInput);
-    } else if (modalKonten === "Total pengeluaran") {
-      mengaturTotalPengeluaran(nilaiInput);
     }
     btnTutupModal();
   };
@@ -68,7 +65,7 @@ const Savings = () => {
     mengaturNamaList("");
     mengaturNilaiNominal("");
     mengaturIsEditing(false);
-    mengaturListErrorMessage("");
+    mengaturErrorMessage(false);
     mengaturMembukaListModal(true);
   };
 
@@ -77,7 +74,7 @@ const Savings = () => {
     mengaturNilaiNominal(daftarPengeluaran[index].nominal);
     mengaturIsEditing(true);
     mengaturEditIndex(index);
-    mengaturListErrorMessage("");
+    mengaturErrorMessage(false);
     mengaturMembukaListModal(true);
   };
 
@@ -88,10 +85,8 @@ const Savings = () => {
   };
 
   const btnSimpanList = () => {
-    if (namaList.trim() === "" || nilaiNominal.trim() === "") {
-      mengaturListErrorMessage(
-        "Nama list dan nilai nominal tidak boleh kosong"
-      );
+    if (namaList.trim() === "") {
+      mengaturErrorMessage(true);
       return;
     }
 
@@ -122,7 +117,7 @@ const Savings = () => {
           </div>
 
           <button
-            onClick={() => modalTerbuka("Penghasilan")}
+            onClick={() => modalTerbuka(true)}
             className="absolute bg-black bg-opacity-50 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:duration-500"
           >
             <IconPlus className="w-6 h-6 text-white" />
@@ -140,7 +135,7 @@ const Savings = () => {
           </div>
 
           <button
-            onClick={() => modalTerbuka("Target pengeluaran")}
+            onClick={() => modalTerbuka(false)}
             className="absolute bg-black bg-opacity-50 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:duration-500"
           >
             <IconPlus className="w-6 h-6 text-white" />
@@ -154,7 +149,7 @@ const Savings = () => {
 
           <div className="p-2 text-center">
             <h1>Total pengeluaran</h1>
-            <p>{totalPengeluaran}</p>
+            <p>0</p>
           </div>
         </div>
       </div>
@@ -178,13 +173,18 @@ const Savings = () => {
               <p>{item.nominal}</p>
             </div>
 
-            <div className="flex items-center justify-center gap-4 p-1">
-              <button onClick={() => btnEditList(index)}>
-                <IconPencil className="stroke-[0.5]" />
+            <div className="flex items-center justify-center gap-1">
+              <button
+                onClick={() => btnEditList(index)}
+                className="flex items-center justify-center p-2"
+              >
+                <IconPencil className="w-6 h-6" />
               </button>
-
-              <button onClick={() => btnHapusList(index)}>
-                <IconTrash className="stroke-[0.5]" />
+              <button
+                onClick={() => btnHapusList(index)}
+                className="flex items-center justify-center p-2"
+              >
+                <IconTrash className="w-6 h-6" />
               </button>
             </div>
           </div>
@@ -203,13 +203,16 @@ const Savings = () => {
 
       <ModalList
         membuka={membukaListModal}
-        menutup={() => mengaturMembukaListModal(false)}
         namaList={namaList}
         nilaiNominal={nilaiNominal}
-        perubahanNamaList={(e) => mengaturNamaList(e.target.value)}
-        perubahanNilaiNominal={(e) => mengaturNilaiNominal(e.target.value)}
+        menutup={() => mengaturMembukaListModal(false)}
+        perubahanNamaList={(event) => mengaturNamaList(event.target.value)}
+        perubahanNilaiNominal={(event) =>
+          mengaturNilaiNominal(event.target.value)
+        }
         menyimpan={btnSimpanList}
-        errorMessage={listErrorMessage}
+        errorMessage={errorMessage}
+        isEditing={isEditing}
       />
     </div>
   );
