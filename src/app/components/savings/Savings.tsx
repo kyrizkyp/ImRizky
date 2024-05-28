@@ -44,7 +44,6 @@ const Savings = () => {
 
   const btnTutupModal = () => {
     mengaturMembukaModal(false);
-    mengaturModalKonten(true);
   };
 
   const mengubahNilaiInput = (event: React.ChangeEvent<HTMLInputElement>) => {

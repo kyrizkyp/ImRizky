@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 interface ModalSavingsProps {
   membuka: boolean;
@@ -19,10 +19,54 @@ const ModalSavings: React.FC<ModalSavingsProps> = ({
   menyimpan,
   errorMessage,
 }) => {
-  if (!membuka) return null;
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        menutup();
+      }
+    };
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && membuka) {
+        menutup();
+      }
+    };
+
+    if (membuka) {
+      document.addEventListener("mousedown", handleOutsideClick);
+      document.addEventListener("keydown", handleEscapeKey);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscapeKey);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [membuka, menutup]);
+
+  const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (modalRef.current === event.target) {
+      menutup();
+    }
+  };
 
   return (
-    <div className="fixed z-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div
+      ref={modalRef}
+      className={`fixed z-10 inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity ${
+        membuka
+          ? "opacity-100 duration-500"
+          : "opacity-0 duration-500 pointer-events-none"
+      }`}
+      onClick={handleClickOutside}
+    >
       <div className="max-w-xs w-full flex flex-col items-center justify-center rounded-2xl bg-white">
         <h2 className="text-2xl p-4">
           {konten ? "Penghasilan" : "Target pengeluaran"}
