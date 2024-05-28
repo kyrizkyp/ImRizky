@@ -8,6 +8,7 @@ import ModalDelete from "./ModalDelete";
 import Penghasilan from "./Penghasilan";
 import Pengeluaran from "./Pengeluaran";
 import DaftarList from "./DaftarList";
+import TotalPengeluaran from "./TotalPengeluaran";
 
 const Savings = () => {
   const [membukaModal, mengaturMembukaModal] = useState(false);
@@ -144,16 +145,10 @@ const Savings = () => {
           disabled={penghasilan === "0"}
         />
 
-        <div className="flex items-center justify-center p-2 border border-black relative group">
-          <div className="p-2">
-            <IconStairsDown className="w-14 h-14 stroke-[0.5]" />
-          </div>
-
-          <div className="p-2 text-center">
-            <h1>Total pengeluaran</h1>
-            <p>{formatRupiah(totalPengeluaran.toString())}</p>
-          </div>
-        </div>
+        <TotalPengeluaran
+          totalPengeluaran={totalPengeluaran.toString()}
+          formatRupiah={formatRupiah}
+        />
       </div>
 
       <DaftarList

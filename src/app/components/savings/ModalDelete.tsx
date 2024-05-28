@@ -29,19 +29,28 @@ const ModalDelete: React.FC<ModalDeleteProps> = ({
       }
     };
 
+    const handleEnterKey = (event: KeyboardEvent) => {
+      if (event.key === "Enter" && membuka) {
+        mengonfirmasi();
+      }
+    };
+
     if (membuka) {
       document.addEventListener("mousedown", handleOutsideClick);
       document.addEventListener("keydown", handleEscapeKey);
+      document.addEventListener("keydown", handleEnterKey);
     } else {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscapeKey);
+      document.removeEventListener("keydown", handleEnterKey);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscapeKey);
+      document.removeEventListener("keydown", handleEnterKey);
     };
-  }, [membuka, menutup]);
+  }, [membuka, menutup, mengonfirmasi]);
 
   const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
     if (modalRef.current === event.target) {
