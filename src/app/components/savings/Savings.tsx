@@ -1,17 +1,13 @@
 "use client";
 
-import {
-  IconPencil,
-  IconPlus,
-  IconStairsDown,
-  IconStairsUp,
-  IconTrash,
-  IconWallet,
-} from "@tabler/icons-react";
+import { IconStairsDown } from "@tabler/icons-react";
 import React, { useState } from "react";
 import ModalSavings from "./ModalSavings";
 import ModalList from "./ModalList";
 import ModalDelete from "./ModalDelete";
+import Penghasilan from "./Penghasilan";
+import Pengeluaran from "./Pengeluaran";
+import DaftarList from "./DaftarList";
 
 const Savings = () => {
   const [membukaModal, mengaturMembukaModal] = useState(false);
@@ -115,44 +111,21 @@ const Savings = () => {
     mengaturMembukaListModal(false);
   };
 
+  const isDaftarListDisabled = penghasilan === "0" || targetPengeluaran === "0";
+
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex items-center justify-center gap-20 mb-10">
-        <div className="flex items-center justify-center p-2 border border-black relative group">
-          <div className="p-2">
-            <IconWallet className="w-14 h-14 stroke-[0.5]" />
-          </div>
+        <Penghasilan
+          penghasilan={penghasilan}
+          modalTerbuka={() => modalTerbuka(true)}
+        />
 
-          <div className="p-2 text-center">
-            <h1>Penghasilan</h1>
-            <p>{penghasilan}</p>
-          </div>
-
-          <button
-            onClick={() => modalTerbuka(true)}
-            className="absolute bg-black bg-opacity-50 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:duration-500"
-          >
-            <IconPlus className="w-6 h-6 text-white" />
-          </button>
-        </div>
-
-        <div className="flex items-center justify-center p-2 border border-black relative group">
-          <div className="p-2">
-            <IconStairsUp className="w-14 h-14 stroke-[0.5]" />
-          </div>
-
-          <div className="p-2 text-center">
-            <h1>Target pengeluaran</h1>
-            <p>{targetPengeluaran}</p>
-          </div>
-
-          <button
-            onClick={() => modalTerbuka(false)}
-            className="absolute bg-black bg-opacity-50 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:duration-500"
-          >
-            <IconPlus className="w-6 h-6 text-white" />
-          </button>
-        </div>
+        <Pengeluaran
+          targetPengeluaran={targetPengeluaran}
+          modalTerbuka={() => modalTerbuka(false)}
+          disabled={penghasilan === "0"}
+        />
 
         <div className="flex items-center justify-center p-2 border border-black relative group">
           <div className="p-2">
@@ -166,42 +139,13 @@ const Savings = () => {
         </div>
       </div>
 
-      <div className="max-w-sm w-full flex flex-col items-center justify-center mt-10">
-        <div className="self-start mb-2">
-          <p className="py-2">Daftar pengeluaran</p>
-
-          <button onClick={btnBukaListModal} className="py-2 px-4 bg-black">
-            <p className="text-white">tambahkan list pembelian</p>
-          </button>
-        </div>
-
-        {daftarPengeluaran.map((item, index) => (
-          <div
-            key={index}
-            className="w-full flex items-center justify-between mt-2 p-2 border border-black rounded-2xl"
-          >
-            <div className="p-1">
-              <p>{item.nama}</p>
-              <p>{item.nominal}</p>
-            </div>
-
-            <div className="flex items-center justify-center gap-1">
-              <button
-                onClick={() => btnModalList(index)}
-                className="flex items-center justify-center p-2"
-              >
-                <IconPencil className="w-6 h-6" />
-              </button>
-              <button
-                onClick={() => btnModalDelete(index)}
-                className="flex items-center justify-center p-2"
-              >
-                <IconTrash className="w-6 h-6" />
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+      <DaftarList
+        daftarPengeluaran={daftarPengeluaran}
+        btnBukaListModal={btnBukaListModal}
+        btnModalList={btnModalList}
+        btnModalDelete={btnModalDelete}
+        disabled={isDaftarListDisabled}
+      />
 
       <ModalSavings
         membuka={membukaModal}
