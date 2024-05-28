@@ -97,7 +97,7 @@ const Savings = () => {
   };
 
   const btnSimpanList = () => {
-    if (namaList.trim() === "") {
+    if (namaList.trim() === "" || nilaiNominal.trim() === "") {
       mengaturErrorMessage(true);
       return;
     }
