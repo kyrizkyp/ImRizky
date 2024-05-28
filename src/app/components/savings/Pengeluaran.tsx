@@ -17,7 +17,6 @@ const Pengeluaran: React.FC<PengeluaranProps> = ({
       className={`flex items-center justify-center p-2 border border-black relative group ${
         disabled ? "opacity-50 cursor-not-allowed" : ""
       }`}
-      onClick={!disabled ? modalTerbuka : undefined} // Disable click if disabled
     >
       <div className="p-2">
         <IconStairsUp className="w-14 h-14 stroke-[0.5]" />
