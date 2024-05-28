@@ -1,7 +1,7 @@
 "use client";
 
 import { IconStairsDown } from "@tabler/icons-react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ModalSavings from "./ModalSavings";
 import ModalList from "./ModalList";
 import ModalDelete from "./ModalDelete";
@@ -30,6 +30,11 @@ const Savings = () => {
   >([]);
 
   const [errorMessage, mengaturErrorMessage] = useState(false);
+  const [totalPengeluaran, setTotalPengeluaran] = useState(0);
+
+  useEffect(() => {
+    hitungTotalPengeluaran();
+  }, [daftarPengeluaran]);
 
   const modalTerbuka = (isPenghasilan: boolean) => {
     mengaturModalKonten(isPenghasilan);
@@ -111,6 +116,13 @@ const Savings = () => {
     mengaturMembukaListModal(false);
   };
 
+  const hitungTotalPengeluaran = () => {
+    const total = daftarPengeluaran.reduce((sum, item) => {
+      return sum + parseFloat(item.nominal);
+    }, 0);
+    setTotalPengeluaran(total);
+  };
+
   const isDaftarListDisabled = penghasilan === "0" || targetPengeluaran === "0";
 
   return (
@@ -134,7 +146,7 @@ const Savings = () => {
 
           <div className="p-2 text-center">
             <h1>Total pengeluaran</h1>
-            <p>0</p>
+            <p>{totalPengeluaran}</p>
           </div>
         </div>
       </div>
