@@ -18,7 +18,7 @@ const TotalPengeluaran: React.FC<TotalPengeluaranProps> = ({
 
       <div className="p-2 text-center">
         <h1>Total pengeluaran</h1>
-        <p>{formatRupiah(totalPengeluaran)}</p>
+        <p>Rp {formatRupiah(totalPengeluaran)}</p>
       </div>
     </div>
   );

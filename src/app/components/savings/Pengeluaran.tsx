@@ -24,7 +24,7 @@ const Pengeluaran: React.FC<PengeluaranProps> = ({
 
       <div className="p-2 text-center">
         <h1>Target pengeluaran</h1>
-        <p>{targetPengeluaran}</p>
+        <p>Rp {targetPengeluaran}</p>
       </div>
 
       {!disabled && (

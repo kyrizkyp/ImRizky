@@ -18,7 +18,7 @@ const Penghasilan: React.FC<PenghasilanProps> = ({
 
       <div className="p-2 text-center">
         <h1>Penghasilan</h1>
-        <p>{penghasilan}</p>
+        <p>Rp {penghasilan}</p>
       </div>
 
       <button

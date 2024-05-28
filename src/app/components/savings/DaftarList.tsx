@@ -43,7 +43,7 @@ const DaftarList: React.FC<DaftarListProps> = ({
         >
           <div className="p-1">
             <p>{item.nama}</p>
-            <p>{item.nominal}</p>
+            <p>Rp {item.nominal}</p>
           </div>
 
           <div className="flex items-center justify-center gap-1">
