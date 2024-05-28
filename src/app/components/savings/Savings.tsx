@@ -132,65 +132,67 @@ const Savings = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="flex items-center justify-center gap-20 mb-10">
-        <Penghasilan
-          penghasilan={formatRupiah(penghasilan)}
-          modalTerbuka={() => modalTerbuka(true)}
+    <div className="max-w-4xl mx-auto">
+      <div className="w-full flex flex-col md:flex-row items-center md:items-start justify-between">
+        <div className="max-w-sm md:max-w-xl flex flex-col items-center justify-center gap-4">
+          <Penghasilan
+            penghasilan={formatRupiah(penghasilan)}
+            modalTerbuka={() => modalTerbuka(true)}
+          />
+
+          <Pengeluaran
+            targetPengeluaran={formatRupiah(targetPengeluaran)}
+            modalTerbuka={() => modalTerbuka(false)}
+            disabled={penghasilan === "0"}
+          />
+
+          <TotalPengeluaran
+            totalPengeluaran={totalPengeluaran.toString()}
+            formatRupiah={formatRupiah}
+          />
+        </div>
+
+        <DaftarList
+          daftarPengeluaran={daftarPengeluaran.map((item) => ({
+            ...item,
+            nominal: formatRupiah(item.nominal),
+          }))}
+          btnBukaListModal={btnBukaListModal}
+          btnModalList={btnModalList}
+          btnModalDelete={btnModalDelete}
+          disabled={isDaftarListDisabled}
         />
 
-        <Pengeluaran
-          targetPengeluaran={formatRupiah(targetPengeluaran)}
-          modalTerbuka={() => modalTerbuka(false)}
-          disabled={penghasilan === "0"}
+        <ModalSavings
+          membuka={membukaModal}
+          konten={modalKonten}
+          namaInput={nilaiInput}
+          menutup={btnTutupModal}
+          perubahan={mengubahNilaiInput}
+          menyimpan={btnSave}
+          errorMessage={errorMessage}
         />
 
-        <TotalPengeluaran
-          totalPengeluaran={totalPengeluaran.toString()}
-          formatRupiah={formatRupiah}
+        <ModalList
+          membuka={membukaListModal}
+          namaList={namaList}
+          nilaiNominal={nilaiNominal}
+          menutup={() => mengaturMembukaListModal(false)}
+          perubahanNamaList={(event) => mengaturNamaList(event.target.value)}
+          perubahanNilaiNominal={(event) =>
+            mengaturNilaiNominal(event.target.value.replace(/\./g, ""))
+          }
+          menyimpan={btnSimpanList}
+          errorMessage={errorMessage}
+          isEditing={isEditing}
+        />
+
+        <ModalDelete
+          membuka={showDeleteModal}
+          menutup={() => setShowDeleteModal(false)}
+          mengonfirmasi={hapusListItem}
         />
       </div>
-
-      <DaftarList
-        daftarPengeluaran={daftarPengeluaran.map((item) => ({
-          ...item,
-          nominal: formatRupiah(item.nominal),
-        }))}
-        btnBukaListModal={btnBukaListModal}
-        btnModalList={btnModalList}
-        btnModalDelete={btnModalDelete}
-        disabled={isDaftarListDisabled}
-      />
-
-      <ModalSavings
-        membuka={membukaModal}
-        konten={modalKonten}
-        namaInput={nilaiInput}
-        menutup={btnTutupModal}
-        perubahan={mengubahNilaiInput}
-        menyimpan={btnSave}
-        errorMessage={errorMessage}
-      />
-
-      <ModalList
-        membuka={membukaListModal}
-        namaList={namaList}
-        nilaiNominal={nilaiNominal}
-        menutup={() => mengaturMembukaListModal(false)}
-        perubahanNamaList={(event) => mengaturNamaList(event.target.value)}
-        perubahanNilaiNominal={(event) =>
-          mengaturNilaiNominal(event.target.value.replace(/\./g, ""))
-        }
-        menyimpan={btnSimpanList}
-        errorMessage={errorMessage}
-        isEditing={isEditing}
-      />
-
-      <ModalDelete
-        membuka={showDeleteModal}
-        menutup={() => setShowDeleteModal(false)}
-        mengonfirmasi={hapusListItem}
-      />
     </div>
   );
 };

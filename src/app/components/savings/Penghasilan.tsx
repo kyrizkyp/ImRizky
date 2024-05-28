@@ -11,14 +11,14 @@ const Penghasilan: React.FC<PenghasilanProps> = ({
   modalTerbuka,
 }) => {
   return (
-    <div className="flex items-center justify-center p-2 border border-black relative group">
+    <div className="w-full flex items-center justify-center p-2 border border-black relative group">
       <div className="p-2">
-        <IconWallet className="w-14 h-14 stroke-[0.5]" />
+        <IconWallet className="w-14 h-14 stroke-[0.5] text-green-500" />
       </div>
 
       <div className="p-2 text-center">
-        <h1>Penghasilan</h1>
-        <p>Rp {penghasilan}</p>
+        <h1 className="text-xl font-semibold">Income</h1>
+        <p className="text-sm md:text-base">Rp {penghasilan}</p>
       </div>
 
       <button

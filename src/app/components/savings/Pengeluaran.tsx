@@ -1,10 +1,10 @@
 import React from "react";
-import { IconStairsUp, IconPlus } from "@tabler/icons-react";
+import { IconPlus, IconStairs } from "@tabler/icons-react";
 
 interface PengeluaranProps {
   targetPengeluaran: string;
   modalTerbuka: () => void;
-  disabled: boolean; // New prop to handle the disabled state
+  disabled: boolean;
 }
 
 const Pengeluaran: React.FC<PengeluaranProps> = ({
@@ -14,17 +14,17 @@ const Pengeluaran: React.FC<PengeluaranProps> = ({
 }) => {
   return (
     <div
-      className={`flex items-center justify-center p-2 border border-black relative group ${
+      className={`w-full flex items-center justify-center p-2 border border-black relative group ${
         disabled ? "opacity-50 cursor-not-allowed" : ""
       }`}
     >
       <div className="p-2">
-        <IconStairsUp className="w-14 h-14 stroke-[0.5]" />
+        <IconStairs className="w-14 h-14 stroke-[0.6] rotate-45 text-blue-500" />
       </div>
 
       <div className="p-2 text-center">
-        <h1>Target pengeluaran</h1>
-        <p>Rp {targetPengeluaran}</p>
+        <h1 className="text-xl font-semibold">Stable</h1>
+        <p className="text-sm md:text-base">Rp {targetPengeluaran}</p>
       </div>
 
       {!disabled && (
