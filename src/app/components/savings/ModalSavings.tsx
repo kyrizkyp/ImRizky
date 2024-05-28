@@ -20,6 +20,7 @@ const ModalSavings: React.FC<ModalSavingsProps> = ({
   errorMessage,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -37,24 +38,38 @@ const ModalSavings: React.FC<ModalSavingsProps> = ({
       }
     };
 
+    const handleEnterKey = (event: KeyboardEvent) => {
+      if (event.key === "Enter" && membuka) {
+        menyimpan();
+      }
+    };
+
     if (membuka) {
       document.addEventListener("mousedown", handleOutsideClick);
       document.addEventListener("keydown", handleEscapeKey);
+      document.addEventListener("keydown", handleEnterKey);
+      inputRef.current?.focus(); // Autofokus saat modal dibuka
     } else {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscapeKey);
+      document.removeEventListener("keydown", handleEnterKey);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscapeKey);
+      document.removeEventListener("keydown", handleEnterKey);
     };
-  }, [membuka, menutup]);
+  }, [membuka, menutup, menyimpan]);
 
   const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
     if (modalRef.current === event.target) {
       menutup();
     }
+  };
+
+  const formatRupiah = (angka: string) => {
+    return angka.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
 
   return (
@@ -74,8 +89,9 @@ const ModalSavings: React.FC<ModalSavingsProps> = ({
 
         <div className="flex items-center justify-center">
           <input
-            type="number"
-            value={namaInput}
+            ref={inputRef} // Menambahkan ref pada input elemen
+            type="text"
+            value={formatRupiah(namaInput)}
             onChange={perubahan}
             placeholder={`Masukkan nominal ${
               konten ? "penghasilan" : "target pengeluaran"

@@ -48,7 +48,8 @@ const Savings = () => {
   };
 
   const mengubahNilaiInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    mengaturNilaiInput(event.target.value);
+    const formattedValue = event.target.value.replace(/[^\d]/g, "");
+    mengaturNilaiInput(formattedValue);
   };
 
   const btnSave = () => {
@@ -118,23 +119,27 @@ const Savings = () => {
 
   const hitungTotalPengeluaran = () => {
     const total = daftarPengeluaran.reduce((sum, item) => {
-      return sum + parseFloat(item.nominal);
+      return sum + parseFloat(item.nominal.replace(/\./g, ""));
     }, 0);
     setTotalPengeluaran(total);
   };
 
   const isDaftarListDisabled = penghasilan === "0" || targetPengeluaran === "0";
 
+  const formatRupiah = (angka: string) => {
+    return angka.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex items-center justify-center gap-20 mb-10">
         <Penghasilan
-          penghasilan={penghasilan}
+          penghasilan={formatRupiah(penghasilan)}
           modalTerbuka={() => modalTerbuka(true)}
         />
 
         <Pengeluaran
-          targetPengeluaran={targetPengeluaran}
+          targetPengeluaran={formatRupiah(targetPengeluaran)}
           modalTerbuka={() => modalTerbuka(false)}
           disabled={penghasilan === "0"}
         />
@@ -146,13 +151,16 @@ const Savings = () => {
 
           <div className="p-2 text-center">
             <h1>Total pengeluaran</h1>
-            <p>{totalPengeluaran}</p>
+            <p>{formatRupiah(totalPengeluaran.toString())}</p>
           </div>
         </div>
       </div>
 
       <DaftarList
-        daftarPengeluaran={daftarPengeluaran}
+        daftarPengeluaran={daftarPengeluaran.map((item) => ({
+          ...item,
+          nominal: formatRupiah(item.nominal),
+        }))}
         btnBukaListModal={btnBukaListModal}
         btnModalList={btnModalList}
         btnModalDelete={btnModalDelete}
@@ -176,7 +184,7 @@ const Savings = () => {
         menutup={() => mengaturMembukaListModal(false)}
         perubahanNamaList={(event) => mengaturNamaList(event.target.value)}
         perubahanNilaiNominal={(event) =>
-          mengaturNilaiNominal(event.target.value)
+          mengaturNilaiNominal(event.target.value.replace(/\./g, ""))
         }
         menyimpan={btnSimpanList}
         errorMessage={errorMessage}

@@ -24,6 +24,15 @@ const ModalList: React.FC<ModalListProps> = ({
   isEditing,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (membuka && isInitialMount.current) {
+      inputRef.current?.focus(); // Autofokus saat modal pertama kali dibuka
+      isInitialMount.current = false; // Set flag untuk menunjukkan bahwa autofokus sudah dilakukan
+    }
+  }, [membuka]);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -41,24 +50,38 @@ const ModalList: React.FC<ModalListProps> = ({
       }
     };
 
+    const handleEnterKey = (event: KeyboardEvent) => {
+      if (event.key === "Enter" && membuka) {
+        menyimpan();
+      }
+    };
+
     if (membuka) {
       document.addEventListener("mousedown", handleOutsideClick);
       document.addEventListener("keydown", handleEscapeKey);
+      document.addEventListener("keydown", handleEnterKey);
     } else {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscapeKey);
+      document.removeEventListener("keydown", handleEnterKey);
+      isInitialMount.current = true; // Reset flag saat modal ditutup
     }
 
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("keydown", handleEscapeKey);
+      document.removeEventListener("keydown", handleEnterKey);
     };
-  }, [membuka, menutup]);
+  }, [membuka, menutup, menyimpan]);
 
   const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
     if (modalRef.current === event.target) {
       menutup();
     }
+  };
+
+  const formatRupiah = (angka: string) => {
+    return angka.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
 
   return (
@@ -78,6 +101,7 @@ const ModalList: React.FC<ModalListProps> = ({
 
         <div className="flex flex-col items-start justify-center">
           <input
+            ref={inputRef}
             type="text"
             value={namaList}
             onChange={perubahanNamaList}
@@ -86,8 +110,8 @@ const ModalList: React.FC<ModalListProps> = ({
           />
 
           <input
-            type="number"
-            value={nilaiNominal}
+            type="text"
+            value={formatRupiah(nilaiNominal)}
             onChange={perubahanNilaiNominal}
             placeholder="Nominal Pembelian"
             className="mb-4 p-2 border border-gray-400 rounded"
