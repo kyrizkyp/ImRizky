@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import GaleriData from "@/app/data/GaleriData";
 import HalamanData from "@/app/data/HalamanData";
 import SampulData from "@/app/data/SampulData";
 import ModalGallery from "./ModalGallery";
 import Plus from "../background/Plus";
+import MyGallery from "./MyGallery";
+import GaleriData from "@/app/data/GaleriData";
 
 interface GalleryProps {
   batasGambar: number | null;
@@ -33,11 +34,8 @@ const Gallery = ({
   };
 
   const fotoGaleri = HalamanData.find((data) => data.link === "/gallery")?.foto;
-
   const sampulKiri = SampulData.find((data) => data.judul === "kiri")?.foto;
-
   const sampulKanan = SampulData.find((data) => data.judul === "kanan")?.foto;
-
   const sampulGaleri = [sampulKiri, fotoGaleri, sampulKanan];
 
   return (
@@ -87,41 +85,11 @@ const Gallery = ({
           <p className="font-pertama text-lg p-2">A collection of my photos.</p>
         </div>
 
-        <div className="flex items-center justify-center m-2">
-          <div className="grid grid-cols-3 xl:grid-cols-4 gap-2">
-            {(batasGambar ? GaleriData.slice(0, batasGambar) : GaleriData).map(
-              (DataFoto, urutan) => (
-                <div
-                  className="w-[100px] h-[100px] md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72 cursor-pointer bg-black bg-opacity-50 hover:bg-white hover:bg-opacity-10 relative"
-                  key={urutan}
-                  onClick={() =>
-                    modalTerbuka(
-                      DataFoto.foto,
-                      DataFoto.fotoKedua,
-                      DataFoto.deskripsi
-                    )
-                  }
-                >
-                  <img
-                    src={DataFoto.foto}
-                    alt="galeri"
-                    className="object-cover w-full h-full absolute -z-10 inset-0"
-                  />
-
-                  {DataFoto.fotoKedua && (
-                    <div className="absolute right-[2px] md:right-1 lg:right-2 top-[2px] md:top-1 lg:top-2">
-                      <div className="relative flex items-center justify-center">
-                        <div className="absolute right-1 top-1 w-4 md:w-6 h-4 md:h-6 border-2 border-white rounded shadow-xl"></div>
-
-                        <div className="absolute top-2 right-2 w-4 md:w-6 h-4 md:h-6 bg-white rounded"></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )
-            )}
-          </div>
-        </div>
+        {/* MyGallery component with GaleriData passed as prop */}
+        <MyGallery
+          data={batasGambar ? GaleriData.slice(0, batasGambar) : GaleriData}
+          modalTerbuka={modalTerbuka}
+        />
 
         <ModalGallery
           membuka={bukaModal}
