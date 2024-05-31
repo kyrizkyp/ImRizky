@@ -1,4 +1,3 @@
-import { IconMoodSad, IconPhotoOff } from "@tabler/icons-react";
 import React from "react";
 import GalleryBlank from "../blank/GalleryBlank";
 

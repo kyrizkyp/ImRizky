@@ -85,7 +85,6 @@ const Gallery = ({
           <p className="font-pertama text-lg p-2">A collection of my photos.</p>
         </div>
 
-        {/* MyGallery component with GaleriData passed as prop */}
         <MyGallery
           data={batasGambar ? GaleriData.slice(0, batasGambar) : GaleriData}
           modalTerbuka={modalTerbuka}

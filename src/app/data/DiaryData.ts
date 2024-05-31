@@ -14,51 +14,27 @@ interface DataBlog {
 
 const DiaryData: DataBlog[] = [
   {
-    judul: "TODO SAVINGS",
+    judul: "",
 
-    subJudul: "Calculate monthly expenses.",
+    subJudul: "",
 
-    status: "PROCESS",
+    status: "",
 
-    date: "9 MAY 2024",
+    date: "",
 
-    id: "bLgSOnE",
+    id: "",
 
-    desk1: "To make it easier to calculate monthly expenses in more detail and specifically. To be wiser in managing finances.",
+    desk1: "",
 
-    desk2: "I created Todo Savings which aims to manage personal finances. To help me calculate monthly expenses and income.",
+    desk2: "",
 
-    desk3: "In my opinion, having todo savings will make it easier to calculate monthly efficiently and make wiser in managing your income.",
+    desk3: "",
 
     link: "",
 
-    btnJudul: "ON PROCESS",
+    btnJudul: "",
 
     gambar: "",
-  },
-
-  {
-    judul: "SURABAYA DEV",
-
-    subJudul: "Surabaya IT community website.",
-
-    status: "FINISHED",
-
-    date: "23 APR 2024",
-
-    id: "bLgSTwO",
-
-    desk1: "SurabayaDev is an IT community domiciled in the city of Surabaya which has an activity agenda with the theme of technology education in synergy and collaboration.",
-
-    desk2: "Expanding relationships through the community to create benefits. Become a learning forum for IT activists to be able to continue to update about the current tech industry.",
-
-    desk3: "Becomes the right forum to share knowledge, experience and insight regarding technology updates.",
-
-    link: "https://surabaya-dev.vercel.app/",
-    
-    btnJudul: "LOOK NOW",
-
-    gambar: "/note/sbydev.jpg",
   },
 ];
 export default DiaryData;
