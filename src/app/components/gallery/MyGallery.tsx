@@ -1,3 +1,4 @@
+import { IconMoodSad } from "@tabler/icons-react";
 import React from "react";
 
 interface DataFoto {
@@ -12,6 +13,16 @@ interface MyGalleryProps {
 }
 
 const MyGallery: React.FC<MyGalleryProps> = ({ data, modalTerbuka }) => {
+  if (data.length === 0 || data.every((item) => !item.deskripsi.trim())) {
+    return (
+      <div className="flex item-center justify-center">
+        <div className="w-[100px] h-[100px] md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72 flex flex-col items-center justify-center border border-black">
+          <h1 className="font-ketiga">NO POSTS</h1>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex items-center justify-center m-2">
       <div className="grid grid-cols-3 xl:grid-cols-4 gap-2">
