@@ -7,6 +7,7 @@ import Link from "next/link";
 import NotFound from "@/app/not-found";
 import { IconTimeline } from "@tabler/icons-react";
 import Image from "next/image";
+import DiaryBlank from "../blank/DiaryBlank";
 
 interface DiaryDetailProps {
   detailId: string;
@@ -25,7 +26,7 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
     return (
       <main>
         <section>
-          <NotFound />
+          <DiaryBlank />
         </section>
       </main>
     );
