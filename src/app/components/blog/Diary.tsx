@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import DiaryData from "@/app/data/DiaryData";
 import Link from "next/link";
+import BlogBlank from "../blank/BlogBlank";
 
 const itemPerHalaman = 4;
 
@@ -50,9 +51,11 @@ const Diary = () => {
       </div>
 
       {isDataEmpty ? (
-        <div>
-          <p className="text-xl">Masih kosong</p>
-        </div>
+        <main>
+          <section>
+            <BlogBlank />
+          </section>
+        </main>
       ) : (
         <>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 xl:gap-16 px-4 my-2">
