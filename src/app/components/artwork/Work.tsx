@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 
 const karya = [
@@ -53,7 +54,12 @@ const Work = () => {
           </div>
 
           <div className="w-[300px] h-[150px] xl:w-[400px] xl:h-[250px] mt-10 md:mt-0">
-            <img
+            <Image
+              width={400}
+              height={250}
+              loading="eager"
+              quality={100}
+              priority
               src={selectedImage}
               alt="artwork"
               className="object-cover w-full h-full"
