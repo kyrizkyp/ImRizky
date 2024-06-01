@@ -47,7 +47,9 @@ const Diary = () => {
     <div className="flex flex-col items-center justify-center">
       <div className="p-4 my-2 text-center">
         <h1 className="font-kedua font-extrabold text-3xl">MY NOTES</h1>
-        <p className="font-pertama p-2">I note plans or inspiration here.</p>
+        <p className="font-pertama p-2">
+          I jot down inspirations or stories here.
+        </p>
       </div>
 
       {isDataEmpty ? (
