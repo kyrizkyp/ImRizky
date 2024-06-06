@@ -107,66 +107,9 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-center justify-center my-10 px-2 md:px-10 lg:px-0 xl:gap-20">
-        <div className="p-4">
-          {detailBlog.gambar ? (
-            <div className="w-[340px] h-52 md:w-full md:h-full">
-              <Image
-                src={detailBlog.gambar}
-                width={500}
-                height={300}
-                loading="eager"
-                quality={100}
-                priority
-                alt="artwork"
-                className="object-cover w-full h-full"
-              />
-            </div>
-          ) : (
-            <div className="relative">
-              <div className="w-[300px] h-52 md:w-[500px] md:h-[300px] border-l border-b border-black flex items-center justify-center">
-                <div className="p-4 flex flex-col items-center justify-center">
-                  <IconTimeline className="w-14 h-14 md:w-24 md:h-24 stroke-[0.5]" />
-                  <p className="font-ketiga font-extrabold  text-xl md:text-3xl text-center">
-                    BEING WORKED ON
-                  </p>
-                </div>
-              </div>
-
-              <div className="absolute top-6 -left-2 md:-left-4">
-                <div className="w-28 h-36 md:w-32 md:h-40 border-t border-l border-black"></div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className="block lg:hidden">
-          <Plus />
-        </div>
-
-        <div className="max-w-md p-4 flex flex-col">
-          <div className="p-2">
-            <p className="font-pertama text-center lg:text-left">
-              {detailBlog.desk3}
-            </p>
-          </div>
-
-          <div className="p-2 self-center lg:self-start">
-            {detailBlog.link ? (
-              <Link
-                href={detailBlog.link}
-                target="_blank"
-                className="py-2 px-4 bg-black text-white font-ketiga font-extrabold"
-              >
-                {detailBlog.btnJudul}
-              </Link>
-            ) : (
-              <span className="py-2 px-4 bg-gray-400 text-white font-ketiga font-extrabold">
-                {detailBlog.btnJudul}
-              </span>
-            )}
-          </div>
-        </div>
+      <div className="max-w-xs md:max-w-md p-2 mt-2">
+        <h5 className="text-2xl font-ketiga font-extrabold p-1">03</h5>
+        <p className="font-pertama p-1">{detailBlog.desk3}</p>
       </div>
     </div>
   );
