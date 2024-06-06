@@ -11,7 +11,7 @@ interface DataBlog {
 
 const DiaryData: DataBlog[] = [
   {
-    judul: "FOLLOW YOUR HEART",
+    judul: "PEOPLE PLEASER",
 
     subJudul: "Avoiding excessive self-sacrifice.",
 
@@ -21,11 +21,11 @@ const DiaryData: DataBlog[] = [
 
     id: "NtOnE",
 
-    desk1: `Sometimes we sacrifice ourselves too much and feel uncomfortable answering "no" to someone, as a result we do things with a heavy heart.`,
+    desk1: `Sometimes we sacrifice ourselves too often and feel uncomfortable saying “no” to others. As a result, we prefer to force ourselves to say "yes", which ultimately makes us do something with a heavy heart.`,
 
-    desk2: `Especially if we don't have more earning power, that's what makes us uncomfortable saying "no". Everything is measured by income, it seems cruel but that's the fact.`,
+    desk2: `I experienced firsthand how being a people pleaser, makes me continually strive to please others. However, in the end, I learned that sacrificing myself does not bring true happiness. Through this personal journey, I realized the importance of valuing myself, and prioritizing personal happiness as a foundation for better helping others.`,
 
-    desk3: `So in essence, no matter how much we earn, if we don't feel comfortable, we have to have the courage to say "no", who else will understand us if not ourselves.`,
+    desk3: `There is no need to always please others to gain their acceptance. Sincerity and one's own happiness are more important than sacrificing oneself for the sake of others. Be yourself, because only then can you find true happiness.`,
 
  
   },
