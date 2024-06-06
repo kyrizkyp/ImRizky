@@ -69,11 +69,15 @@ const Diary = () => {
                       {blog.judul}
                     </h2>
                   </div>
+
                   <div className="max-w-xs p-1">
                     <p className="font-pertama text-sm">{blog.subJudul}</p>
                   </div>
-                  <div className="p-2">
-                    <p className="font-ketiga text-sm">{blog.status}</p>
+
+                  <div className="flex py-2">
+                    <p className="px-2 py-[0.5px] bg-black font-ketiga text-sm text-white">
+                      {blog.status}
+                    </p>
                   </div>
                 </div>
               </Link>
