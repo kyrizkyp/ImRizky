@@ -2,7 +2,7 @@ interface DataBlog {
   judul: string;
   subJudul: string;
   status: string;
-  date: string;
+  kategori: string;
   id: string;
   desk1: string;
   desk2: string;
@@ -17,7 +17,7 @@ const DiaryData: DataBlog[] = [
 
     status: "STORY",
 
-    date: "DAILY",
+    kategori: "DAILY",
 
     id: "NtOnE",
 

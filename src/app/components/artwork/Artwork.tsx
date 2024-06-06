@@ -23,19 +23,19 @@ const Artwork = () => {
 
   const penjelasan = [
     {
-      judul: "01",
+      judul: "REGARDS",
       deskripsi:
         "Welcome to my Artwork page! I specialize in creating unique and detailed websites or landing pages, with a focus on creating the look of the website.",
     },
 
     {
-      judul: "02",
+      judul: "FIELD",
       deskripsi:
         "Why do I call the Front-End field a Artwork like the title above? In my opinion, because it involves creativity, beauty, visual and attractive design that can be felt by users.",
     },
 
     {
-      judul: "03",
+      judul: "SKILL",
       deskripsi:
         "In the process of creating a website or landing page, I use several frameworks that I often use namely. Next Js, React Js, Nuxt Js, and Vue Js. to set the style I use Tailwind CSS.",
     },

@@ -76,7 +76,7 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
               <div className="w-52 h-24 xl:w-56 xl:h-56 flex items-center justify-center border-l border-b border-black">
                 <div className="p-6 text-center">
                   <p className="font-ketiga font-extrabold text-2xl">
-                    {detailBlog.date}
+                    {detailBlog.kategori}
                   </p>
                 </div>
               </div>
