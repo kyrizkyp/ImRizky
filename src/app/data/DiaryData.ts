@@ -13,7 +13,7 @@ const DiaryData: DataBlog[] = [
   {
     judul: "PEOPLE PLEASER",
 
-    subJudul: "Avoiding excessive self-sacrifice.",
+    subJudul: "Avoid excessive self-sacrifice.",
 
     status: "STORY",
 
