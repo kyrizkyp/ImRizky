@@ -10,8 +10,7 @@ const GaleriData: DataFoto[] = [
 
     fotoKedua: "",
 
-    deskripsi:
-      "",
+    deskripsi: "",
   },
 ];
 
