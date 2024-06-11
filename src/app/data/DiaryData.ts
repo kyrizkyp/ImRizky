@@ -19,7 +19,7 @@ const DiaryData: DataBlog[] = [
 
     kategori: "DAILY",
 
-    id: "NtOnE",
+    id: "people-pleaser",
 
     desk1: `Sometimes we sacrifice ourselves too often and feel uncomfortable saying “no” to others. As a result, we prefer to force ourselves to say "yes", which ultimately makes us do something with a heavy heart.`,
 

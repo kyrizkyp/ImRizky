@@ -133,7 +133,7 @@ const Artwork = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-5 self-start md:self-center justify-center mb-8">
+      <div className="grid grid-cols-5 items-center justify-center mb-8">
         {iconsData.map((data, urutan) => (
           <div className="px-2 md:px-4 xl:px-6" key={urutan}>
             <a href={data.link} target="_blank" rel="noopener noreferrer">
