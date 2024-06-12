@@ -13,12 +13,10 @@ const GaleriData: DataFoto[] = [
 
     fotoKedua: "",
 
-    deskripsi: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quisquam ab eaque quas, dicta laborum sed culpa voluptate eligendi saepe!",
+    deskripsi: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis corporis est ipsam dicta id dolor ducimus, inventore iure mollitia. Pariatur veritatis soluta ducimus saepe excepturi, maiores eos. Nesciunt, consequatur aperiam!",
   },
 
   {
-    
-
     foto: "https://fastly.picsum.photos/id/52/500/500.jpg?hmac=Ew22_0paDqni-fcLqUk4a3yqtH4Od_8Ncl9PjubW7wg",
 
     fotoKedua: "https://fastly.picsum.photos/id/14/500/500.jpg?hmac=ox1UUPMOYuExQb2o_j9CGRI4kCZig4bpV8zkPHE-nls",
