@@ -13,7 +13,7 @@ const GaleriData: DataFoto[] = [
 
     fotoKedua: "",
 
-    deskripsi: "hai",
+    deskripsi: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quisquam ab eaque quas, dicta laborum sed culpa voluptate eligendi saepe!",
   },
 
   {

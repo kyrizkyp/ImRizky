@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
 interface ModalProps {
@@ -98,12 +99,12 @@ const ModalGallery: React.FC<ModalProps> = ({
       onClick={klikLuar}
     >
       <div className="p-4">
-        <div className="flex flex-col md:flex-row items-center justify-center p-2 bg-white rounded-2xl">
-          <div className="w-56 h-56 md:w-72 md:h-72 xl:w-96 xl:h-96 m-2 relative flex items-center justify-center">
+        <div className="flex flex-col md:flex-row items-center justify-center p-2">
+          <div className="w-56 h-56 md:w-72 md:h-72 xl:w-96 xl:h-96 relative flex items-center justify-center">
             <img
               src={gambarSekarang}
               alt="Detail"
-              className="object-cover w-full h-full md:rounded-l-2xl"
+              className="object-cover w-full h-full"
             />
 
             {fotoKedua && (
@@ -125,12 +126,25 @@ const ModalGallery: React.FC<ModalProps> = ({
             )}
           </div>
 
-          <div className="m-6 relative flex items-center justify-center">
-            <div className="p-2 border-l border-black max-w-[250px] md:max-w-[300px]">
-              <p className="font-pertama">{deskripsi}</p>
+          <div className="w-56 h-28 md:w-72 md:h-72 xl:w-96 xl:h-96 bg-white">
+            <div className="py-1 px-2">
+              <Link
+                href="/"
+                className="text-sm md:text-xl font-ketiga font-extrabold"
+              >
+                KYRIZKYP
+              </Link>
             </div>
 
-            <div className="absolute w-4 h-10 border-l border-t border-black -top-2 -left-2"></div>
+            <div className="relative flex items-center">
+              <div className="px-5 py-2 overflow-auto max-h-16">
+                <p className="font-pertama text-xs md:text-sm">{deskripsi}</p>
+              </div>
+
+              <div className="absolute left-2 top-1 h-4 w-4 border-l border-t border-black"></div>
+
+              <div className="absolute left-3 top-2 h-4 w-4 border-l border-black"></div>
+            </div>
           </div>
         </div>
       </div>
