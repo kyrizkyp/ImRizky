@@ -5,11 +5,17 @@ interface DataFoto {
   foto: string;
   fotoKedua?: string;
   deskripsi: string;
+  id: string;
 }
 
 interface MyGalleryProps {
   data: DataFoto[];
-  modalTerbuka: (foto: string, fotoKedua: string, deskripsi: string) => void;
+  modalTerbuka: (
+    foto: string,
+    fotoKedua: string,
+    deskripsi: string,
+    id: string
+  ) => void;
 }
 
 const MyGallery: React.FC<MyGalleryProps> = ({ data, modalTerbuka }) => {
@@ -34,7 +40,8 @@ const MyGallery: React.FC<MyGalleryProps> = ({ data, modalTerbuka }) => {
               modalTerbuka(
                 DataFoto.foto,
                 DataFoto.fotoKedua || "",
-                DataFoto.deskripsi
+                DataFoto.deskripsi,
+                DataFoto.id
               )
             }
           >

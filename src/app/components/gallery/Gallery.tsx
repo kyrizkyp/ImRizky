@@ -22,15 +22,49 @@ const Gallery = ({
   const [tampilkanFotoKedua, mengaturTampilkanFotoKedua] = useState("");
   const [tampilkanDeskripsi, mengaturTampilkanDeskripsi] = useState("");
 
-  const modalTerbuka = (foto: string, fotoKedua: string, deskripsi: string) => {
+  const updateURL = (id: any) => {
+    const currentPath = window.location.pathname;
+
+    if (currentPath === "/") {
+      window.history.pushState(null, "", `/${id}`);
+    } else if (currentPath === "/gallery") {
+      window.history.pushState(null, "", `/gallery/${id}`);
+    }
+  };
+
+  const resetURL = () => {
+    const jalurSaatIni = window.location.pathname;
+    const idUrl = window.location.pathname.split("/")[1];
+
+    if (jalurSaatIni === "/") {
+      window.history.pushState(null, "", "/");
+    } else if (jalurSaatIni === "/gallery") {
+      window.history.pushState(null, "", "/gallery");
+    } else if (idUrl) {
+      if (jalurSaatIni.startsWith("/gallery/")) {
+        window.history.pushState(null, "", "/gallery");
+      } else {
+        window.history.pushState(null, "", "/");
+      }
+    }
+  };
+
+  const modalTerbuka = (
+    foto: string,
+    fotoKedua: string,
+    deskripsi: string,
+    id: string
+  ) => {
     mengaturTampilkanFoto(foto);
     mengaturTampilkanFotoKedua(fotoKedua);
     mengaturTampilkanDeskripsi(deskripsi);
     mengaturBukaModal(true);
+    updateURL(id);
   };
 
   const tutupModal = () => {
     mengaturBukaModal(false);
+    resetURL();
   };
 
   const fotoGaleri = HalamanData.find((data) => data.link === "/gallery")?.foto;
