@@ -2,12 +2,12 @@ interface DataFoto {
   foto: string;
   fotoKedua: string;
   deskripsi: string;
-  id: string;
+  // id: string;
 }
 
 const GaleriData: DataFoto[] = [
   {
-    id: "satu",
+    // id: "satu",
 
     foto: "https://fastly.picsum.photos/id/984/500/500.jpg?hmac=pyY7pQAMjNdqpFpf7EGBwLWshfW7o1ql2QIDKdwBNAU",
 
@@ -17,7 +17,7 @@ const GaleriData: DataFoto[] = [
   },
 
   {
-    id: "dua",
+    
 
     foto: "https://fastly.picsum.photos/id/52/500/500.jpg?hmac=Ew22_0paDqni-fcLqUk4a3yqtH4Od_8Ncl9PjubW7wg",
 
