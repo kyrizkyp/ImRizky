@@ -79,7 +79,7 @@ const Hero = () => {
     >
       <div className="flex items-center justify-center">
         <div className="relative flex items-center justify-center">
-          <div className="relative overflow-hidden flex items-center justify-center">
+          <div className="relative overflow-hidden md:overflow-visible flex items-center justify-center">
             <div
               className={`relative md:absolute md:top-10 md:-right-14 lg:top-12 lg:-right-52 xl:-right-80 transition-transform duration-500 ${
                 animasiGeser
