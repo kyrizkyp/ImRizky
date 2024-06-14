@@ -79,38 +79,42 @@ const Hero = () => {
     >
       <div className="flex items-center justify-center">
         <div className="relative flex items-center justify-center">
-          <div
-            className={`relative md:absolute md:top-10 md:-right-14 lg:top-12 lg:-right-52 xl:-right-80 transition-transform duration-500 ${
-              animasiGeser
-                ? "-translate-x-20 md:-translate-x-6"
-                : "translate-x-0"
-            }`}
-          >
-            <div className="w-full h-60 md:w-[450px] md:h-80 lg:w-[500px] lg:h-[400px] xl:w-[740px] xl:h-[500px]">
-              <img
-                src={HeroData[titikSaatIni].foto}
-                alt="me"
-                className="object-cover w-full h-full"
-              />
+          <div className="relative overflow-hidden flex items-center justify-center">
+            <div
+              className={`relative md:absolute md:top-10 md:-right-14 lg:top-12 lg:-right-52 xl:-right-80 transition-transform duration-500 ${
+                animasiGeser
+                  ? "-translate-x-20 md:-translate-x-6"
+                  : "translate-x-0"
+              }`}
+            >
+              <div className="w-full h-60 md:w-[450px] md:h-80 lg:w-[500px] lg:h-[400px] xl:w-[740px] xl:h-[500px]">
+                <img
+                  src={HeroData[titikSaatIni].foto}
+                  alt="me"
+                  className="object-cover w-full h-full"
+                />
+              </div>
             </div>
-          </div>
 
-          <div
-            className={`absolute md:relative top-[2px] -z-10 right-0 md:-right-32 md:top-0 lg:-right-72 xl:-right-[440px] transition-transform duration-500 ${
-              animasiGeser ? "translate-x-2 md:translate-x-6" : "translate-x-0"
-            }`}
-          >
-            <div className="w-64 h-[238px] md:w-[350px] md:h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[420px] xl:h-[600px]">
-              <Image
-                src={latarBelakang[titikSaatIni]}
-                width={420}
-                height={600}
-                loading="eager"
-                quality={100}
-                priority
-                alt="Background"
-                className="object-cover w-full h-full"
-              />
+            <div
+              className={`absolute md:relative top-[2px] -z-10 right-0 md:-right-32 md:top-0 lg:-right-72 xl:-right-[440px] transition-transform duration-500 ${
+                animasiGeser
+                  ? "translate-x-2 md:translate-x-6"
+                  : "translate-x-0"
+              }`}
+            >
+              <div className="w-64 h-[238px] md:w-[350px] md:h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[420px] xl:h-[600px]">
+                <Image
+                  src={latarBelakang[titikSaatIni]}
+                  width={420}
+                  height={600}
+                  loading="eager"
+                  quality={100}
+                  priority
+                  alt="Background"
+                  className="object-cover w-full h-full"
+                />
+              </div>
             </div>
           </div>
 
