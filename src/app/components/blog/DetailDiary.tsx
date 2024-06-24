@@ -4,9 +4,6 @@ import React, { useEffect } from "react";
 import DiaryData from "@/app/data/DiaryData";
 import Plus from "../background/Plus";
 import Link from "next/link";
-import NotFound from "@/app/not-found";
-import { IconTimeline } from "@tabler/icons-react";
-import Image from "next/image";
 import DiaryBlank from "../blank/DiaryBlank";
 
 interface DiaryDetailProps {
@@ -59,7 +56,7 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
                 </h2>
               </div>
 
-              <div className="p-6 text-gray-400">
+              <div className="px-1 py-6 text-gray-400">
                 <h2 className="text-lg font-ketiga font-extrabold">
                   {detailBlog.status}
                 </h2>

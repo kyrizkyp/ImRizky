@@ -29,5 +29,25 @@ const DiaryData: DataBlog[] = [
 
  
   },
+
+  {
+    judul: "UNDER PRESSURE",
+
+    subJudul: "A personal experience.",
+
+    status: "STORY",
+
+    kategori: "DAILY",
+
+    id: "under-pressure",
+
+    desk1: `none masih kosong`,
+
+    desk2: `none masih kosong`,
+
+    desk3: `none masih kosong`,
+
+ 
+  },
 ];
 export default DiaryData;
