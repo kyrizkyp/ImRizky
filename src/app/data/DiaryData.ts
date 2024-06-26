@@ -7,6 +7,8 @@ interface DataBlog {
   desk1: string;
   desk2: string;
   desk3: string;
+  judulMusik: string;
+  musik: string;
 }
 
 const DiaryData: DataBlog[] = [
@@ -27,7 +29,9 @@ const DiaryData: DataBlog[] = [
 
     desk3: `There is no need to always please others to gain their acceptance. Sincerity and one's own happiness are more important than sacrificing oneself for the sake of others. Be yourself, because only then can you find true happiness.`,
 
- 
+    judulMusik: `lamunan`,
+
+    musik: "/musik/lamunan.mp3"
   },
 
   {
@@ -47,7 +51,9 @@ const DiaryData: DataBlog[] = [
 
     desk3: `When the pressure gets heavy, remember that every challenge is an opportunity to grow, hone our abilities, and form resilience that will help us face the future better, with confidence and courage.`,
 
- 
+    judulMusik: `lamunan`,
+
+    musik: "/musik/lamunan.mp3"
   },
 ];
 export default DiaryData;

@@ -1,10 +1,14 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import DiaryData from "@/app/data/DiaryData";
 import Plus from "../background/Plus";
 import Link from "next/link";
 import DiaryBlank from "../blank/DiaryBlank";
+import {
+  IconPlayerPauseFilled,
+  IconPlayerPlayFilled,
+} from "@tabler/icons-react";
 
 interface DiaryDetailProps {
   detailId: string;
@@ -12,12 +16,28 @@ interface DiaryDetailProps {
 
 const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
   const detailBlog = DiaryData.find((detail) => detail.id === detailId);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     if (detailBlog) {
       document.title = `KYRIZKYP - ${detailBlog.judul}`;
     }
   }, [detailBlog]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
+
+  const handlePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
 
   if (!detailBlog) {
     return (
@@ -61,6 +81,19 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
                   {detailBlog.status}
                 </h2>
               </div>
+
+              <div className="flex items-center">
+                <button onClick={handlePlayPause}>
+                  {isPlaying ? (
+                    <IconPlayerPauseFilled />
+                  ) : (
+                    <IconPlayerPlayFilled />
+                  )}
+                </button>
+                <h3>{detailBlog.judulMusik}</h3>
+              </div>
+
+              <audio ref={audioRef} src={detailBlog.musik} />
             </div>
 
             <div className="absolute top-2 left-2 lg:-left-2">
