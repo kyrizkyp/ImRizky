@@ -33,7 +33,7 @@ const DiaryData: DataBlog[] = [
   {
     judul: "UNDER PRESSURE",
 
-    subJudul: "A personal experience.",
+    subJudul: "Resilience under pressure.",
 
     status: "STORY",
 
