@@ -41,11 +41,11 @@ const DiaryData: DataBlog[] = [
 
     id: "under-pressure",
 
-    desk1: `none masih kosong`,
+    desk1: `Every day, the burden of tasks and responsibilities continues to increase, pressing on our thoughts and feelings, requiring us to remain focused, not fall into the midst of busyness, and continue to seek inner peace.`,
 
-    desk2: `none masih kosong`,
+    desk2: `In real life, pressure comes from various directions, from work, family, and our own expectations, forcing us to keep fighting, maintain balance between all of them, and keep trying to achieve our life goals.`,
 
-    desk3: `none masih kosong`,
+    desk3: `When the pressure gets heavy, remember that every challenge is an opportunity to grow, hone our abilities, and form resilience that will help us face the future better, with confidence and courage.`,
 
  
   },
