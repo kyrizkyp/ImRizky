@@ -16,27 +16,39 @@ interface DiaryDetailProps {
 
 const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
   const detailBlog = DiaryData.find((detail) => detail.id === detailId);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [putarMusik, mengaturPutarMusik] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     if (detailBlog) {
       document.title = `KYRIZKYP - ${detailBlog.judul}`;
     }
-  }, [detailBlog]);
 
-  useEffect(() => {
     if (audioRef.current) {
-      if (isPlaying) {
+      if (putarMusik) {
         audioRef.current.play();
       } else {
         audioRef.current.pause();
       }
     }
-  }, [isPlaying]);
 
-  const handlePlayPause = () => {
-    setIsPlaying(!isPlaying);
+    const handleEnd = () => {
+      mengaturPutarMusik(false);
+    };
+
+    if (audioRef.current) {
+      audioRef.current.addEventListener("ended", handleEnd);
+    }
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.removeEventListener("ended", handleEnd);
+      }
+    };
+  }, [detailBlog, putarMusik]);
+
+  const klikPlayPause = () => {
+    mengaturPutarMusik(!putarMusik);
   };
 
   if (!detailBlog) {
@@ -83,17 +95,32 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
               </div>
 
               <div className="flex items-center">
-                <button onClick={handlePlayPause}>
-                  {isPlaying ? (
-                    <IconPlayerPauseFilled />
+                <button onClick={klikPlayPause}>
+                  {putarMusik ? (
+                    <IconPlayerPauseFilled className="w-6 h-6" />
                   ) : (
-                    <IconPlayerPlayFilled />
+                    <IconPlayerPlayFilled className="w-6 h-6" />
                   )}
                 </button>
-                <h3>{detailBlog.judulMusik}</h3>
+
+                <h3 className="ml-[0.2] mr-4 font-pertama">
+                  {detailBlog.judulMusik}
+                </h3>
+
+                <div>
+                  {putarMusik ? (
+                    <div className="w-2 h-2 bg-black animate-pulse rounded-full"></div>
+                  ) : (
+                    <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                  )}
+                </div>
               </div>
 
-              <audio ref={audioRef} src={detailBlog.musik} />
+              <audio
+                ref={audioRef}
+                src={detailBlog.musik}
+                autoPlay={putarMusik}
+              />
             </div>
 
             <div className="absolute top-2 left-2 lg:-left-2">
