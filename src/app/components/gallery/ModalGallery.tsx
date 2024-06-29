@@ -7,6 +7,7 @@ interface ModalProps {
   foto: string;
   fotoKedua: string | null;
   deskripsi: string;
+  date: string;
 }
 
 const ModalGallery: React.FC<ModalProps> = ({
@@ -15,6 +16,7 @@ const ModalGallery: React.FC<ModalProps> = ({
   foto,
   fotoKedua,
   deskripsi,
+  date,
 }) => {
   const [gambarSekarang, mengaturGambarSekarang] = useState<string>(foto);
   const [titikAktif, mengaturTitikAktif] = useState(1);
@@ -144,6 +146,10 @@ const ModalGallery: React.FC<ModalProps> = ({
               >
                 KYRIZKYP
               </Link>
+
+              <p className="text-[10px] md:text-[12px] text-gray-400 font-pertama">
+                {date}
+              </p>
             </div>
 
             <div className="relative flex items-center">

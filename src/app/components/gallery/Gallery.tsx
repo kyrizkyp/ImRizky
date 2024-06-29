@@ -21,6 +21,7 @@ const Gallery = ({
   const [tampilkanFoto, mengaturTampilkanFoto] = useState("");
   const [tampilkanFotoKedua, mengaturTampilkanFotoKedua] = useState("");
   const [tampilkanDeskripsi, mengaturTampilkanDeskripsi] = useState("");
+  const [tampilkanDate, mengaturTampilkanDate] = useState("");
 
   // const updateURL = (id: any) => {
   //   const currentPath = window.location.pathname;
@@ -52,12 +53,14 @@ const Gallery = ({
   const modalTerbuka = (
     foto: string,
     fotoKedua: string,
-    deskripsi: string
+    deskripsi: string,
+    Date: string
     // id: string
   ) => {
     mengaturTampilkanFoto(foto);
     mengaturTampilkanFotoKedua(fotoKedua);
     mengaturTampilkanDeskripsi(deskripsi);
+    mengaturTampilkanDate(Date);
     mengaturBukaModal(true);
     // updateURL(id);
   };
@@ -130,6 +133,7 @@ const Gallery = ({
           foto={tampilkanFoto}
           deskripsi={tampilkanDeskripsi}
           fotoKedua={tampilkanFotoKedua}
+          date={tampilkanDate}
         />
       </div>
     </div>

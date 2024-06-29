@@ -2,6 +2,7 @@ interface DataFoto {
   foto: string;
   fotoKedua: string;
   deskripsi: string;
+  date: string;
   // id: string;
 }
 
@@ -14,6 +15,8 @@ const GaleriData: DataFoto[] = [
     fotoKedua: "",
 
     deskripsi: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis corporis est ipsam dicta id dolor ducimus, inventore iure mollitia. Pariatur veritatis soluta ducimus saepe excepturi, maiores eos. Nesciunt, consequatur aperiam!",
+
+    date: "29 Juni 2024"
   },
 
   {
@@ -22,6 +25,8 @@ const GaleriData: DataFoto[] = [
     fotoKedua: "https://fastly.picsum.photos/id/14/500/500.jpg?hmac=ox1UUPMOYuExQb2o_j9CGRI4kCZig4bpV8zkPHE-nls",
 
     deskripsi: "hai",
+
+    date: "24 Juni 2024"
   },
 ];
 

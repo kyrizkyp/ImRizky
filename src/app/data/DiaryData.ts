@@ -7,8 +7,6 @@ interface DataBlog {
   desk1: string;
   desk2: string;
   desk3: string;
-  judulMusik: string;
-  musik: string;
 }
 
 const DiaryData: DataBlog[] = [
@@ -28,10 +26,6 @@ const DiaryData: DataBlog[] = [
     desk2: `I experienced firsthand how being a people pleaser, makes me continually strive to please others. However, in the end, I learned that sacrificing myself does not bring true happiness. Through this personal journey, I realized the importance of valuing myself, and prioritizing personal happiness as a foundation for better helping others.`,
 
     desk3: `There is no need to always please others to gain their acceptance. Sincerity and one's own happiness are more important than sacrificing oneself for the sake of others. Be yourself, because only then can you find true happiness.`,
-
-    judulMusik: `Lamunan`,
-
-    musik: "/musik/lamunan.mp3"
   },
 
   {
@@ -50,10 +44,6 @@ const DiaryData: DataBlog[] = [
     desk2: `In real life, pressure comes from various directions, from work, family, and our own expectations, forcing us to keep fighting, maintain balance between all of them, and keep trying to achieve our life goals.`,
 
     desk3: `When the pressure gets heavy, remember that every challenge is an opportunity to grow, hone our abilities, and form resilience that will help us face the future better, with confidence and courage.`,
-
-    judulMusik: `Lamunan`,
-
-    musik: "/musik/lamunan.mp3"
   },
 ];
 export default DiaryData;
