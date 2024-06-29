@@ -23,33 +23,7 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
     if (detailBlog) {
       document.title = `KYRIZKYP - ${detailBlog.judul}`;
     }
-
-    if (audioRef.current) {
-      if (putarMusik) {
-        audioRef.current.play();
-      } else {
-        audioRef.current.pause();
-      }
-    }
-
-    const handleEnd = () => {
-      mengaturPutarMusik(false);
-    };
-
-    if (audioRef.current) {
-      audioRef.current.addEventListener("ended", handleEnd);
-    }
-
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.removeEventListener("ended", handleEnd);
-      }
-    };
-  }, [detailBlog, putarMusik]);
-
-  const klikPlayPause = () => {
-    mengaturPutarMusik(!putarMusik);
-  };
+  }, [detailBlog]);
 
   if (!detailBlog) {
     return (
@@ -93,34 +67,6 @@ const DetailDiary: React.FC<DiaryDetailProps> = ({ detailId }) => {
                   {detailBlog.status}
                 </h2>
               </div>
-
-              <div className="flex items-center">
-                <button onClick={klikPlayPause}>
-                  {putarMusik ? (
-                    <IconPlayerPauseFilled className="w-6 h-6" />
-                  ) : (
-                    <IconPlayerPlayFilled className="w-6 h-6" />
-                  )}
-                </button>
-
-                <h3 className="ml-[0.2] mr-4 font-pertama">
-                  {detailBlog.judulMusik}
-                </h3>
-
-                <div>
-                  {putarMusik ? (
-                    <div className="w-2 h-2 bg-black animate-pulse rounded-full"></div>
-                  ) : (
-                    <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                  )}
-                </div>
-              </div>
-
-              <audio
-                ref={audioRef}
-                src={detailBlog.musik}
-                autoPlay={putarMusik}
-              />
             </div>
 
             <div className="absolute top-2 left-2 lg:-left-2">
