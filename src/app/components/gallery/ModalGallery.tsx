@@ -152,6 +152,10 @@ const ModalGallery: React.FC<ModalProps> = ({
               </p>
             </div>
 
+            <div className="flex items-center md:text-left bg-slate-400 font-pertama">
+              <h1>{date}</h1>
+            </div>
+
             <div className="relative flex items-center">
               <div className="px-4 py-2">
                 <p className="font-pertama text-xs md:text-sm">
