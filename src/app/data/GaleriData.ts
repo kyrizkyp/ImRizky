@@ -14,7 +14,7 @@ const GaleriData: DataFoto[] = [
 
     fotoKedua: "",
 
-    deskripsi: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis corporis est ipsam dicta id dolor ducimus, inventore iure mollitia. Pariatur veritatis soluta ducimus saepe excepturi, maiores eos. Nesciunt, consequatur aperiam!",
+    deskripsi: "This is just an example of 1 image without sliding.",
 
     date: "29 Juni 2024"
   },
@@ -24,7 +24,7 @@ const GaleriData: DataFoto[] = [
 
     fotoKedua: "https://fastly.picsum.photos/id/14/500/500.jpg?hmac=ox1UUPMOYuExQb2o_j9CGRI4kCZig4bpV8zkPHE-nls",
 
-    deskripsi: "hai",
+    deskripsi: "This is just an example of an image that can be shifted. If you are using a PC, you can press the arrows on the keyboard. right to swipe next and left arrow to swipe previous. However, if you're on mobile, swipe on an image, swipe left for next, and swipe right for previous.",
 
     date: "24 Juni 2024"
   },
