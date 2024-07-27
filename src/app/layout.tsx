@@ -5,6 +5,8 @@ import Footer from "./components/footer/Footer";
 
 interface CustomMetadata extends Metadata {
   image: string;
+  title: string;
+  description: string;
 }
 
 export const metadata: CustomMetadata = {
@@ -24,6 +26,14 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo/iam.png" sizes="any" />
         <meta property="og:image" content={metadata.image} />
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:description" content={metadata.description} />
+        <meta property="og:image" content={metadata.image} />
+        <meta
+          property="og:url"
+          content="https://kyrizkyp.vercel.app/logo/iam.png"
+        />
+        <meta property="og:type" content="website" />
       </head>
       <body className="flex flex-col min-h-screen">
         <Navbar />
