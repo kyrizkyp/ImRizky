@@ -19,11 +19,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const description = metadata.description ?? "";
+  const image = metadata.image ?? "";
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/logo/iam.png" sizes="any" />
-        <meta property="og:image" content={metadata.image} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
+        <meta property="og:url" content={image} />
       </head>
       <body className="flex flex-col min-h-screen">
         <Navbar />
